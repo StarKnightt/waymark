@@ -19,7 +19,6 @@ export interface Waymark {
   title: string;
   facts: string[];
   turn?: Turn;
-  onto?: string;
   names: string[];
   numbers: Allowed[];
   required: boolean;
@@ -54,7 +53,6 @@ interface Event {
   priority: number;
   required?: boolean;
   turn?: Turn;
-  onto?: string;
   names?: string[];
   numbers?: Allowed[];
 }
@@ -251,7 +249,7 @@ export function buildFacts(name: string, points: LL[], dem: Dem, ctx: Context): 
     junctions.push({
       at: s.along, kind: 'junction', priority: score, score, required: turn !== 'straight' || renamed,
       title: turn === 'straight' ? 'Straight on' : turn.startsWith('keep') ? `Keep ${turn.split(' ')[1]}` : `Turn ${turn}`,
-      fact, turn, onto, names: [onto, from, ...others.map((o) => o.name)].filter((n): n is string => !!n),
+      fact, turn, names: [onto, from, ...others.map((o) => o.name)].filter((n): n is string => !!n),
     });
   }
   junctions.sort((a, b) => a.at - b.at);
@@ -419,9 +417,7 @@ export function buildFacts(name: string, points: LL[], dem: Dem, ctx: Context): 
     return {
       id: `w${idx + 1}`, at: Math.round(d), lat: la, lon: lo, ele: Math.round(eleAt(d)),
       kinds: [...new Set(g.map((e) => e.kind))], title: lead.title, facts: ordered.facts,
-      turn: g.find((e) => e.turn && e.turn !== 'straight')?.turn ?? g.find((e) => e.turn)?.turn,
-      onto: (g.find((e) => e.turn && e.turn !== 'straight') ?? g.find((e) => e.turn))?.onto,
-      names: [...new Set(g.flatMap((e) => e.names ?? []))], numbers: [...g.flatMap((e) => e.numbers ?? []), ...ordered.numbers],
+      turn: g.find((e) => e.turn && e.turn !== 'straight')?.turn ?? g.find((e) => e.turn)?.turn,      names: [...new Set(g.flatMap((e) => e.names ?? []))], numbers: [...g.flatMap((e) => e.numbers ?? []), ...ordered.numbers],
       required: g.some((e) => e.required), priority: lead.priority,
     };
   });
