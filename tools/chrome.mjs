@@ -1,12 +1,12 @@
 // Shared headless Chrome launcher with WebGPU enabled.
 import { chromium } from 'playwright';
 
-export async function launch({ profile = '.cache/chrome', width = 1280, height = 800, headed = !!process.env.HEADED, mobile = false } = {}) {
+export async function launch({ profile = '.cache/chrome', width = 1280, height = 800, headed = !!process.env.HEADED, mobile = false, scale = 0 } = {}) {
   const ctx = await chromium.launchPersistentContext(profile, {
     channel: 'chrome',
     headless: !headed,
     viewport: { width, height },
-    deviceScaleFactor: mobile ? 2 : 1,
+    deviceScaleFactor: scale || (mobile ? 2 : 1),
     isMobile: mobile,
     hasTouch: mobile,
     args: ['--enable-unsafe-webgpu', '--ignore-gpu-blocklist'],

@@ -8,15 +8,15 @@
   "modelLoadMs": 2307,
   "trails": 12,
   "modelCues": 180,
-  "cleanCues": 172,
-  "repairedCues": 7,
+  "cleanCues": 171,
+  "repairedCues": 8,
   "replacedCues": 1,
   "addedCues": 0,
   "required": 120,
   "requiredCovered": 120,
   "invalidOutput": 0,
   "issues": {
-   "number": 0,
+   "number": 1,
    "name": 9,
    "direction": 4,
    "side": 0,
@@ -29,7 +29,7 @@
   "avgOutputTokens": 699,
   "avgDecodeTps": 44.2,
   "avgPrefillTps": 2418,
-  "rechecked": "2026-10-05T21:33:09.138Z"
+  "rechecked": "2026-10-05T22:07:38.050Z"
  },
  "rows": [
   {
@@ -355,7 +355,7 @@
     "trailId": "mist-trail",
     "trailName": "Mist Trail to Nevada Fall",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.378Z",
+    "createdAt": "2026-10-05T22:07:32.703Z",
     "briefing": "This trail is a significant climb with a total of 620 meters of climbing over 4.5 kilometers one way. The route features several steady ascents, including a steep section of 540 meters gaining 140 meters. Highlights include viewpoints like Sierra Point and the final destination, Nevada Fall. Be prepared for a long walk with varied terrain.",
     "briefingIssues": [],
     "cues": [
@@ -908,7 +908,7 @@
     "trailId": "lake-agnes",
     "trailName": "Lake Agnes Trail",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.399Z",
+    "createdAt": "2026-10-05T22:07:33.129Z",
     "briefing": "This trail is a rewarding hike with a total distance of 3.7 km one way. Expect about 400 meters of climbing in total, with a steepest sustained climb of 340 meters gaining about 60 meters. The route features several steady climbs and scenic viewpoints. The highest point is 2165 m, and the lowest point is 1762 m.",
     "briefingIssues": [],
     "cues": [
@@ -1147,14 +1147,14 @@
     "waymarks": 11,
     "required": 3,
     "modelCues": 11,
-    "cleanCues": 11,
-    "repairedCues": 0,
+    "cleanCues": 10,
+    "repairedCues": 1,
     "replacedCues": 0,
     "addedCues": 0,
     "requiredCovered": 3,
     "invalidOutput": 0,
     "issues": {
-     "number": 0,
+     "number": 1,
      "name": 0,
      "direction": 0,
      "side": 0,
@@ -1177,9 +1177,16 @@
      "lon": 76.32582,
      "kind": "start",
      "title": "Start",
-     "text": "Start here. The path is 500 m long and gains 80 m. This section tops out at 2177 m. There is a cafe on your right.",
+     "text": "Start here. This section tops out at 2177 m. There is a cafe on your right.",
      "source": "gemma",
-     "issues": []
+     "issues": [
+      {
+       "type": "number",
+       "detail": "\"500 m\" is not in the facts",
+       "fixed": "removed"
+      }
+     ],
+     "original": "Start here. The path is 500 m long and gains 80 m. This section tops out at 2177 m. There is a cafe on your right."
     },
     {
      "id": "w2",
@@ -1356,7 +1363,7 @@
     "trailId": "triund",
     "trailName": "Galu Devi to Triund",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.433Z",
+    "createdAt": "2026-10-05T22:07:33.637Z",
     "briefing": "This trail is a significant climb, with a total ascent of 780 meters over 4.9 kilometers. The steepest sustained climb is 1.6 kilometers long, gaining 320 meters. The route offers stunning views along the way. Be prepared for a steady climb through several sections.",
     "briefingIssues": [],
     "cues": [
@@ -1367,9 +1374,16 @@
       "lon": 76.32582,
       "kind": "start",
       "title": "Start",
-      "text": "Start here. The path is 500 m long and gains 80 m. This section tops out at 2177 m. There is a cafe on your right.",
+      "text": "Start here. This section tops out at 2177 m. There is a cafe on your right.",
       "source": "gemma",
-      "issues": []
+      "issues": [
+       {
+        "type": "number",
+        "detail": "\"500 m\" is not in the facts",
+        "fixed": "removed"
+       }
+      ],
+      "original": "Start here. The path is 500 m long and gains 80 m. This section tops out at 2177 m. There is a cafe on your right."
      },
      {
       "id": "w2",
@@ -1487,14 +1501,14 @@
      "waymarks": 11,
      "required": 3,
      "modelCues": 11,
-     "cleanCues": 11,
-     "repairedCues": 0,
+     "cleanCues": 10,
+     "repairedCues": 1,
      "replacedCues": 0,
      "addedCues": 0,
      "requiredCovered": 3,
      "invalidOutput": 0,
      "issues": {
-      "number": 0,
+      "number": 1,
       "name": 0,
       "direction": 0,
       "side": 0,
@@ -1787,7 +1801,7 @@
     "trailId": "pen-y-fan",
     "trailName": "Pen y Fan and Corn Du Circular Walk, East Wales",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.487Z",
+    "createdAt": "2026-10-05T22:07:34.129Z",
     "briefing": "This is a 6.9 km loop with about 440 m of climbing in total. The steepest sustained climb is 1.6 km long, gaining 280 m. The walk features a descent of 370 m and a climb of 150 m. Highlights include reaching the summit of Corn Du and Pen y Fan.",
     "briefingIssues": [],
     "cues": [
@@ -2262,7 +2276,7 @@
     "trailId": "llanberis",
     "trailName": "Llanberis Path to Yr Wyddfa",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.640Z",
+    "createdAt": "2026-10-05T22:07:34.742Z",
     "briefing": "This trail is a challenging walk with a total of 7.0 km one way and about 930 m of climbing. The route features a significant sustained climb of 3.2 km gaining 520 m. Highlights include a waterfall, viewpoints, and reaching the summit of Yr Wyddfa. Be prepared for a long walk with varied terrain.",
     "briefingIssues": [],
     "cues": [
@@ -2842,7 +2856,7 @@
     "trailId": "dipsea",
     "trailName": "Dipsea Trail",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.861Z",
+    "createdAt": "2026-10-05T22:07:35.456Z",
     "briefing": "This trail is a significant route with a total length of 11.6 km one way. Expect about 630 meters of climbing and 630 meters of descent throughout the walk. The steepest sustained climb is 670 meters long, gaining 130 meters. The route features several distinct sections, including a flight of steps and a long descent.",
     "briefingIssues": [],
     "cues": [
@@ -3439,7 +3453,7 @@
     "trailId": "roys-peak",
     "trailName": "Roys Peak & Mount Alpha",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.925Z",
+    "createdAt": "2026-10-05T22:07:35.907Z",
     "briefing": "This is a long walk with a total distance of 22.9 km one way and significant climbing. The total ascent is about 1540 m, and the descent is 1480 m. The steepest sustained climb is 860 m long, gaining about 190 m. Highlights include views of Lake Wānaka and the summit of Mount Alpha. Be prepared for a long effort.",
     "briefingIssues": [],
     "cues": [
@@ -3842,7 +3856,7 @@
     "trailId": "seealpsee",
     "trailName": "Seealpsee Rondom",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.945Z",
+    "createdAt": "2026-10-05T22:07:36.323Z",
     "briefing": "This is a 2.3 km loop with about 60 meters of climbing in total. The walk involves a steady pace, with a section that climbs 20 meters. The highest point is 1159 m, and the lowest is 1132 m. The highlights include views of Seealpsee and the crossing of Schwendebach.",
     "briefingIssues": [],
     "cues": [
@@ -4225,7 +4239,7 @@
     "trailId": "wasserauen-seealpsee",
     "trailName": "Wasserauen to Seealpsee",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:08.984Z",
+    "createdAt": "2026-10-05T22:07:36.794Z",
     "briefing": "This trail is about 2.9 kilometers one way with a total climbing of 310 meters. The route involves several sections, including a steady climb of 630 meters gaining 150 meters. The steepest sustained climb is 630 meters long, gaining about 150 meters at about 24%. The highest point is 1163 meters, and the lowest point is 866 meters.",
     "briefingIssues": [],
     "cues": [
@@ -4820,7 +4834,7 @@
     "trailId": "takao",
     "trailName": "Mount Takao Trail 1",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:09.036Z",
+    "createdAt": "2026-10-05T22:07:37.154Z",
     "briefing": "This trail is about 3.2 km one way with a total climb of about 390 meters. The route features a sustained climb of 1.1 km gaining 240 meters. The highest point reaches 593 meters. Highlights include viewpoints and scenic areas along the way.",
     "briefingIssues": [],
     "cues": [
@@ -5459,7 +5473,7 @@
     "trailId": "cataract",
     "trailName": "Cataract Trail",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:09.091Z",
+    "createdAt": "2026-10-05T22:07:37.587Z",
     "briefing": "This trail is a 4.6 km one way walk with about 390 meters of climbing in total. The steepest sustained climb is 680 meters long, gaining about 150 meters at about 23%. The route features several waterfalls and a summit. Expect about 1 hour and 20 minutes of walking at a steady pace.",
     "briefingIssues": [],
     "cues": [
@@ -5817,7 +5831,7 @@
     "trailId": "benstein",
     "trailName": "Benstein Trail",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:09.121Z",
+    "createdAt": "2026-10-05T22:07:38.026Z",
     "briefing": "This trail is about 1.9 kilometers one way. It involves a total of about 80 meters of climbing and a descent. The steepest sustained climb is 560 meters long, gaining about 80 meters. The highest point is 692 meters.",
     "briefingIssues": [],
     "cues": [

@@ -406,5 +406,11 @@ async function route() {
 
 shell();
 if (params.has('clean')) document.body.classList.add('clean');
+if (params.has('nopanel')) document.body.classList.add('nopanel');
+if (params.has('cover')) {
+  // used to render the cover image from the app itself (see README)
+  document.body.classList.add('clean');
+  document.body.insertAdjacentHTML('beforeend', `<div class="cover"><p class="cover-mark"><span class="mark"></span>Waymark</p><h1>A trail guide<br>you listen to</h1><p class="cover-sub">Gemma 4 writes the spoken cues in your browser,<br>from open map and elevation data.</p></div>`);
+}
 window.addEventListener('hashchange', () => void route());
 void route();

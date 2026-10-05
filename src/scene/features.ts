@@ -24,7 +24,7 @@ function conifer(): THREE.BufferGeometry {
     geo.setAttribute('color', new THREE.BufferAttribute(arr, 3));
     return geo.toNonIndexed();
   };
-  const leaf = new THREE.Color('#4f8152');
+  const leaf = new THREE.Color('#5a8f5c');
   return mergeGeometries([paint(trunk, new THREE.Color('#5a4030')), paint(a, leaf), paint(b, leaf.clone().multiplyScalar(1.08)), paint(c, leaf.clone().multiplyScalar(1.16))])!;
 }
 

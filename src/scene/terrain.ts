@@ -18,15 +18,26 @@ export class Ground {
     this.minEle = lo; this.maxEle = hi;
     this.base = lo;
   }
+  /** Heights of the rendered terrain mesh, so objects sit on the surface that is actually drawn. */
+  grid: { nx: number; nz: number; h: Float32Array } | null = null;
   /** Elevation in metres at a coordinate. */
   ele(ll: LL) { return demAt(this.dem, ll[0], ll[1]); }
   /** Scene height for an elevation. */
   y(ele: number) { return (ele - this.base) * this.exaggeration; }
   toScene(ll: LL, lift = 0): THREE.Vector3 {
     const [x, y] = this.frame.toXY(ll);
-    return new THREE.Vector3(x, this.y(this.ele(ll)) + lift, -y);
+    return new THREE.Vector3(x, this.heightAtXZ(x, -y) + lift, -y);
   }
-  heightAtXZ(x: number, z: number) { return this.y(this.ele(this.frame.toLL([x, -z]))); }
+  heightAtXZ(x: number, z: number) {
+    const g = this.grid;
+    if (!g) return this.y(this.ele(this.frame.toLL([x, -z])));
+    const fx = Math.min(g.nx - 1.001, Math.max(0, ((x - this.x0) / this.width) * (g.nx - 1)));
+    const fz = Math.min(g.nz - 1.001, Math.max(0, ((z - this.z0) / this.depth) * (g.nz - 1)));
+    const i = Math.floor(fx), j = Math.floor(fz), tx = fx - i, tz = fz - j;
+    const a = g.h[j * g.nx + i], b = g.h[j * g.nx + i + 1], c = g.h[(j + 1) * g.nx + i], d = g.h[(j + 1) * g.nx + i + 1];
+    // follow the same diagonal split as the mesh triangles
+    return tx + tz <= 1 ? a + (b - a) * tx + (c - a) * tz : d + (c - d) * (1 - tx) + (b - d) * (1 - tz);
+  }
   get width() { return this.x1 - this.x0; }
   get depth() { return this.z1 - this.z0; }
 }
@@ -104,6 +115,9 @@ export function buildTerrain(g: Ground, cover: THREE.Texture, res = 384): THREE.
   }
   geo.setAttribute('ele', new THREE.BufferAttribute(ele, 1));
   geo.computeVertexNormals();
+  const heights = new Float32Array(pos.count);
+  for (let i = 0; i < pos.count; i++) heights[i] = pos.getY(i);
+  g.grid = { nx, nz, h: heights };
 
   const mat = new THREE.MeshStandardMaterial({ roughness: 0.92, metalness: 0, map: cover });
   mat.onBeforeCompile = (sh) => {

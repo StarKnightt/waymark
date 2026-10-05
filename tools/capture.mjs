@@ -23,7 +23,7 @@ const wait = (ms) => page.waitForTimeout(ms);
 
 try {
   if (scene === 'flyover') {
-    await page.goto(`${BASE}?capture&flysec=26#/t/mist-trail`);
+    await page.goto(`${BASE}?capture&nopanel&flysec=26#/t/mist-trail`);
     await page.waitForFunction(() => document.querySelector('.cues li'));
     await wait(2500);
     await start();

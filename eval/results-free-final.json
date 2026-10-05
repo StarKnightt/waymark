@@ -8,15 +8,15 @@
   "modelLoadMs": 2783,
   "trails": 12,
   "modelCues": 180,
-  "cleanCues": 171,
-  "repairedCues": 9,
+  "cleanCues": 170,
+  "repairedCues": 10,
   "replacedCues": 0,
   "addedCues": 0,
   "required": 120,
   "requiredCovered": 120,
   "invalidOutput": 0,
   "issues": {
-   "number": 0,
+   "number": 1,
    "name": 7,
    "direction": 3,
    "side": 0,
@@ -29,7 +29,7 @@
   "avgOutputTokens": 876,
   "avgDecodeTps": 80.1,
   "avgPrefillTps": 2991,
-  "rechecked": "2026-10-05T21:33:12.267Z"
+  "rechecked": "2026-10-05T22:07:48.794Z"
  },
  "rows": [
   {
@@ -282,7 +282,7 @@
     "trailId": "mist-trail",
     "trailName": "Mist Trail to Nevada Fall",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:11.563Z",
+    "createdAt": "2026-10-05T22:07:43.531Z",
     "briefing": "This trail is about 4.5 km one way with a total climb of 620 meters. The steepest sustained climb is 540 meters long, gaining about 140 meters at about 25%. Highlights include viewpoints like Sierra Point and the final destination, Nevada Fall.",
     "briefingOriginal": "This trail is about 4.5 km one way with a total climb of 620 meters. The steepest sustained climb is 540 meters long, gaining about 140 meters at about 25%. The walk takes about an hour and a half at a steady pace. Highlights include viewpoints like Sierra Point and the final destination, Nevada Fall.",
     "briefingIssues": [
@@ -783,7 +783,7 @@
     "trailId": "lake-agnes",
     "trailName": "Lake Agnes Trail",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:11.583Z",
+    "createdAt": "2026-10-05T22:07:43.973Z",
     "briefing": "This trail is about 3.7 km one way with a total climb of about 400 meters. The steepest sustained climb is 340 meters long, gaining about 60 meters at about 18%. The route has several steady climbs, including a 1.0 km climb gaining 140 meters. Be prepared for sustained climbing throughout the route.",
     "briefingOriginal": "This trail is about 3.7 km one way with a total climb of about 400 meters. The steepest sustained climb is 340 meters long, gaining about 60 meters at about 18%. The route has several steady climbs, including a 1.0 km climb gaining 140 meters. Highlights include views of Lake Louise and Mirror Lake, and a summit. Be prepared for sustained climbing throughout the route.",
     "briefingIssues": [
@@ -1207,7 +1207,7 @@
     "trailId": "triund",
     "trailName": "Galu Devi to Triund",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:11.614Z",
+    "createdAt": "2026-10-05T22:07:44.425Z",
     "briefing": "This route is about 4.9 kilometers one way with a total climb of 780 meters. The longest sustained climb is 1.6 kilometers long, gaining about 320 meters. The route has a total descent of 70 meters. Be prepared for steady climbs throughout the walk.",
     "briefingOriginal": "This route is about 4.9 kilometers one way with a total climb of 780 meters. The longest sustained climb is 1.6 kilometers long, gaining about 320 meters. The route has a total descent of 70 meters. Highlights include a viewpoint and a summit. Be prepared for steady climbs throughout the walk.",
     "briefingIssues": [
@@ -1376,14 +1376,14 @@
     "waymarks": 15,
     "required": 14,
     "modelCues": 15,
-    "cleanCues": 15,
-    "repairedCues": 0,
+    "cleanCues": 14,
+    "repairedCues": 1,
     "replacedCues": 0,
     "addedCues": 0,
     "requiredCovered": 14,
     "invalidOutput": 0,
     "issues": {
-     "number": 0,
+     "number": 1,
      "name": 0,
      "direction": 0,
      "side": 0,
@@ -1527,9 +1527,16 @@
      "lon": -3.479767868550845,
      "kind": "turn",
      "title": "Turn right",
-     "text": "Turn right. The road on the left is not your route. A steady climb starts here. The path is 930 m long and gains 150 m. A cafe is on your left.",
+     "text": "Turn right. The road on the left is not your route. A steady climb starts here. A cafe is on your left.",
      "source": "gemma",
-     "issues": []
+     "issues": [
+      {
+       "type": "number",
+       "detail": "\"930 m\" is not in the facts",
+       "fixed": "removed"
+      }
+     ],
+     "original": "Turn right. The road on the left is not your route. A steady climb starts here. The path is 930 m long and gains 150 m. A cafe is on your left."
     },
     {
      "id": "w13",
@@ -1578,7 +1585,7 @@
     "trailId": "pen-y-fan",
     "trailName": "Pen y Fan and Corn Du Circular Walk, East Wales",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:11.665Z",
+    "createdAt": "2026-10-05T22:07:44.888Z",
     "briefing": "This is a 6.9 km loop with a total of 440 m of climbing and 440 m of descent. The hardest part is a 1.6 km climb gaining 280 m. Highlights include reaching the summit of Corn Du and the summit of Pen y Fan. The walk involves varied terrain with climbs, descents, and sections through woodland.",
     "briefingIssues": [],
     "cues": [
@@ -1710,9 +1717,16 @@
       "lon": -3.479767868550845,
       "kind": "turn",
       "title": "Turn right",
-      "text": "Turn right. The road on the left is not your route. A steady climb starts here. The path is 930 m long and gains 150 m. A cafe is on your left.",
+      "text": "Turn right. The road on the left is not your route. A steady climb starts here. A cafe is on your left.",
       "source": "gemma",
-      "issues": []
+      "issues": [
+       {
+        "type": "number",
+        "detail": "\"930 m\" is not in the facts",
+        "fixed": "removed"
+       }
+      ],
+      "original": "Turn right. The road on the left is not your route. A steady climb starts here. The path is 930 m long and gains 150 m. A cafe is on your left."
      },
      {
       "id": "w13",
@@ -1753,14 +1767,14 @@
      "waymarks": 15,
      "required": 14,
      "modelCues": 15,
-     "cleanCues": 15,
-     "repairedCues": 0,
+     "cleanCues": 14,
+     "repairedCues": 1,
      "replacedCues": 0,
      "addedCues": 0,
      "requiredCovered": 14,
      "invalidOutput": 0,
      "issues": {
-      "number": 0,
+      "number": 1,
       "name": 0,
       "direction": 0,
       "side": 0,
@@ -1986,7 +2000,7 @@
     "trailId": "llanberis",
     "trailName": "Llanberis Path to Yr Wyddfa",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:11.804Z",
+    "createdAt": "2026-10-05T22:07:45.463Z",
     "briefing": "This trail is about 7.0 km one way with a total climb of 930 m. The steepest sustained climb is 3.2 km long, gaining about 520 m. The route features several steady climbs and a final flight of steps. The highlight is reaching Yr Wyddfa, the summit at 1041 m.",
     "briefingIssues": [],
     "cues": [
@@ -2471,7 +2485,7 @@
     "trailId": "dipsea",
     "trailName": "Dipsea Trail",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:12.031Z",
+    "createdAt": "2026-10-05T22:07:46.122Z",
     "briefing": "This trail is about 11.6 kilometers one way with a total climb of 630 meters. The steepest sustained climb is 670 meters long, gaining 130 meters. The longest descent is 230 meters over 1.6 kilometers. Be prepared for significant climbing and descending sections throughout the route.",
     "briefingIssues": [],
     "cues": [
@@ -2989,7 +3003,7 @@
     "trailId": "roys-peak",
     "trailName": "Roys Peak & Mount Alpha",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:12.081Z",
+    "createdAt": "2026-10-05T22:07:46.578Z",
     "briefing": "This walk is 22.9 km one way with a total of 1540 m of climbing. The steepest sustained climb is 860 m long, gaining about 190 m at about 23%. The highest point is Mount Alpha at 1612 m. Highlights include Lake Wānaka and the views from Roys Peak and Mount Alpha.",
     "briefingIssues": [],
     "cues": [
@@ -3367,7 +3381,7 @@
     "trailId": "seealpsee",
     "trailName": "Seealpsee Rondom",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:12.095Z",
+    "createdAt": "2026-10-05T22:07:46.976Z",
     "briefing": "This is a 2.3 km loop with about 60 meters of climbing in total. The longest section involves a climb of 20 meters. The walk takes about 31 minutes at a steady pace. The highlight is reaching Seealpsee at 1141 meters high.",
     "briefingIssues": [],
     "cues": [
@@ -3701,7 +3715,7 @@
     "trailId": "wasserauen-seealpsee",
     "trailName": "Wasserauen to Seealpsee",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:12.127Z",
+    "createdAt": "2026-10-05T22:07:47.421Z",
     "briefing": "This walk is about 2.9 kilometers one way with a total climb of 310 meters. The steepest sustained climb is 630 meters long, gaining about 150 meters. The walk features several steady climbs and a final ascent to the highest point at 1163 meters. The highlight is the view of the Seealpsee at the end.",
     "briefingIssues": [],
     "cues": [
@@ -4174,7 +4188,7 @@
     "trailId": "takao",
     "trailName": "Mount Takao Trail 1",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:12.173Z",
+    "createdAt": "2026-10-05T22:07:47.881Z",
     "briefing": "This trail is about 3.2 km one way with a total climb of about 390 m. The steepest sustained climb is 1.1 km long, gaining 240 m. The walk takes about 1 hour and 5 minutes at a steady pace. Highlights include viewpoints and a summit.",
     "briefingIssues": [],
     "cues": [
@@ -4691,7 +4705,7 @@
     "trailId": "cataract",
     "trailName": "Cataract Trail",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:12.223Z",
+    "createdAt": "2026-10-05T22:07:48.331Z",
     "briefing": "This trail is about 4.6 km one way with a total climb of 390 meters. The longest sustained climb is 680 meters long, gaining 150 meters. The route features several waterfalls and a summit at 596 meters. Be prepared for steady climbs throughout the walk.",
     "briefingIssues": [],
     "cues": [
@@ -5029,7 +5043,7 @@
     "trailId": "benstein",
     "trailName": "Benstein Trail",
     "model": "Gemma 4 E2B",
-    "createdAt": "2026-10-05T21:33:12.248Z",
+    "createdAt": "2026-10-05T22:07:48.769Z",
     "briefing": "This trail is about 1.9 km one way with a total of about 80 meters of climbing. The steepest sustained climb is 560 meters long, gaining about 80 meters. The highest point is at 692 meters. The route involves a significant climb followed by a descent.",
     "briefingIssues": [],
     "cues": [

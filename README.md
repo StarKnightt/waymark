@@ -15,6 +15,10 @@ Built for the DEV Hacktoberfest Open-Source AI Challenge, Week 1 (Touch Grass). 
 - **Preview the walk:** a flyover along the route over the real terrain, slowing at each waymark. Tick "Read the cues aloud" to hear the guide.
 - **Walk it with your phone:** a QR code or link carries the route and the cues (about 1 KB, after the `#`, which browsers do not send to any server). On the phone, pocket mode keeps the screen awake but dark, follows GPS, speaks each cue at its waymark, and warns once if you are more than 70 m off the route. "Try a simulated walk" replays the route at walking speed for testing.
 
+| Pocket mode during a simulated walk | Gemma 4 E2B writing a guide in the browser (2x speed) |
+|---|---|
+| ![Pocket mode on a phone](docs/pocket.gif) | ![Gemma writing the Triund guide](docs/write.gif) |
+
 ## How it works
 
 ```
@@ -44,16 +48,17 @@ Twelve trails in seven countries (`tools/trails.json`), Chrome 154 on an RTX 406
 | | One constrained tool call (shipped) | JSON in plain text |
 |---|---|---|
 | Cues written by Gemma | 180 | 180 |
-| Passed every check unchanged | RESULT_TOOLS_CLEAN | RESULT_FREE_CLEAN |
-| Changed by the checker | RESULT_TOOLS_REPAIRED | RESULT_FREE_REPAIRED |
+| Passed every check unchanged | 171 | 170 |
+| Changed by the checker | 9 (8 of them on Mount Takao) | 10 |
 | Required waymarks (turns, finish) covered | 120 of 120 | 120 of 120 |
 | Invalid or unparseable output | 0 | 0 |
-| Time per guide | RESULT_TOOLS_MS | RESULT_FREE_MS |
-| Decoding speed | RESULT_TOOLS_TPS | RESULT_FREE_TPS |
+| Time per guide | 18.2 s | 11.4 s |
+| Decoding speed | 44 tokens/s | 80 tokens/s |
 
-- Model: `gemma-4-E2B-it-web.litertlm`, 2.0 GB, downloaded once and kept in the browser's private storage (OPFS). Loading it from there takes about 2 to 5 seconds.
-- A guide prompt is about 1,350 tokens; Gemma reads it at about 3,000 tokens per second.
-- 28 unit cases for the fact checker run in Chrome (`npm run test:check`), most of them taken from real mistakes.
+- Model: `gemma-4-E2B-it-web.litertlm`, 2.0 GB, downloaded once and kept in the browser's private storage (OPFS). Loading it from there takes a few seconds (2.3 s on the test machine).
+- A guide prompt is about 1,400 tokens; Gemma reads it at about 2,400 tokens per second.
+- On the live site, in a fresh browser, the first guide took about 10 minutes, nearly all of it the 2.0 GB download; writing the guide took about 20 seconds.
+- 35 unit cases for the fact checker run in Chrome (`npm run test:check`), most of them taken from real mistakes.
 
 ## Run it locally
 

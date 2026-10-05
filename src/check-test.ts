@@ -66,6 +66,8 @@ window.wmCheckTest = () => {
   t('a feature word inside a name is fine', checkCue('Turn right on the Roys Peak Track.', junction, f4), (s) => /Roys Peak Track/.test(s));
   t('"a peak of 1980 m" is not a summit claim', checkCue('A steady climb starts here. It reaches a peak of 1980 m.', climb, facts), (s) => /peak of 1980/.test(s));
   t('"a climb of 730 m gaining 70 m" reads 730 as the length', checkCue('This is a steady climb of 730 meters gaining 70 meters.', climb, facts), (s) => /730 meters gaining 70/.test(s));
+  t('"the path is 730 m long" is not the length of a climb', checkCue('Start here. The path is 730 m long and gains 70 m.', climb, facts), (s) => !/path is 730/.test(s));
+  t('"the trail is 3.7 km long" is the total', checkBriefing('The trail is 3.7 km long. Mirror Lake is the highlight.', facts), (s) => /3\.7 km/.test(s));
   t('briefing keeps true numbers', checkBriefing('The Lake Agnes Trail is 3.7 km long with about 400 m of climbing. Allow about 1 h 42 min of walking.', facts), (s) => /3\.7 km/.test(s) && /1 h 42 min/.test(s));
   t('briefing drops a made-up number', checkBriefing('The trail is 3.7 km long. It has 12 waterfalls. Mirror Lake is the highlight.', facts), (s) => !/12/.test(s) && /Mirror Lake/.test(s));
   return cases;

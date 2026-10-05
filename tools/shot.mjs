@@ -3,7 +3,7 @@ import { mkdirSync } from 'node:fs';
 import { launch, BASE } from './chrome.mjs';
 
 const args = process.argv.slice(2);
-const flags = Object.fromEntries(args.filter((a) => a.startsWith('--')).map((a) => { const [k, v] = a.slice(2).split('='); return [k, v ?? true]; }));
+const flags = Object.fromEntries(args.filter((a) => a.startsWith('--')).map((a) => { const i = a.indexOf('='); return i < 0 ? [a.slice(2), true] : [a.slice(2, i), a.slice(i + 1)]; }));
 const [name = 'shot', target = '', w = '1440', h = '900'] = args.filter((a) => !a.startsWith('--'));
 // a bare id means a demo trail; Git Bash rewrites arguments that contain slashes
 const hash = target.startsWith('#') ? target : target === 'make' ? '#/make' : target ? `#/t/${target}` : '#/';

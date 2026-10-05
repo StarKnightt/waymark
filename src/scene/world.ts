@@ -22,7 +22,7 @@ export class World {
   readonly camera = new THREE.PerspectiveCamera(42, 1, 5, 200000);
   readonly controls: OrbitControls;
   private sun = new THREE.DirectionalLight('#fff4e0', 3.2);
-  private hemi = new THREE.HemisphereLight('#cfe3ff', '#4a4032', 1.1);
+  private hemi = new THREE.HemisphereLight('#d6e6ff', '#6a5a44', 1.1);
   private trail = new THREE.Group();
   private ground: Ground | null = null;
   private route: ReturnType<typeof buildRoute> | null = null;
@@ -38,7 +38,7 @@ export class World {
     this.renderer.setClearColor(0x000000, 0);
     this.renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 0.95;
+    this.renderer.toneMappingExposure = 1.05;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -65,9 +65,9 @@ export class World {
     this.labels.setSize(w, h);
     this.camera.aspect = w / h;
     // keep the slab centred in the part of the screen the panel and profile strip leave free
-    const clean = document.body.classList.contains('clean');
+    const clean = document.body.classList.contains('clean') || document.body.classList.contains('nopanel');
     const panel = w > 760 && !clean ? Math.min(410, w - 32) + 16 : 0;
-    const strip = w > 760 && !clean ? 116 : 0;
+    const strip = w > 760 && !document.body.classList.contains('clean') ? 116 : 0;
     if (panel || strip) this.camera.setViewOffset(w, h, -panel / 2, strip / 2 - 40, w, h); else this.camera.clearViewOffset();
     this.camera.updateProjectionMatrix();
   }
@@ -88,7 +88,7 @@ export class World {
     const warm = THREE.MathUtils.clamp(1 - alt / 0.6, 0, 1);
     this.sun.color.setHSL(0.09, 0.45 + 0.4 * warm, 0.92 - 0.12 * warm);
     this.sun.intensity = 2.2 + 1.4 * Math.sin(Math.min(alt * 2, Math.PI / 2));
-    this.hemi.intensity = 0.65 + 0.5 * (1 - warm);
+    this.hemi.intensity = 1.0 + 0.5 * (1 - warm);
     this.scene.fog = null;
   }
 
@@ -183,7 +183,7 @@ export class World {
     const target = p.group.position.clone();
     const r = Math.max(g.width, g.depth);
     const dir = this.camera.position.clone().sub(this.controls.target).setY(0).normalize();
-    const pos = target.clone().addScaledVector(dir, r * 0.16).add(new THREE.Vector3(0, r * 0.11, 0));
+    const pos = target.clone().addScaledVector(dir, r * 0.24).add(new THREE.Vector3(0, r * 0.2, 0));
     this.moveTo(pos, target, 1100);
     this.highlight(id);
   }

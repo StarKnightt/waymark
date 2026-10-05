@@ -27,6 +27,8 @@ function roleOf(before: string, after: string, kind: Num['kind'], km = false): R
   // heights and climbs are given in metres; a figure in kilometres is a distance along the path
   if (km) return ['length', 'total', 'off'];
   const b = before.toLowerCase(), a = after.toLowerCase();
+  // "the path is 4.9 km long" describes the whole route, not one section of it
+  if (/\b(the )?(path|trail|route|walk|hike) (is|covers|runs)\s*(about\s*|around\s*|roughly\s*)?$/.test(b)) return ['total'];
   // "a climb of 340 m gaining 60 m": a figure followed by its own gain or drop is the length
   if (/^\s*(long\s*)?,?\s*(gaining|gains|climbing|rising|dropping|losing|descending)\b/.test(a)) return ['length', 'total', 'off'];
   if (ELEV_B.test(b) || /^\s*(high|above sea level|elevation|altitude)\b/.test(a)) return ['elev'];
