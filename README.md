@@ -13,7 +13,7 @@ Built for the DEV Hacktoberfest Open-Source AI Challenge, Week 1 (Touch Grass). 
 - **Four demo trails** that open instantly: Mist Trail (Yosemite, USA), Lake Agnes Trail (Banff, Canada), Galu Devi to Triund (Himachal Pradesh, India) and the Pen y Fan and Corn Du circular walk (Wales, UK). Their guides were written by Gemma 4 E2B in Chrome and are saved with the site, so trying them downloads nothing large. "Write it again on this device" regenerates a guide live.
 - **Your own trail:** search a place and pick a mapped walking route, paste an OpenStreetMap route link, or open a GPX file. With WebGPU, Gemma writes the guide on your computer. Without WebGPU, Waymark builds a plain guide from the facts.
 - **Preview the walk:** a flyover along the route over the real terrain, slowing at each waymark. Tick "Read the cues aloud" to hear the guide.
-- **Walk it with your phone:** a QR code or link carries the route and the cues (about 1 KB, after the `#`, which browsers do not send to any server). On the phone, pocket mode keeps the screen awake but dark, follows GPS, speaks each cue at its waymark, and warns once if you are more than 70 m off the route. "Try a simulated walk" replays the route at walking speed for testing.
+- **Walk it with your phone:** a QR code or link carries the route and the cues (about 1.5 KB, after the `#`, which browsers do not send to any server). On the phone, pocket mode keeps the screen awake but dark, follows GPS, speaks each cue at its waymark, and tells you if you stay more than 60 m from the route. "Try a simulated walk" replays the route at eight times walking speed for testing.
 
 | Pocket mode during a simulated walk | Gemma 4 E2B writing a guide in the browser (2x speed) |
 |---|---|
@@ -28,7 +28,7 @@ open elevation tiles (Terrarium) ──────────────┼�
                                                 │   climbs and descents, steps, bridges, water,
                                                 │   viewpoints, high point, walking time
                                                 ▼
-                        up to 18 numbered waymarks, each with its facts
+                        up to 22 numbered waymarks, each with its facts
                                                 ▼
           Gemma 4 E2B in the browser (LiteRT-LM, WebGPU) ── one constrained tool call:
           write_guide({ cues: [{ waymark: enum of real ids, text }], briefing })
@@ -50,7 +50,7 @@ Twelve trails in seven countries (`tools/trails.json`), Chrome 154 on an RTX 406
 | Cues written by Gemma | 180 | 180 |
 | Passed every check unchanged | 171 | 170 |
 | Changed by the checker | 9 (8 of them on Mount Takao) | 10 |
-| Required waymarks (turns, finish) covered | 120 of 120 | 120 of 120 |
+| Required waymarks covered | 120 of 120 | 120 of 120 |
 | Invalid or unparseable output | 0 | 0 |
 | Time per guide | 18.2 s | 11.4 s |
 | Decoding speed | 44 tokens/s | 80 tokens/s |
