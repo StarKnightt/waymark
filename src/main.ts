@@ -405,5 +405,6 @@ async function route() {
 }
 
 shell();
+if (params.has('clean')) document.body.classList.add('clean');
 window.addEventListener('hashchange', () => void route());
 void route();

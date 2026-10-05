@@ -441,14 +441,14 @@ export function buildFacts(name: string, points: LL[], dem: Dem, ctx: Context): 
   });
 
   const trailNumbers: Allowed[] = [km(total, 'total'), meters(up, Math.max(25, up * 0.1), 'gain'), meters(down, Math.max(25, down * 0.1), 'loss'), meters(ele[hi], 20, 'elev'), meters(ele[lo], 20, 'elev'), { value: Math.round(walk), unit: 'min', tol: Math.max(8, walk * 0.1), role: 'time' }];
-  if (steepest) trailNumbers.push(dist(steepest.length, 'length'), pct(steepest.grade));
+  if (steepest) trailNumbers.push(dist(steepest.length, 'length'), pct(steepest.grade), meters((steepest.length * steepest.grade) / 100, 25, 'gain'));
   const summary = [
     `${fmtKm(total)} ${loop ? (outAndBack ? 'out and back' : 'loop') : 'one way'}`,
     `about ${Math.round(up / 10) * 10} m of climbing and ${Math.round(down / 10) * 10} m of descent`,
     `highest point ${Math.round(ele[hi])} m${hiName ? ` (${hiName})` : ''}, lowest ${Math.round(ele[lo])} m`,
-    `about ${Math.floor(walk / 60)} h ${Math.round(walk % 60)} min of walking at a steady pace, not counting stops`,
+    `about ${walk >= 60 ? `${Math.floor(walk / 60)} h ${Math.round(walk % 60)} min` : `${Math.round(walk)} min`} of walking at a steady pace, not counting stops`,
   ];
-  if (steepest) summary.push(`steepest sustained climb: ${fmtKm(steepest.length)} at about ${Math.round(steepest.grade)}%`);
+  if (steepest) summary.push(`steepest sustained climb: ${fmtKm(steepest.length)} long, gaining about ${Math.round((steepest.length * steepest.grade) / 1000) * 10} m at about ${Math.round(steepest.grade)}%`);
   const names = [name, ...new Set(waymarks.flatMap((w) => w.names))];
   return {
     name, lengthM: Math.round(total), ascentM: Math.round(up), descentM: Math.round(down),

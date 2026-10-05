@@ -57,6 +57,15 @@ window.wmCheckTest = () => {
   const f3 = { ...f2, names: [...f2.names, '紅葉橋'] } as unknown as TrailFacts;
   t('a known name in another script is kept', checkCue('You cross the bridge 紅葉橋.', bridgeW, f3), (s) => /紅葉橋/.test(s));
   t('an unknown name in another script is removed', checkCue('You cross the bridge 紅葉橋. Then you reach 高尾山口.', bridgeW, f3), (s) => !/高尾山口/.test(s) && /紅葉橋/.test(s));
+  t('a turn is restored when its sentence had to go', checkCue('Turn right onto the Agnes Highline. Mirror Lake is on your right.', junction, facts), (s) => /^Turn right on Lake Agnes Trail\./.test(s) && /Mirror Lake/.test(s));
+  t('"three point seven kilometers" is read as 3.7 km', checkBriefing('The trail covers about three point seven kilometers. Mirror Lake is the highlight.', facts), (s) => /three point seven/.test(s));
+  t('"go straight ahead" at a turn is removed even if a side is mentioned', checkCue('Turn right on the Lake Agnes Trail. Go straight ahead, as the path on the left is not your route.', junction, facts), (s) => s === 'Turn right on the Lake Agnes Trail.');
+  t('a summit the facts do not mention is removed', checkCue('A steady climb starts here. It leads to the summit.', climb, facts), (s) => !/summit/.test(s));
+  t('briefing drops a summit the walk does not reach', checkBriefing('The Lake Agnes Trail is 3.7 km long. The walk ends at a summit.', facts), (s) => !/summit/.test(s) && /3\.7 km/.test(s));
+  const f4 = { ...f2, names: [...f2.names, 'Roys Peak Track'] } as unknown as TrailFacts;
+  t('a feature word inside a name is fine', checkCue('Turn right on the Roys Peak Track.', junction, f4), (s) => /Roys Peak Track/.test(s));
+  t('"a peak of 1980 m" is not a summit claim', checkCue('A steady climb starts here. It reaches a peak of 1980 m.', climb, facts), (s) => /peak of 1980/.test(s));
+  t('"a climb of 730 m gaining 70 m" reads 730 as the length', checkCue('This is a steady climb of 730 meters gaining 70 meters.', climb, facts), (s) => /730 meters gaining 70/.test(s));
   t('briefing keeps true numbers', checkBriefing('The Lake Agnes Trail is 3.7 km long with about 400 m of climbing. Allow about 1 h 42 min of walking.', facts), (s) => /3\.7 km/.test(s) && /1 h 42 min/.test(s));
   t('briefing drops a made-up number', checkBriefing('The trail is 3.7 km long. It has 12 waterfalls. Mirror Lake is the highlight.', facts), (s) => !/12/.test(s) && /Mirror Lake/.test(s));
   return cases;

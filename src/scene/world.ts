@@ -65,8 +65,9 @@ export class World {
     this.labels.setSize(w, h);
     this.camera.aspect = w / h;
     // keep the slab centred in the part of the screen the panel and profile strip leave free
-    const panel = w > 760 ? Math.min(410, w - 32) + 16 : 0;
-    const strip = w > 760 ? 116 : 0;
+    const clean = document.body.classList.contains('clean');
+    const panel = w > 760 && !clean ? Math.min(410, w - 32) + 16 : 0;
+    const strip = w > 760 && !clean ? 116 : 0;
     if (panel || strip) this.camera.setViewOffset(w, h, -panel / 2, strip / 2 - 40, w, h); else this.camera.clearViewOffset();
     this.camera.updateProjectionMatrix();
   }

@@ -27,6 +27,8 @@ function roleOf(before: string, after: string, kind: Num['kind'], km = false): R
   // heights and climbs are given in metres; a figure in kilometres is a distance along the path
   if (km) return ['length', 'total', 'off'];
   const b = before.toLowerCase(), a = after.toLowerCase();
+  // "a climb of 340 m gaining 60 m": a figure followed by its own gain or drop is the length
+  if (/^\s*(long\s*)?,?\s*(gaining|gains|climbing|rising|dropping|losing|descending)\b/.test(a)) return ['length', 'total', 'off'];
   if (ELEV_B.test(b) || /^\s*(high|above sea level|elevation|altitude)\b/.test(a)) return ['elev'];
   if (GAIN_B.test(b) || /^\s*(of (climbing|ascent)|up\b|higher|of height)/.test(a)) return ['gain'];
   if (LOSS_B.test(b) || /^\s*(of descent|down\b|lower)/.test(a)) return ['loss'];
@@ -65,6 +67,7 @@ export function digitize(s: string): string {
     .replace(/\b(\w+) hours? and a half\b/gi, (m, n) => (one(n) ? `${one(n)} h 30 min` : m))
     .replace(/\b(an|a) (hour|kilometre|kilometer)\b/gi, (_m, _a, u) => `1 ${u}`)
     .replace(/\bhalf a (kilometre|kilometer)\b/gi, '0.5 km')
+    .replace(/\b(\w+) point (\w+)\b/gi, (m, a, b) => (a.toLowerCase() in SMALL && b.toLowerCase() in SMALL && SMALL[b.toLowerCase()] < 10 ? `${SMALL[a.toLowerCase()]}.${SMALL[b.toLowerCase()]}` : m))
     .replace(SEQ, (m) => { const v = parseWords(m); return v === null ? m : String(v); });
 }
 
@@ -189,6 +192,14 @@ export function splitSentences(t: string): string[] {
   return t.replace(/\s+/g, ' ').trim().split(/(?<=[.!?])\s+(?=[A-Z0-9"“])/).filter(Boolean);
 }
 
+/** "Turn left onto X." built from the first turning junction fact at a waymark. */
+function turnSentence(w: Waymark): string {
+  const j = w.facts.find((x) => /junction: (turn|keep) /.test(x)) ?? '';
+  const m = j.match(/junction: ([^;]+)/);
+  const s = (m?.[1] ?? `turn ${w.turn ?? ''}`).replace(/["“”]/g, '').replace(/\s*\((the (sharper|gentler) of two \w+ turns)\)/, ', $1,').replace(/,$/, '');
+  return s.charAt(0).toUpperCase() + s.slice(1) + '.';
+}
+
 export function templateCue(w: Waymark, f: TrailFacts): string {
   const fact = w.facts[0] ?? '';
   const clean = (s: string) => s.replace(/["“”]/g, '').replace(/\s*\(about [^)]*\)/, '');
@@ -212,6 +223,21 @@ export function tidy(text: string): string {
     .join(' ');
 }
 
+/** Features a sentence may only claim when the facts it was written from mention them. */
+const FEATURES: [RegExp, RegExp][] = [
+  // "a peak of 2,377 m" describes the top of a climb, not a mountain
+  [/\b(summit|peak)s?\b(?!\s+of\s+(about\s+)?\d)/i, /\bsummit\b/i],
+  [/\b(waterfall|falls)\b/i, /\bwaterfall\b|\bfalls?\b/i],
+  [/\bbridges?\b/i, /\bbridge\b/i],
+];
+function unsupportedFeature(s: string, facts: string[], names: string[]): string | null {
+  // "Roys Peak Track" is a name, not a claim about a peak
+  let bare = s;
+  for (const n of names) if (n.length > 2) bare = bare.split(n).join(' ').replace(new RegExp(n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), ' ');
+  for (const [said, need] of FEATURES) if (said.test(bare) && !facts.some((x) => need.test(x))) return bare.match(said)![0];
+  return null;
+}
+
 /** Checks one spoken cue against its waymark's facts and repairs what it safely can. */
 export function checkCue(raw: string, w: Waymark, f: TrailFacts): Checked {
   const text = tidy(raw);
@@ -230,7 +256,7 @@ export function checkCue(raw: string, w: Waymark, f: TrailFacts): Checked {
       if (!branches.has(b[2].split(' ').pop()!)) { drop = { type: 'direction', detail: `mentioned a ${b[1]} ${b[2]} that the facts do not list`, fixed: 'removed' }; break; }
     }
     const negated = /\b(do not|don't|never|not)\s+(continue|go|keep going|carry on|walk|head)\s+straight/i.test(s);
-    if (!drop && allowedTurns.size && !allowedTurns.has('straight') && STRAIGHT.test(s) && !negated && !/\b(left|right)\b/i.test(s)) {
+    if (!drop && allowedTurns.size && !allowedTurns.has('straight') && STRAIGHT.test(s) && !negated && !new RegExp(DIR.source, 'i').test(s)) {
       drop = { type: 'direction', detail: `said straight on, the junction goes ${[...allowedTurns].join(' or ')}`, fixed: 'removed' };
     }
     for (const n of numbers(s)) {
@@ -239,6 +265,8 @@ export function checkCue(raw: string, w: Waymark, f: TrailFacts): Checked {
     }
     const quoted = badQuoted.find((n) => s.includes(n));
     if (!drop && quoted) drop = { type: 'name', detail: `"${quoted}" is not on this route`, fixed: 'removed' };
+    const feature = !drop && unsupportedFeature(s, w.facts, f.names);
+    if (feature) drop = { type: 'name', detail: `mentioned a ${feature.toLowerCase()} that the facts here do not`, fixed: 'removed' };
     if (!drop) for (const p of properNouns(s)) {
       if (!nameKnown(p, names)) { drop = { type: 'name', detail: `"${p}" is not on this route`, fixed: 'removed' }; break; }
     }
@@ -271,6 +299,12 @@ export function checkCue(raw: string, w: Waymark, f: TrailFacts): Checked {
     out = splitSentences(out).slice(0, 2).join(' ');
     issues.push({ type: 'length', detail: 'longer than 40 words', fixed: 'trimmed' });
   }
+  // a cue at a turn must always say the turn, even if the sentence that said it had to go
+  const mustTurn = [...allowedTurns].some((t) => t !== 'straight');
+  if (mustTurn && out && !new RegExp(DIR.source, 'i').test(out)) {
+    out = `${turnSentence(w)} ${out}`;
+    issues.push({ type: 'direction', detail: 'the turn instruction was missing', fixed: 'replaced' });
+  }
   if (out.split(/\s+/).filter(Boolean).length < 3) {
     if (text.trim()) issues.push({ type: 'empty', detail: 'nothing safe was left', fixed: 'replaced' });
     return { text: templateCue(w, f), issues, replaced: true };
@@ -289,6 +323,10 @@ export function checkBriefing(raw: string, f: TrailFacts): { text: string; issue
     if (bad) { issues.push({ type: 'number', detail: `"${bad.raw.trim()}" is not in the facts`, fixed: 'removed' }); continue; }
     const unknown = properNouns(s).find((p) => !nameKnown(p, f.names));
     if (unknown) { issues.push({ type: 'name', detail: `"${unknown}" is not on this route`, fixed: 'removed' }); continue; }
+    // the briefing may only promise a summit the walk actually reaches
+    const onRoute = [...f.summary, ...f.waymarks.flatMap((w) => w.facts.filter((x) => !/not on the route/.test(x)))];
+    const feature = unsupportedFeature(s, onRoute, f.names);
+    if (feature) { issues.push({ type: 'name', detail: `mentioned a ${feature.toLowerCase()} the route does not reach`, fixed: 'removed' }); continue; }
     kept.push(s);
   }
   const out = kept.join(' ');

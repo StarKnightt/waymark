@@ -57,6 +57,7 @@ export function mountPocket(root: HTMLElement, pack: Pack): () => void {
     <section class="p-walk" hidden>
       <div class="p-dim">
         <p class="p-status" aria-live="polite">Finding your position</p>
+        <p class="p-said" aria-live="polite"></p>
         <p class="p-next"></p>
         <div class="p-bar"><i></i></div>
         <div class="p-row">
@@ -69,10 +70,11 @@ export function mountPocket(root: HTMLElement, pack: Pack): () => void {
   const $ = <T extends HTMLElement>(s: string) => root.querySelector(s) as T;
   const status = (s: string) => { $('.p-status').textContent = s; };
 
-  const speakCue = (c: { text: string }) => {
+  const speakCue = (c: { i: number; text: string }) => {
     lastSpoken = c.text;
     navigator.vibrate?.([180, 90, 180]);
     voice.say(c.text);
+    $('.p-said').innerHTML = `<span class="p-num">${c.i + 1}</span>${esc(c.text)}`;
   };
 
   const update = (ll: LL, accuracy: number) => {

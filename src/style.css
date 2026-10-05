@@ -169,3 +169,6 @@ body.flying .panel:hover { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .caption.in { animation: none; } * { scroll-behavior: auto !important; } }
 .pin.hide { opacity: 0; pointer-events: none; }
 .pin { transition: opacity 0.2s; }
+.p-said { margin: 0 auto 22px; max-width: 30ch; min-height: 3em; font-size: 21px; line-height: 1.4; color: #e9e6d8; }
+.p-num { display: inline-grid; place-items: center; width: 22px; height: 30px; margin-right: 10px; vertical-align: -6px; background: var(--blaze); color: var(--ink); font: 600 16px var(--display); border-radius: 2px; }
+body.clean .top, body.clean .panel, body.clean .strip, body.clean .flybar, body.clean .labels { display: none !important; }
