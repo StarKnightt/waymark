@@ -76,7 +76,7 @@ const POI_WORD: Record<PoiKind, string> = {
   parking: 'car park', cafe: 'cafe', information: 'information board', cairn: 'cairn', cave: 'cave entrance', camp: 'campsite',
 };
 const article = (k: PoiKind) => (k === 'toilets' ? 'toilets' : /^[aeiou]/.test(POI_WORD[k]) ? `an ${POI_WORD[k]}` : `a ${POI_WORD[k]}`);
-const POI_PRIORITY: Partial<Record<PoiKind, number>> = { peak: 5, viewpoint: 3.5, waterfall: 4, spring: 4, drinking_water: 4, hut: 4, shelter: 3, cafe: 1.4, toilets: 1.5, saddle: 2, picnic: 1.5, cave: 2, camp: 1.2, information: 1, cairn: 1, bench: 0.5, parking: 1 };
+const POI_PRIORITY: Partial<Record<PoiKind, number>> = { peak: 5, viewpoint: 3.5, waterfall: 4, spring: 4, drinking_water: 4, hut: 4, shelter: 3, cafe: 1.9, toilets: 1.5, saddle: 2, picnic: 1.5, cave: 2, camp: 1.2, information: 1, cairn: 1, bench: 0.5, parking: 1 };
 
 function smooth(v: number[], r: number): number[] {
   const out = new Array(v.length);

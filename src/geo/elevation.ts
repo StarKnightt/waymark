@@ -26,7 +26,7 @@ export const pxToLat = (py: number, z: number) => {
 };
 
 /** Picks the most detailed zoom that covers the box with at most `maxTiles` tiles. */
-export function pickZoom(b: BBox, maxTiles = 16, maxZ = 14): number {
+export function pickZoom(b: BBox, maxTiles = 30, maxZ = 14): number {
   for (let z = maxZ; z > 8; z--) {
     const nx = Math.floor(lonToPx(b.e, z) / TILE) - Math.floor(lonToPx(b.w, z) / TILE) + 1;
     const ny = Math.floor(latToPx(b.s, z) / TILE) - Math.floor(latToPx(b.n, z) / TILE) + 1;

@@ -6,7 +6,7 @@ export interface Poi { kind: PoiKind; name?: string; lat: number; lon: number; e
 export type PoiKind =
   | 'peak' | 'saddle' | 'viewpoint' | 'spring' | 'drinking_water' | 'waterfall' | 'shelter' | 'hut' | 'picnic'
   | 'bench' | 'toilets' | 'parking' | 'cafe' | 'information' | 'cairn' | 'cave' | 'camp';
-export interface Area { kind: 'water' | 'river' | 'forest' | 'rock' | 'scree' | 'glacier' | 'grass' | 'scrub' | 'built' | 'farm'; name?: string; ring: LL[] }
+export interface Area { kind: 'water' | 'river' | 'wetland' | 'forest' | 'rock' | 'scree' | 'glacier' | 'grass' | 'scrub' | 'built' | 'farm'; name?: string; ring: LL[]; holes?: LL[][] }
 export interface Stream { kind: string; name?: string; coords: LL[] }
 
 export interface Context {
@@ -48,7 +48,8 @@ function areaKind(t: Record<string, string>): Area['kind'] | null {
   const n = t.natural, l = t.landuse;
   if (n === 'water' && /river|stream|canal|ditch|drain|rapids/.test(t.water ?? '')) return 'river';
   if (t.waterway === 'riverbank') return 'river';
-  if (n === 'water' || l === 'reservoir' || n === 'wetland') return 'water';
+  if (n === 'wetland') return 'wetland';
+  if (n === 'water' || l === 'reservoir') return 'water';
   if (n === 'wood' || l === 'forest') return 'forest';
   if (n === 'bare_rock') return 'rock';
   if (n === 'scree') return 'scree';
@@ -80,6 +81,15 @@ function poiKind(t: Record<string, string>): PoiKind | null {
   if (a === 'cafe' || a === 'restaurant') return 'cafe';
   if (t.man_made === 'cairn') return 'cairn';
   return null;
+}
+
+function inRing(p: LL, ring: LL[]): boolean {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [yi, xi] = ring[i], [yj, xj] = ring[j];
+    if ((yi > p[0]) !== (yj > p[0]) && p[1] < ((xj - xi) * (p[0] - yi)) / (yj - yi || 1e-12) + xi) inside = !inside;
+  }
+  return inside;
 }
 
 /** Joins multipolygon member pieces into closed rings by matching endpoints. */
@@ -139,7 +149,11 @@ export function parseContext(elements: OsmElement[], bbox: BBox): Context {
     const k = areaKind(t);
     if (!k) continue;
     const outer = e.members.filter((m) => m.type === 'way' && m.role !== 'inner' && m.geometry?.length).map((m) => m.geometry!.map(ll));
-    for (const r of rings(outer)) ctx.areas.push({ kind: k, name: t.name, ring: r });
+    const inner = rings(e.members.filter((m) => m.type === 'way' && m.role === 'inner' && m.geometry?.length).map((m) => m.geometry!.map(ll)));
+    for (const r of rings(outer)) {
+      const holes = inner.filter((h) => inRing(h[0], r));
+      ctx.areas.push({ kind: k, name: t.name, ring: r, ...(holes.length ? { holes } : {}) });
+    }
   }
   return ctx;
 }

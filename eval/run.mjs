@@ -13,7 +13,7 @@ try {
   page.on('console', (m) => { const t = m.text(); if (!/^(I|W)\d{4}|INFO:|WARNING:|^\s|=== Source/.test(t)) console.log('[page]', t.slice(0, 200)); });
   await gotoStable(page, `${BASE}eval.html?model=${encodeURIComponent(model)}`, () => 'wmEval' in window);
   const res = await page.evaluate(([i, m]) => window.wmEval(i, m), [ids, mode]);
-  const rows = res.out.map(({ id, guide, lengthM, waymarks }) => ({ id, lengthM, waymarks, stats: guide.stats, briefing: guide.briefing, briefingIssues: guide.briefingIssues, cues: guide.cues, raw: guide.debug }));
+  const rows = res.out.map(({ id, guide, lengthM, waymarks }) => ({ id, lengthM, waymarks, stats: guide.stats, briefing: guide.briefing, briefingIssues: guide.briefingIssues, cues: guide.cues, raw: guide.debug, guide: { ...guide, debug: undefined } }));
   if (process.env.SHOWRAW) for (const r of rows) console.log(r.id, JSON.stringify(r.raw).slice(0, 3000));
   const sum = (k) => rows.reduce((a, r) => a + r.stats[k], 0);
   const issues = {};

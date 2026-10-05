@@ -39,10 +39,10 @@ function inside(a: BBox, b: BBox) {
 }
 
 export async function buildFromTrack(id: string, track: Track, onStatus?: Status, useOsmApi = false, known?: Context): Promise<TrailBundle> {
-  const bbox = bboxOf(track.points, 700);
+  const bbox = bboxOf(track.points, 1100);
   onStatus?.('Downloading elevation');
   const dem = await loadDem(bbox, onStatus);
-  const near = bboxOf(track.points, 450);
+  const near = bboxOf(track.points, 1050);
   onStatus?.('Downloading paths, water and landmarks');
   const ctx = known && inside(near, known.bbox) ? { ...known } : await context(near, onStatus, useOsmApi);
   ctx.bbox = bbox;

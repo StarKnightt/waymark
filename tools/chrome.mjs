@@ -11,7 +11,9 @@ export async function launch({ profile = '.cache/chrome', width = 1280, height =
     hasTouch: mobile,
     args: ['--enable-unsafe-webgpu', '--ignore-gpu-blocklist'],
   });
-  const page = ctx.pages()[0] ?? (await ctx.newPage());
+  // a persistent profile can restore old tabs; always work in a fresh one
+  const page = await ctx.newPage();
+  for (const p of ctx.pages()) if (p !== page) await p.close();
   page.on('pageerror', (e) => console.log('[pageerror]', e.message));
   return { ctx, page };
 }
