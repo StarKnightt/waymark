@@ -1,0 +1,14 @@
+[
+  { "id": "mist-trail", "demo": true, "name": "Mist Trail to Nevada Fall", "region": "Yosemite, California, USA", "stops": [[37.7322, -119.5579], [37.72755, -119.54375], [37.7249, -119.53336]], "prefer": "Mist Trail" },
+  { "id": "lake-agnes", "demo": true, "name": "Lake Agnes Trail", "region": "Banff National Park, Canada", "stops": [[51.41768, -116.21705], [51.41642, -116.24422]], "prefer": "Lake Agnes" },
+  { "id": "triund", "demo": true, "name": "Galu Devi to Triund", "region": "Dharamshala, Himachal Pradesh, India", "stops": [[32.25459, 76.3259], [32.26144, 76.35455]], "prefer": "Triund" },
+  { "id": "pen-y-fan", "demo": true, "relation": 19690615, "region": "Brecon Beacons, Wales, UK" },
+  { "id": "llanberis", "name": "Llanberis Path to Yr Wyddfa", "region": "Eryri, Wales, UK", "stops": [[53.1137, -4.1219], [53.06849, -4.07623]], "prefer": "Llanberis Path" },
+  { "id": "dipsea", "name": "Dipsea Trail", "region": "Marin County, California, USA", "stops": [[37.90507, -122.55297], [37.8995, -122.6410]], "prefer": "Dipsea" },
+  { "id": "roys-peak", "relation": 6054949, "region": "Wanaka, New Zealand" },
+  { "id": "seealpsee", "relation": 3882124, "region": "Appenzell, Switzerland" },
+  { "id": "wasserauen-seealpsee", "name": "Wasserauen to Seealpsee", "region": "Appenzell, Switzerland", "stops": [[47.28571, 9.42869], [47.27011, 9.40161]], "prefer": null },
+  { "id": "takao", "name": "Mount Takao Trail 1", "region": "Hachioji, Tokyo, Japan", "stops": [[35.6324, 139.2697], [35.6253, 139.2435]], "prefer": null },
+  { "id": "cataract", "relation": 19109026, "region": "Marin County, California, USA" },
+  { "id": "benstein", "relation": 19109024, "region": "Marin County, California, USA" }
+]
