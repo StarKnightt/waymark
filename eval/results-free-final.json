@@ -1,0 +1,5020 @@
+{
+ "summary": {
+  "mode": "free",
+  "gpu": {
+   "ok": true,
+   "adapter": "nvidia lovelace"
+  },
+  "modelLoadMs": 1897,
+  "trails": 12,
+  "modelCues": 179,
+  "cleanCues": 173,
+  "repairedCues": 6,
+  "replacedCues": 0,
+  "addedCues": 0,
+  "required": 120,
+  "requiredCovered": 120,
+  "invalidOutput": 0,
+  "issues": {
+   "number": 0,
+   "name": 3,
+   "direction": 0,
+   "side": 0,
+   "length": 3,
+   "empty": 0
+  },
+  "briefingIssues": 2,
+  "avgMs": 10745,
+  "avgPromptTokens": 1087,
+  "avgOutputTokens": 835,
+  "avgDecodeTps": 80.4,
+  "avgPrefillTps": 3001,
+  "rechecked": "2026-10-05T20:52:33.707Z"
+ },
+ "rows": [
+  {
+   "id": "mist-trail",
+   "lengthM": 4480,
+   "waymarks": 18,
+   "stats": {
+    "mode": "free",
+    "waymarks": 18,
+    "required": 5,
+    "modelCues": 18,
+    "cleanCues": 18,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 5,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 13832,
+    "promptTokens": 1121,
+    "outputTokens": 1052,
+    "decodeTps": 78.6,
+    "prefillTps": 2537
+   },
+   "briefing": "This trail is about 4.5 km one way with a total climb of about 620 meters. The steepest sustained climb is 540 meters at about 25%. Highlights include viewpoints like Sierra Point and the final destination, Nevada Fall.",
+   "briefingIssues": [
+    {
+     "type": "number",
+     "detail": "\"1 h 30 min\" is not in the facts",
+     "fixed": "removed"
+    }
+   ],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 37.73207,
+     "lon": -119.55805,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start of the Mist Trail to Nevada Fall. There are toilets and an information board here. An information board is on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 105,
+     "lat": 37.7311699575321,
+     "lon": -119.55837103596026,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on John Muir Trail. The path straight ahead is not your route. An information board is beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 323,
+     "lat": 37.72932688898617,
+     "lon": -119.55791371241259,
+     "kind": "water",
+     "title": "Spring",
+     "text": "You will find a spring on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 570,
+     "lat": 37.72719342291597,
+     "lon": -119.55846,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is 670 m long and gains 90 m. This section tops out at 1358 m. After this, the next 420 m climbs 60 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 990,
+     "lat": 37.726361411154166,
+     "lon": -119.5549357665375,
+     "kind": "view",
+     "title": "Sierra Point",
+     "text": "Sierra Point is a viewpoint on your left. It is about 100 m off the path and 1484 m high. After this, the next 310 m climbs 30 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 1300,
+     "lat": 37.726142643728515,
+     "lon": -119.55165114340748,
+     "kind": "bridge",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is 450 m long and gains 60 m. This section tops out at 1404 m. A bridge, John Muir Trail, crosses Merced River.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 1378,
+     "lat": 37.7257845890672,
+     "lon": -119.55127551107506,
+     "kind": "rest",
+     "title": "Drinking water tap",
+     "text": "A drinking water tap is beside the path. Toilets are beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 1635,
+     "lat": 37.72622550919864,
+     "lon": -119.54867915924605,
+     "kind": "continue",
+     "title": "Straight on",
+     "text": "Continue straight onto Mist Trail. John Muir Trail on the right is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w9",
+     "at": 1730,
+     "lat": 37.72628,
+     "lon": -119.54765647656961,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is 540 m long and gains 140 m. This section tops out at 1541 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 1859,
+     "lat": 37.72637939433927,
+     "lon": -119.54624952521888,
+     "kind": "steps",
+     "title": "Steps",
+     "text": "A flight of steps starts here. It is about 410 m long and climbs 124 m. After this, the next 390 m climbs 130 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 2250,
+     "lat": 37.72677651536714,
+     "lon": -119.54279662884178,
+     "kind": "rest",
+     "title": "Emerald Pool",
+     "text": "Emerald Pool comes into view on your right. There is a bench beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 2330,
+     "lat": 37.727326147159395,
+     "lon": -119.5432784414782,
+     "kind": "note",
+     "title": "Vernal Fall",
+     "text": "Vernal Fall is a waterfall on your left. It is about 50 m off the path and 1538 m high. There is a viewpoint on your left.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 2500,
+     "lat": 37.72677923747376,
+     "lon": -119.54161,
+     "kind": "note",
+     "title": "Silver Apron",
+     "text": "Silver Apron is a waterfall on your left. It is about 60 m off the path and 1555 m high.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 2710,
+     "lat": 37.72638243776017,
+     "lon": -119.54032692790386,
+     "kind": "bridge",
+     "title": "Merced River",
+     "text": "The path crosses Merced River. There is a bridge, Mist Trail. The path enters woodland for about 900 m. After this, the next 450 m climbs 40 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w15",
+     "at": 3160,
+     "lat": 37.726446623488954,
+     "lon": -119.53720675302209,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is 1.0 km long and gains 210 m. This section tops out at 1820 m. After this, the next 1.0 km climbs 210 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w16",
+     "at": 4168,
+     "lat": 37.72611938857607,
+     "lon": -119.5303893767611,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right onto John Muir Trail. John Muir Trail on the left is not your route. Toilets are beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w17",
+     "at": 4290,
+     "lat": 37.72565239414441,
+     "lon": -119.53146741854269,
+     "kind": "summit",
+     "title": "High point",
+     "text": "This is the highest point of the walk at about 1822 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w18",
+     "at": 4480,
+     "lat": 37.72503,
+     "lon": -119.53322,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "The end of the route. Nevada Fall is a waterfall on your left, 1801 m high. There is a viewpoint on your left.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start of the Mist Trail to Nevada Fall. There are toilets and an information board here. An information board is on your right.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Turn left on John Muir Trail. The path straight ahead is not your route. An information board is beside the path.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"You will find a spring on your right.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"A steady climb starts here. It is 670 m long and gains 90 m. This section tops out at 1358 m. After this, the next 420 m climbs 60 m.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Sierra Point is a viewpoint on your left. It is about 100 m off the path and 1484 m high. After this, the next 310 m climbs 30 m.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"A steady climb starts here. It is 450 m long and gains 60 m. This section tops out at 1404 m. A bridge, John Muir Trail, crosses Merced River.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"A drinking water tap is beside the path. Toilets are beside the path.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"Continue straight onto Mist Trail. John Muir Trail on the right is not your route.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"A steady climb starts here. It is 540 m long and gains 140 m. This section tops out at 1541 m.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"A flight of steps starts here. It is about 410 m long and climbs 124 m. After this, the next 390 m climbs 130 m.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"Emerald Pool comes into view on your right. There is a bench beside the path.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"Vernal Fall is a waterfall on your left. It is about 50 m off the path and 1538 m high. There is a viewpoint on your left.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"Silver Apron is a waterfall on your left. It is about 60 m off the path and 1555 m high.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"The path crosses Merced River. There is a bridge, Mist Trail. The path enters woodland for about 900 m. After this, the next 450 m climbs 40 m.\"\n    },\n    {\n      \"waymark\": \"w15\",\n      \"text\": \"A steady climb starts here. It is 1.0 km long and gains 210 m. This section tops out at 1820 m. After this, the next 1.0 km climbs 210 m.\"\n    },\n    {\n      \"waymark\": \"w16\",\n      \"text\": \"Turn right onto John Muir Trail. John Muir Trail on the left is not your route. Toilets are beside the path.\"\n    },\n    {\n      \"waymark\": \"w17\",\n      \"text\": \"This is the highest point of the walk at about 1822 m.\"\n    },\n    {\n      \"waymark\": \"w18\",\n      \"text\": \"The end of the route. Nevada Fall is a waterfall on your left, 1801 m high. There is a viewpoint on your left.\"\n    }\n  ],\n  \"briefing\": \"This trail is about 4.5 km one way with a total climb of about 620 meters. The steepest sustained climb is 540 meters at about 25%. The walk takes about an hour and a half at a steady pace. Highlights include viewpoints like Sierra Point and the final destination, Nevada Fall.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "mist-trail",
+    "trailName": "Mist Trail to Nevada Fall",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:32.966Z",
+    "briefing": "This trail is about 4.5 km one way with a total climb of about 620 meters. The steepest sustained climb is 540 meters at about 25%. Highlights include viewpoints like Sierra Point and the final destination, Nevada Fall.",
+    "briefingOriginal": "This trail is about 4.5 km one way with a total climb of about 620 meters. The steepest sustained climb is 540 meters at about 25%. The walk takes about an hour and a half at a steady pace. Highlights include viewpoints like Sierra Point and the final destination, Nevada Fall.",
+    "briefingIssues": [
+     {
+      "type": "number",
+      "detail": "\"1 h 30 min\" is not in the facts",
+      "fixed": "removed"
+     }
+    ],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 37.73207,
+      "lon": -119.55805,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start of the Mist Trail to Nevada Fall. There are toilets and an information board here. An information board is on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 105,
+      "lat": 37.7311699575321,
+      "lon": -119.55837103596026,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on John Muir Trail. The path straight ahead is not your route. An information board is beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 323,
+      "lat": 37.72932688898617,
+      "lon": -119.55791371241259,
+      "kind": "water",
+      "title": "Spring",
+      "text": "You will find a spring on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 570,
+      "lat": 37.72719342291597,
+      "lon": -119.55846,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is 670 m long and gains 90 m. This section tops out at 1358 m. After this, the next 420 m climbs 60 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 990,
+      "lat": 37.726361411154166,
+      "lon": -119.5549357665375,
+      "kind": "view",
+      "title": "Sierra Point",
+      "text": "Sierra Point is a viewpoint on your left. It is about 100 m off the path and 1484 m high. After this, the next 310 m climbs 30 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 1300,
+      "lat": 37.726142643728515,
+      "lon": -119.55165114340748,
+      "kind": "bridge",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is 450 m long and gains 60 m. This section tops out at 1404 m. A bridge, John Muir Trail, crosses Merced River.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 1378,
+      "lat": 37.7257845890672,
+      "lon": -119.55127551107506,
+      "kind": "rest",
+      "title": "Drinking water tap",
+      "text": "A drinking water tap is beside the path. Toilets are beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 1635,
+      "lat": 37.72622550919864,
+      "lon": -119.54867915924605,
+      "kind": "continue",
+      "title": "Straight on",
+      "text": "Continue straight onto Mist Trail. John Muir Trail on the right is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w9",
+      "at": 1730,
+      "lat": 37.72628,
+      "lon": -119.54765647656961,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is 540 m long and gains 140 m. This section tops out at 1541 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 1859,
+      "lat": 37.72637939433927,
+      "lon": -119.54624952521888,
+      "kind": "steps",
+      "title": "Steps",
+      "text": "A flight of steps starts here. It is about 410 m long and climbs 124 m. After this, the next 390 m climbs 130 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 2250,
+      "lat": 37.72677651536714,
+      "lon": -119.54279662884178,
+      "kind": "rest",
+      "title": "Emerald Pool",
+      "text": "Emerald Pool comes into view on your right. There is a bench beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 2330,
+      "lat": 37.727326147159395,
+      "lon": -119.5432784414782,
+      "kind": "note",
+      "title": "Vernal Fall",
+      "text": "Vernal Fall is a waterfall on your left. It is about 50 m off the path and 1538 m high. There is a viewpoint on your left.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 2500,
+      "lat": 37.72677923747376,
+      "lon": -119.54161,
+      "kind": "note",
+      "title": "Silver Apron",
+      "text": "Silver Apron is a waterfall on your left. It is about 60 m off the path and 1555 m high.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 2710,
+      "lat": 37.72638243776017,
+      "lon": -119.54032692790386,
+      "kind": "bridge",
+      "title": "Merced River",
+      "text": "The path crosses Merced River. There is a bridge, Mist Trail. The path enters woodland for about 900 m. After this, the next 450 m climbs 40 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w15",
+      "at": 3160,
+      "lat": 37.726446623488954,
+      "lon": -119.53720675302209,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is 1.0 km long and gains 210 m. This section tops out at 1820 m. After this, the next 1.0 km climbs 210 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w16",
+      "at": 4168,
+      "lat": 37.72611938857607,
+      "lon": -119.5303893767611,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right onto John Muir Trail. John Muir Trail on the left is not your route. Toilets are beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w17",
+      "at": 4290,
+      "lat": 37.72565239414441,
+      "lon": -119.53146741854269,
+      "kind": "summit",
+      "title": "High point",
+      "text": "This is the highest point of the walk at about 1822 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w18",
+      "at": 4480,
+      "lat": 37.72503,
+      "lon": -119.53322,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "The end of the route. Nevada Fall is a waterfall on your left, 1801 m high. There is a viewpoint on your left.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 18,
+     "required": 5,
+     "modelCues": 18,
+     "cleanCues": 18,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 5,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 13832,
+     "promptTokens": 1121,
+     "outputTokens": 1052,
+     "decodeTps": 78.6,
+     "prefillTps": 2537
+    }
+   }
+  },
+  {
+   "id": "lake-agnes",
+   "lengthM": 3690,
+   "waymarks": 18,
+   "stats": {
+    "mode": "free",
+    "waymarks": 18,
+    "required": 7,
+    "modelCues": 18,
+    "cleanCues": 15,
+    "repairedCues": 3,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 7,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 3,
+     "empty": 0
+    },
+    "ms": 14149,
+    "promptTokens": 1232,
+    "outputTokens": 1114,
+    "decodeTps": 81.3,
+    "prefillTps": 2843
+   },
+   "briefing": "This trail is about three and a half kilometers one way with a total climb of about four hundred meters. The route features several steady climbs, including sections topping out around two thousand one hundred fifty-five meters. Highlights include views of Lake Louise and Mirror Lake, and a summit nearby.",
+   "briefingIssues": [
+    {
+     "type": "number",
+     "detail": "\"3400 meters\" is not in the facts",
+     "fixed": "removed"
+    }
+   ],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 51.41757,
+     "lon": -116.21665,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start of the Lake Agnes Trail. There are toilets and an information board here. Fairview Bar & Restaurant is on your right. Lake Louise comes into view on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 60,
+     "lat": 51.417099988521855,
+     "lon": -116.2165400536794,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. The path on the right is not your route. A drinking water tap is on your right. Louiza is a cafe on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 104,
+     "lat": 51.41681229172608,
+     "lon": -116.21619400359377,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right onto the Plain of Six Glaciers Trail. The Plain of the 6 Glaciers Trail is straight ahead and the path on the left is not your route.",
+     "source": "gemma",
+     "issues": [
+      {
+       "type": "length",
+       "detail": "longer than 40 words",
+       "fixed": "trimmed"
+      }
+     ],
+     "original": "Turn right onto the Plain of Six Glaciers Trail. The Plain of the 6 Glaciers Trail is straight ahead and the path on the left is not your route. Live in the snow forest is on your left. A viewpoint is on your left."
+    },
+    {
+     "id": "w4",
+     "at": 177,
+     "lat": 51.41653223521387,
+     "lon": -116.2170898684859,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on the Plain of Six Glaciers Trail. The path straight ahead is not your route. About 40 meters later, continue straight on the Plain of Six Glaciers Trail.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 294,
+     "lat": 51.41716168179133,
+     "lon": -116.21838689732863,
+     "kind": "rest",
+     "title": "Viewpoint",
+     "text": "You will see a viewpoint beside the path. A bench is beside the path. Continue straight on the Plain of Six Glaciers Trail. The path on the right is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 360,
+     "lat": 51.41737607588438,
+     "lon": -116.21923888704603,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left on the Plain of Six Glaciers Trail. The road on the right is not your route. A bench is beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 430,
+     "lat": 51.41751856034064,
+     "lon": -116.22017032465536,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is one kilometer long and gains 140 meters. This climb tops out at 1903 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 512,
+     "lat": 51.41768412350205,
+     "lon": -116.22132057218181,
+     "kind": "view",
+     "title": "Viewpoint",
+     "text": "You will see a viewpoint on your left. Continue straight on the Lake Agnes Trail.",
+     "source": "gemma",
+     "issues": [
+      {
+       "type": "length",
+       "detail": "longer than 40 words",
+       "fixed": "trimmed"
+      }
+     ],
+     "original": "You will see a viewpoint on your left. Continue straight on the Lake Agnes Trail. The path on the left and the path on the right are not your route. The path leaves the trees and is open for about 630 meters. After this, the next kilometer climbs 140 meters."
+    },
+    {
+     "id": "w9",
+     "at": 1540,
+     "lat": 51.414444485049536,
+     "lon": -116.23427085375857,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is seven hundred thirty meters long and gains seventy meters. This climb tops out at 1980 meters. After this, the next five hundred fifty meters climbs sixty meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 2087,
+     "lat": 51.41206594040531,
+     "lon": -116.24017015144993,
+     "kind": "view",
+     "title": "Viewpoint",
+     "text": "You will see a viewpoint beside the path. After this, the next four hundred fifty meters is mostly level.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 2540,
+     "lat": 51.41518838750282,
+     "lon": -116.23620688124672,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is five hundred forty meters long and gains ninety meters. This climb tops out at 2070 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 2764,
+     "lat": 51.416440742398954,
+     "lon": -116.2374229224719,
+     "kind": "stream",
+     "title": "Lake Agnes Trail",
+     "text": "You will reach a bridge on the Lake Agnes Trail. The path crosses a stream.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 2942,
+     "lat": 51.41610784723084,
+     "lon": -116.23898239614722,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on the Lake Agnes Trail. The path straight ahead and the path on the right are not your route. Mirror Lake comes into view on your right. A viewpoint is on your left.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 3100,
+     "lat": 51.416893260878986,
+     "lon": -116.23961836956052,
+     "kind": "view",
+     "title": "Viewpoint",
+     "text": "You will see a viewpoint beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w15",
+     "at": 3260,
+     "lat": 51.41762891522041,
+     "lon": -116.239691001335,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is three hundred forty meters long and gains sixty meters. This climb tops out at 2155 meters. After this, the next three hundred ten meters climbs sixty meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w16",
+     "at": 3570,
+     "lat": 51.41693491867207,
+     "lon": -116.24363792898018,
+     "kind": "view",
+     "title": "Lake Agnes",
+     "text": "Lake Agnes comes into view on your right. A viewpoint is on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w17",
+     "at": 3665,
+     "lat": 51.416336369511555,
+     "lon": -116.24415189082309,
+     "kind": "steps",
+     "title": "The Big Beehive",
+     "text": "The Big Beehive is a summit on your left, about two hundred twenty meters off the path. A flight of steps starts here.",
+     "source": "gemma",
+     "issues": [
+      {
+       "type": "length",
+       "detail": "longer than 40 words",
+       "fixed": "trimmed"
+      }
+     ],
+     "original": "The Big Beehive is a summit on your left, about two hundred twenty meters off the path. A flight of steps starts here. It is about sixty meters long and climbs nine meters. Bridal Veil Falls is a waterfall beside the path."
+    },
+    {
+     "id": "w18",
+     "at": 3690,
+     "lat": 51.4164,
+     "lon": -116.24427,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "This is the end of the route. Kindness kills wilderness is an information board beside the path. Toilets are on your left.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start of the Lake Agnes Trail. There are toilets and an information board here. Fairview Bar & Restaurant is on your right. Lake Louise comes into view on your right.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Turn left. The path on the right is not your route. A drinking water tap is on your right. Louiza is a cafe on your right.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Turn right onto the Plain of Six Glaciers Trail. The Plain of the 6 Glaciers Trail is straight ahead and the path on the left is not your route. Live in the snow forest is on your left. A viewpoint is on your left.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Turn right on the Plain of Six Glaciers Trail. The path straight ahead is not your route. About 40 meters later, continue straight on the Plain of Six Glaciers Trail.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"You will see a viewpoint beside the path. A bench is beside the path. Continue straight on the Plain of Six Glaciers Trail. The path on the right is not your route.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"Keep left on the Plain of Six Glaciers Trail. The road on the right is not your route. A bench is beside the path.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"A steady climb starts here. It is one kilometer long and gains 140 meters. This climb tops out at 1903 meters.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"You will see a viewpoint on your left. Continue straight on the Lake Agnes Trail. The path on the left and the path on the right are not your route. The path leaves the trees and is open for about 630 meters. After this, the next kilometer climbs 140 meters.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"A steady climb starts here. It is seven hundred thirty meters long and gains seventy meters. This climb tops out at 1980 meters. After this, the next five hundred fifty meters climbs sixty meters.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"You will see a viewpoint beside the path. After this, the next four hundred fifty meters is mostly level.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"A steady climb starts here. It is five hundred forty meters long and gains ninety meters. This climb tops out at 2070 meters.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"You will reach a bridge on the Lake Agnes Trail. The path crosses a stream.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"Turn right on the Lake Agnes Trail. The path straight ahead and the path on the right are not your route. Mirror Lake comes into view on your right. A viewpoint is on your left.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"You will see a viewpoint beside the path.\"\n    },\n    {\n      \"waymark\": \"w15\",\n      \"text\": \"A steady climb starts here. It is three hundred forty meters long and gains sixty meters. This climb tops out at 2155 meters. After this, the next three hundred ten meters climbs sixty meters.\"\n    },\n    {\n      \"waymark\": \"w16\",\n      \"text\": \"Lake Agnes comes into view on your right. A viewpoint is on your right.\"\n    },\n    {\n      \"waymark\": \"w17\",\n      \"text\": \"The Big Beehive is a summit on your left, about two hundred twenty meters off the path. A flight of steps starts here. It is about sixty meters long and climbs nine meters. Bridal Veil Falls is a waterfall beside the path.\"\n    },\n    {\n      \"waymark\": \"w18\",\n      \"text\": \"This is the end of the route. Kindness kills wilderness is an information board beside the path. Toilets are on your left.\"\n    }\n  ],\n  \"briefing\": \"This trail is about three and a half kilometers one way with a total climb of about four hundred meters. The steepest sustained climb is thirty-four hundred meters at about eighteen percent. The route features several steady climbs, including sections topping out around two thousand one hundred fifty-five meters. Highlights include views of Lake Louise and Mirror Lake, and a summit nearby.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "lake-agnes",
+    "trailName": "Lake Agnes Trail",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:32.986Z",
+    "briefing": "This trail is about three and a half kilometers one way with a total climb of about four hundred meters. The route features several steady climbs, including sections topping out around two thousand one hundred fifty-five meters. Highlights include views of Lake Louise and Mirror Lake, and a summit nearby.",
+    "briefingOriginal": "This trail is about three and a half kilometers one way with a total climb of about four hundred meters. The steepest sustained climb is thirty-four hundred meters at about eighteen percent. The route features several steady climbs, including sections topping out around two thousand one hundred fifty-five meters. Highlights include views of Lake Louise and Mirror Lake, and a summit nearby.",
+    "briefingIssues": [
+     {
+      "type": "number",
+      "detail": "\"3400 meters\" is not in the facts",
+      "fixed": "removed"
+     }
+    ],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 51.41757,
+      "lon": -116.21665,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start of the Lake Agnes Trail. There are toilets and an information board here. Fairview Bar & Restaurant is on your right. Lake Louise comes into view on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 60,
+      "lat": 51.417099988521855,
+      "lon": -116.2165400536794,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. The path on the right is not your route. A drinking water tap is on your right. Louiza is a cafe on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 104,
+      "lat": 51.41681229172608,
+      "lon": -116.21619400359377,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right onto the Plain of Six Glaciers Trail. The Plain of the 6 Glaciers Trail is straight ahead and the path on the left is not your route.",
+      "source": "gemma",
+      "issues": [
+       {
+        "type": "length",
+        "detail": "longer than 40 words",
+        "fixed": "trimmed"
+       }
+      ],
+      "original": "Turn right onto the Plain of Six Glaciers Trail. The Plain of the 6 Glaciers Trail is straight ahead and the path on the left is not your route. Live in the snow forest is on your left. A viewpoint is on your left."
+     },
+     {
+      "id": "w4",
+      "at": 177,
+      "lat": 51.41653223521387,
+      "lon": -116.2170898684859,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on the Plain of Six Glaciers Trail. The path straight ahead is not your route. About 40 meters later, continue straight on the Plain of Six Glaciers Trail.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 294,
+      "lat": 51.41716168179133,
+      "lon": -116.21838689732863,
+      "kind": "rest",
+      "title": "Viewpoint",
+      "text": "You will see a viewpoint beside the path. A bench is beside the path. Continue straight on the Plain of Six Glaciers Trail. The path on the right is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 360,
+      "lat": 51.41737607588438,
+      "lon": -116.21923888704603,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left on the Plain of Six Glaciers Trail. The road on the right is not your route. A bench is beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 430,
+      "lat": 51.41751856034064,
+      "lon": -116.22017032465536,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is one kilometer long and gains 140 meters. This climb tops out at 1903 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 512,
+      "lat": 51.41768412350205,
+      "lon": -116.22132057218181,
+      "kind": "view",
+      "title": "Viewpoint",
+      "text": "You will see a viewpoint on your left. Continue straight on the Lake Agnes Trail.",
+      "source": "gemma",
+      "issues": [
+       {
+        "type": "length",
+        "detail": "longer than 40 words",
+        "fixed": "trimmed"
+       }
+      ],
+      "original": "You will see a viewpoint on your left. Continue straight on the Lake Agnes Trail. The path on the left and the path on the right are not your route. The path leaves the trees and is open for about 630 meters. After this, the next kilometer climbs 140 meters."
+     },
+     {
+      "id": "w9",
+      "at": 1540,
+      "lat": 51.414444485049536,
+      "lon": -116.23427085375857,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is seven hundred thirty meters long and gains seventy meters. This climb tops out at 1980 meters. After this, the next five hundred fifty meters climbs sixty meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 2087,
+      "lat": 51.41206594040531,
+      "lon": -116.24017015144993,
+      "kind": "view",
+      "title": "Viewpoint",
+      "text": "You will see a viewpoint beside the path. After this, the next four hundred fifty meters is mostly level.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 2540,
+      "lat": 51.41518838750282,
+      "lon": -116.23620688124672,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is five hundred forty meters long and gains ninety meters. This climb tops out at 2070 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 2764,
+      "lat": 51.416440742398954,
+      "lon": -116.2374229224719,
+      "kind": "stream",
+      "title": "Lake Agnes Trail",
+      "text": "You will reach a bridge on the Lake Agnes Trail. The path crosses a stream.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 2942,
+      "lat": 51.41610784723084,
+      "lon": -116.23898239614722,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on the Lake Agnes Trail. The path straight ahead and the path on the right are not your route. Mirror Lake comes into view on your right. A viewpoint is on your left.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 3100,
+      "lat": 51.416893260878986,
+      "lon": -116.23961836956052,
+      "kind": "view",
+      "title": "Viewpoint",
+      "text": "You will see a viewpoint beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w15",
+      "at": 3260,
+      "lat": 51.41762891522041,
+      "lon": -116.239691001335,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is three hundred forty meters long and gains sixty meters. This climb tops out at 2155 meters. After this, the next three hundred ten meters climbs sixty meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w16",
+      "at": 3570,
+      "lat": 51.41693491867207,
+      "lon": -116.24363792898018,
+      "kind": "view",
+      "title": "Lake Agnes",
+      "text": "Lake Agnes comes into view on your right. A viewpoint is on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w17",
+      "at": 3665,
+      "lat": 51.416336369511555,
+      "lon": -116.24415189082309,
+      "kind": "steps",
+      "title": "The Big Beehive",
+      "text": "The Big Beehive is a summit on your left, about two hundred twenty meters off the path. A flight of steps starts here.",
+      "source": "gemma",
+      "issues": [
+       {
+        "type": "length",
+        "detail": "longer than 40 words",
+        "fixed": "trimmed"
+       }
+      ],
+      "original": "The Big Beehive is a summit on your left, about two hundred twenty meters off the path. A flight of steps starts here. It is about sixty meters long and climbs nine meters. Bridal Veil Falls is a waterfall beside the path."
+     },
+     {
+      "id": "w18",
+      "at": 3690,
+      "lat": 51.4164,
+      "lon": -116.24427,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "This is the end of the route. Kindness kills wilderness is an information board beside the path. Toilets are on your left.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 18,
+     "required": 7,
+     "modelCues": 18,
+     "cleanCues": 15,
+     "repairedCues": 3,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 7,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 3,
+      "empty": 0
+     },
+     "ms": 14149,
+     "promptTokens": 1232,
+     "outputTokens": 1114,
+     "decodeTps": 81.3,
+     "prefillTps": 2843
+    }
+   }
+  },
+  {
+   "id": "triund",
+   "lengthM": 4935,
+   "waymarks": 11,
+   "stats": {
+    "mode": "free",
+    "waymarks": 11,
+    "required": 3,
+    "modelCues": 11,
+    "cleanCues": 11,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 3,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 8322,
+    "promptTokens": 997,
+    "outputTokens": 647,
+    "decodeTps": 80.7,
+    "prefillTps": 3327
+   },
+   "briefing": "This route is about 4.9 kilometers one way with a total climb of 780 meters. Expect a steady climb with a steepest sustained climb of 1.6 kilometers at about 20%. The highest point is 2813 meters. Highlights include viewpoints and cafes along the way.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 32.25464,
+     "lon": 76.32582,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start the steady climb here. The path is 500 meters long and gains 80 meters. A cafe is on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 70,
+     "lat": 32.25497557199413,
+     "lon": 76.32641602958942,
+     "kind": "view",
+     "title": "Viewpoint",
+     "text": "Look to your left for a viewpoint about 50 meters off the path. A cafe is also on your left.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 1420,
+     "lat": 32.25271720047076,
+     "lon": 76.33625373270564,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "Begin a steady climb here. This section is 0.9 kilometers long and gains 120 meters. It tops out at 2377 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 1583,
+     "lat": 32.25210961658239,
+     "lon": 76.33747690925038,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left onto the Triund Hill Trail. The Triund Hill Trail 2 is on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 1737,
+     "lat": 32.252514046933804,
+     "lon": 76.33893172277043,
+     "kind": "rest",
+     "title": "Cafe moon peak & store",
+     "text": "Stop at the cafe moon peak & store beside the path. After this, the next 410 meters climbs 50 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 2147,
+     "lat": 32.25575984390011,
+     "lon": 76.33957188265417,
+     "kind": "rest",
+     "title": "Sharma store",
+     "text": "Find the Sharma store on your right. After this, the next 490 meters climbs 60 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 2640,
+     "lat": 32.25587022567769,
+     "lon": 76.34268909728925,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "Start a steady climb here. This section is 560 meters long and gains 100 meters. A viewpoint is beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 2693,
+     "lat": 32.25568366334206,
+     "lon": 76.34310990164441,
+     "kind": "rest",
+     "title": "Halfway food point",
+     "text": "Stop at the halfway food point beside the path. A cafe is on your left. After this, the next 540 meters climbs 100 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w9",
+     "at": 3230,
+     "lat": 32.25953278033002,
+     "lon": 76.34487962622664,
+     "kind": "stream",
+     "title": "Climb starts",
+     "text": "Begin a steady climb here. This section is 1.6 kilometers long and gains 320 meters. The path crosses Souli Khad.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 3978,
+     "lat": 32.262277679276394,
+     "lon": 76.3487067000806,
+     "kind": "rest",
+     "title": "Praveen Tea Stall",
+     "text": "Stop at the Praveen Tea Stall beside the path. The path crosses a stream. After this, the next 1.0 kilometer climbs 180 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 4935,
+     "lat": 32.26145,
+     "lon": 76.35459,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "This is the end of the route. Anil's Store is on your right, and Trimund is on your left.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start the steady climb here. The path is 500 meters long and gains 80 meters. A cafe is on your right.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Look to your left for a viewpoint about 50 meters off the path. A cafe is also on your left.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Begin a steady climb here. This section is 0.9 kilometers long and gains 120 meters. It tops out at 2377 meters.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Turn left onto the Triund Hill Trail. The Triund Hill Trail 2 is on your right.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Stop at the cafe moon peak & store beside the path. After this, the next 410 meters climbs 50 meters.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"Find the Sharma store on your right. After this, the next 490 meters climbs 60 meters.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"Start a steady climb here. This section is 560 meters long and gains 100 meters. A viewpoint is beside the path.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"Stop at the halfway food point beside the path. A cafe is on your left. After this, the next 540 meters climbs 100 meters.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"Begin a steady climb here. This section is 1.6 kilometers long and gains 320 meters. The path crosses Souli Khad.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"Stop at the Praveen Tea Stall beside the path. The path crosses a stream. After this, the next 1.0 kilometer climbs 180 meters.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"This is the end of the route. Anil's Store is on your right, and Trimund is on your left.\"\n    }\n  ],\n  \"briefing\": \"This route is about 4.9 kilometers one way with a total climb of 780 meters. Expect a steady climb with a steepest sustained climb of 1.6 kilometers at about 20%. The highest point is 2813 meters. Highlights include viewpoints and cafes along the way.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "triund",
+    "trailName": "Galu Devi to Triund",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.018Z",
+    "briefing": "This route is about 4.9 kilometers one way with a total climb of 780 meters. Expect a steady climb with a steepest sustained climb of 1.6 kilometers at about 20%. The highest point is 2813 meters. Highlights include viewpoints and cafes along the way.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 32.25464,
+      "lon": 76.32582,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start the steady climb here. The path is 500 meters long and gains 80 meters. A cafe is on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 70,
+      "lat": 32.25497557199413,
+      "lon": 76.32641602958942,
+      "kind": "view",
+      "title": "Viewpoint",
+      "text": "Look to your left for a viewpoint about 50 meters off the path. A cafe is also on your left.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 1420,
+      "lat": 32.25271720047076,
+      "lon": 76.33625373270564,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "Begin a steady climb here. This section is 0.9 kilometers long and gains 120 meters. It tops out at 2377 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 1583,
+      "lat": 32.25210961658239,
+      "lon": 76.33747690925038,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left onto the Triund Hill Trail. The Triund Hill Trail 2 is on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 1737,
+      "lat": 32.252514046933804,
+      "lon": 76.33893172277043,
+      "kind": "rest",
+      "title": "Cafe moon peak & store",
+      "text": "Stop at the cafe moon peak & store beside the path. After this, the next 410 meters climbs 50 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 2147,
+      "lat": 32.25575984390011,
+      "lon": 76.33957188265417,
+      "kind": "rest",
+      "title": "Sharma store",
+      "text": "Find the Sharma store on your right. After this, the next 490 meters climbs 60 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 2640,
+      "lat": 32.25587022567769,
+      "lon": 76.34268909728925,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "Start a steady climb here. This section is 560 meters long and gains 100 meters. A viewpoint is beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 2693,
+      "lat": 32.25568366334206,
+      "lon": 76.34310990164441,
+      "kind": "rest",
+      "title": "Halfway food point",
+      "text": "Stop at the halfway food point beside the path. A cafe is on your left. After this, the next 540 meters climbs 100 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w9",
+      "at": 3230,
+      "lat": 32.25953278033002,
+      "lon": 76.34487962622664,
+      "kind": "stream",
+      "title": "Climb starts",
+      "text": "Begin a steady climb here. This section is 1.6 kilometers long and gains 320 meters. The path crosses Souli Khad.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 3978,
+      "lat": 32.262277679276394,
+      "lon": 76.3487067000806,
+      "kind": "rest",
+      "title": "Praveen Tea Stall",
+      "text": "Stop at the Praveen Tea Stall beside the path. The path crosses a stream. After this, the next 1.0 kilometer climbs 180 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 4935,
+      "lat": 32.26145,
+      "lon": 76.35459,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "This is the end of the route. Anil's Store is on your right, and Trimund is on your left.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 11,
+     "required": 3,
+     "modelCues": 11,
+     "cleanCues": 11,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 3,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 8322,
+     "promptTokens": 997,
+     "outputTokens": 647,
+     "decodeTps": 80.7,
+     "prefillTps": 3327
+    }
+   }
+  },
+  {
+   "id": "pen-y-fan",
+   "lengthM": 6927,
+   "waymarks": 15,
+   "stats": {
+    "mode": "free",
+    "waymarks": 15,
+    "required": 14,
+    "modelCues": 15,
+    "cleanCues": 15,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 14,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 10492,
+    "promptTokens": 1146,
+    "outputTokens": 792,
+    "decodeTps": 78.3,
+    "prefillTps": 3114
+   },
+   "briefing": "This is a 6.9 km loop with about 440 meters of climbing in total. The steepest sustained climb is 1.6 km at about 18% gain. The walk features a descent and a steady climb. Highlights include reaching Corn Du and Pen y Fan.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 51.8802618,
+     "lon": -3.4652075,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start the walk here. The path crosses a stream. After this, the next 1.2 km climbs 190 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 1222,
+     "lat": 51.88288882739808,
+     "lon": -3.448138672069217,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The path on the left is not your route. After this, the next 340 m climbs 90 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 1562,
+     "lat": 51.88155714904002,
+     "lon": -3.443775354427902,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. The path on the right is not your route. Corn Du is a summit beside the path, 873 m high.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 1880,
+     "lat": 51.8825248076983,
+     "lon": -3.439693974450929,
+     "kind": "turn",
+     "title": "Turn sharp right",
+     "text": "Turn sharp right. The path straight ahead is not your route. Pen y Fan is a summit on your left.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 2360,
+     "lat": 51.879232111257416,
+     "lon": -3.4440472226165233,
+     "kind": "descent",
+     "title": "Steep descent",
+     "text": "A descent starts here. The path is 2.3 km long and drops 370 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 2483,
+     "lat": 51.87845516495266,
+     "lon": -3.445302829421367,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The path straight ahead and the path on the right are not your route. After this, the next 2.1 km drops 350 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 4609,
+     "lat": 51.86812685330615,
+     "lon": -3.4701683617043395,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The path straight ahead is not your route. There is a bridge. The path crosses Blaen Taf Fawr.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 4702,
+     "lat": 51.86799948619551,
+     "lon": -3.471292082538547,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Continue straight. The path on the left is not your route. About 30 m later, turn right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w9",
+     "at": 4771,
+     "lat": 51.868528571308104,
+     "lon": -3.4717344421650456,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. The road on the right is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 4911,
+     "lat": 51.86940323523932,
+     "lon": -3.4729884978628016,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. The road straight ahead is not your route. The path enters woodland for about 480 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 5427,
+     "lat": 51.87197756808618,
+     "lon": -3.478644005816539,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. The road on the left is not your route. The path leaves the trees and is open for about 1.5 km.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 5520,
+     "lat": 51.872234135012256,
+     "lon": -3.479767868550845,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. A steady climb starts here. The path is 930 m long and gains 150 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 5665,
+     "lat": 51.873320078470734,
+     "lon": -3.478810207922137,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The path straight ahead and the path on the right are not your route. After this, the next 1.2 km climbs 120 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 6828,
+     "lat": 51.88003157009904,
+     "lon": -3.4664336718424265,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The path on the left and the path on the right are not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w15",
+     "at": 6927,
+     "lat": 51.8802619,
+     "lon": -3.4652152,
+     "kind": "finish",
+     "title": "Back at the start",
+     "text": "Back at the start. The walk is complete.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start the walk here. The path crosses a stream. After this, the next 1.2 km climbs 190 m.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Keep right. The path on the left is not your route. After this, the next 340 m climbs 90 m.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Turn left. The path on the right is not your route. Corn Du is a summit beside the path, 873 m high.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Turn sharp right. The path straight ahead is not your route. Pen y Fan is a summit on your left.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"A descent starts here. The path is 2.3 km long and drops 370 m.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"Keep right. The path straight ahead and the path on the right are not your route. After this, the next 2.1 km drops 350 m.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"Keep right. The path straight ahead is not your route. There is a bridge. The path crosses Blaen Taf Fawr.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"Continue straight. The path on the left is not your route. About 30 m later, turn right.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"Turn left. The road on the right is not your route.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"Turn right. The road straight ahead is not your route. The path enters woodland for about 480 m.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"Turn right. The road on the left is not your route. The path leaves the trees and is open for about 1.5 km.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"Turn right. A steady climb starts here. The path is 930 m long and gains 150 m.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"Keep right. The path straight ahead and the path on the right are not your route. After this, the next 1.2 km climbs 120 m.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"Keep right. The path on the left and the path on the right are not your route.\"\n    },\n    {\n      \"waymark\": \"w15\",\n      \"text\": \"Back at the start. The walk is complete.\"\n    }\n  ],\n  \"briefing\": \"This is a 6.9 km loop with about 440 meters of climbing in total. The steepest sustained climb is 1.6 km at about 18% gain. The walk features a descent and a steady climb. Highlights include reaching Corn Du and Pen y Fan.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "pen-y-fan",
+    "trailName": "Pen y Fan and Corn Du Circular Walk, East Wales",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.069Z",
+    "briefing": "This is a 6.9 km loop with about 440 meters of climbing in total. The steepest sustained climb is 1.6 km at about 18% gain. The walk features a descent and a steady climb. Highlights include reaching Corn Du and Pen y Fan.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 51.8802618,
+      "lon": -3.4652075,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start the walk here. The path crosses a stream. After this, the next 1.2 km climbs 190 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 1222,
+      "lat": 51.88288882739808,
+      "lon": -3.448138672069217,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The path on the left is not your route. After this, the next 340 m climbs 90 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 1562,
+      "lat": 51.88155714904002,
+      "lon": -3.443775354427902,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. The path on the right is not your route. Corn Du is a summit beside the path, 873 m high.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 1880,
+      "lat": 51.8825248076983,
+      "lon": -3.439693974450929,
+      "kind": "turn",
+      "title": "Turn sharp right",
+      "text": "Turn sharp right. The path straight ahead is not your route. Pen y Fan is a summit on your left.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 2360,
+      "lat": 51.879232111257416,
+      "lon": -3.4440472226165233,
+      "kind": "descent",
+      "title": "Steep descent",
+      "text": "A descent starts here. The path is 2.3 km long and drops 370 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 2483,
+      "lat": 51.87845516495266,
+      "lon": -3.445302829421367,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The path straight ahead and the path on the right are not your route. After this, the next 2.1 km drops 350 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 4609,
+      "lat": 51.86812685330615,
+      "lon": -3.4701683617043395,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The path straight ahead is not your route. There is a bridge. The path crosses Blaen Taf Fawr.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 4702,
+      "lat": 51.86799948619551,
+      "lon": -3.471292082538547,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Continue straight. The path on the left is not your route. About 30 m later, turn right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w9",
+      "at": 4771,
+      "lat": 51.868528571308104,
+      "lon": -3.4717344421650456,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. The road on the right is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 4911,
+      "lat": 51.86940323523932,
+      "lon": -3.4729884978628016,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. The road straight ahead is not your route. The path enters woodland for about 480 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 5427,
+      "lat": 51.87197756808618,
+      "lon": -3.478644005816539,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. The road on the left is not your route. The path leaves the trees and is open for about 1.5 km.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 5520,
+      "lat": 51.872234135012256,
+      "lon": -3.479767868550845,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. A steady climb starts here. The path is 930 m long and gains 150 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 5665,
+      "lat": 51.873320078470734,
+      "lon": -3.478810207922137,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The path straight ahead and the path on the right are not your route. After this, the next 1.2 km climbs 120 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 6828,
+      "lat": 51.88003157009904,
+      "lon": -3.4664336718424265,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The path on the left and the path on the right are not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w15",
+      "at": 6927,
+      "lat": 51.8802619,
+      "lon": -3.4652152,
+      "kind": "finish",
+      "title": "Back at the start",
+      "text": "Back at the start. The walk is complete.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 15,
+     "required": 14,
+     "modelCues": 15,
+     "cleanCues": 15,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 14,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 10492,
+     "promptTokens": 1146,
+     "outputTokens": 792,
+     "decodeTps": 78.3,
+     "prefillTps": 3114
+    }
+   }
+  },
+  {
+   "id": "llanberis",
+   "lengthM": 6961,
+   "waymarks": 15,
+   "stats": {
+    "mode": "free",
+    "waymarks": 15,
+    "required": 9,
+    "modelCues": 15,
+    "cleanCues": 15,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 9,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 11421,
+    "promptTokens": 1172,
+    "outputTokens": 877,
+    "decodeTps": 79.5,
+    "prefillTps": 3071
+   },
+   "briefing": "This trail is a challenging climb with a total of 930 meters of ascent. The steepest sustained climb is 3.2 km at about 16%. The route culminates at Yr Wyddfa, the highest point at 1041 m. Be prepared for significant climbing over the course of the walk.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 53.11363,
+     "lon": -4.12169,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start the steady climb here. This section is 1.8 km long and gains 240 m. After this, the next 340 m climbs 40 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 340,
+     "lat": 53.111665266179315,
+     "lon": -4.124460323744422,
+     "kind": "view",
+     "title": "Rhaeadr Llanberis",
+     "text": "Look to your right for a waterfall. A viewpoint is about 100 m off the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 361,
+     "lat": 53.111481727141154,
+     "lon": -4.124513878913046,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. The path on the left is not your route. A cafe is beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 519,
+     "lat": 53.110301845420224,
+     "lon": -4.123469626512138,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left. The path on the right is not your route. After this, the next 340 m climbs 40 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 862,
+     "lat": 53.108676919733426,
+     "lon": -4.1205148591563185,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left onto Llanberis Path. The road straight ahead is not your route. After this, the next 1.2 km climbs 140 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 2055,
+     "lat": 53.102136931865395,
+     "lon": -4.107803264915746,
+     "kind": "stream",
+     "title": "Llanberis Path",
+     "text": "You will reach a bridge on the Llanberis Path. The path crosses a stream.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 2150,
+     "lat": 53.1016235724735,
+     "lon": -4.1067053138714655,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. This section is 640 m long and gains 70 m. After this, the next 740 m climbs 80 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 2890,
+     "lat": 53.097013492748225,
+     "lon": -4.099308995165482,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. This section is 3.2 km long and gains 520 m. After this, the next 1.6 km climbs 190 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w9",
+     "at": 4504,
+     "lat": 53.085359064069316,
+     "lon": -4.086573987105195,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on Llanberis Path. The path straight ahead is not your route. After this, the next 480 m climbs 120 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 4985,
+     "lat": 53.08334184029549,
+     "lon": -4.080426475419913,
+     "kind": "view",
+     "title": "Viewpoint",
+     "text": "Look to your left for a viewpoint. It is about 100 m off the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 5063,
+     "lat": 53.08334145571062,
+     "lon": -4.079300933951835,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on Llanberis Path. The path on the left is not your route. After this, the next 1.3 km climbs 220 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 6372,
+     "lat": 53.07274978278335,
+     "lon": -4.079633973909807,
+     "kind": "note",
+     "title": "Straight on",
+     "text": "Continue straight onto Llanberis Path. Llanberis Path on the left is not your route. Bwlch Glâs is a saddle beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 6480,
+     "lat": 53.07179278867132,
+     "lon": -4.079552788671319,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. This section is 480 m long and gains 80 m. After this, the next 410 m climbs 70 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 6892,
+     "lat": 53.06868752822357,
+     "lon": -4.076741989867521,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. The road straight ahead is not your route. A flight of steps starts here and climbs 9 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w15",
+     "at": 6961,
+     "lat": 53.0685,
+     "lon": -4.07623,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "This is the end of the route. Toilets are on your right. Yr Wyddfa is a summit beside the path.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start the steady climb here. This section is 1.8 km long and gains 240 m. After this, the next 340 m climbs 40 m.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Look to your right for a waterfall. A viewpoint is about 100 m off the path.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Turn left. The path on the left is not your route. A cafe is beside the path.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Keep left. The path on the right is not your route. After this, the next 340 m climbs 40 m.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Turn left onto Llanberis Path. The road straight ahead is not your route. After this, the next 1.2 km climbs 140 m.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"You will reach a bridge on the Llanberis Path. The path crosses a stream.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"A steady climb starts here. This section is 640 m long and gains 70 m. After this, the next 740 m climbs 80 m.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"A steady climb starts here. This section is 3.2 km long and gains 520 m. After this, the next 1.6 km climbs 190 m.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"Turn left on Llanberis Path. The path straight ahead is not your route. After this, the next 480 m climbs 120 m.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"Look to your left for a viewpoint. It is about 100 m off the path.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"Turn right on Llanberis Path. The path on the left is not your route. After this, the next 1.3 km climbs 220 m.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"Continue straight onto Llanberis Path. Llanberis Path on the left is not your route. Bwlch Glâs is a saddle beside the path.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"A steady climb starts here. This section is 480 m long and gains 80 m. After this, the next 410 m climbs 70 m.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"Turn left. The road straight ahead is not your route. A flight of steps starts here and climbs 9 m.\"\n    },\n    {\n      \"waymark\": \"w15\",\n      \"text\": \"This is the end of the route. Toilets are on your right. Yr Wyddfa is a summit beside the path.\"\n    }\n  ],\n  \"briefing\": \"This trail is a challenging climb with a total of 930 meters of ascent. The steepest sustained climb is 3.2 km at about 16%. The route culminates at Yr Wyddfa, the highest point at 1041 m. Be prepared for significant climbing over the course of the walk.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "llanberis",
+    "trailName": "Llanberis Path to Yr Wyddfa",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.212Z",
+    "briefing": "This trail is a challenging climb with a total of 930 meters of ascent. The steepest sustained climb is 3.2 km at about 16%. The route culminates at Yr Wyddfa, the highest point at 1041 m. Be prepared for significant climbing over the course of the walk.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 53.11363,
+      "lon": -4.12169,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start the steady climb here. This section is 1.8 km long and gains 240 m. After this, the next 340 m climbs 40 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 340,
+      "lat": 53.111665266179315,
+      "lon": -4.124460323744422,
+      "kind": "view",
+      "title": "Rhaeadr Llanberis",
+      "text": "Look to your right for a waterfall. A viewpoint is about 100 m off the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 361,
+      "lat": 53.111481727141154,
+      "lon": -4.124513878913046,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. The path on the left is not your route. A cafe is beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 519,
+      "lat": 53.110301845420224,
+      "lon": -4.123469626512138,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left. The path on the right is not your route. After this, the next 340 m climbs 40 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 862,
+      "lat": 53.108676919733426,
+      "lon": -4.1205148591563185,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left onto Llanberis Path. The road straight ahead is not your route. After this, the next 1.2 km climbs 140 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 2055,
+      "lat": 53.102136931865395,
+      "lon": -4.107803264915746,
+      "kind": "stream",
+      "title": "Llanberis Path",
+      "text": "You will reach a bridge on the Llanberis Path. The path crosses a stream.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 2150,
+      "lat": 53.1016235724735,
+      "lon": -4.1067053138714655,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. This section is 640 m long and gains 70 m. After this, the next 740 m climbs 80 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 2890,
+      "lat": 53.097013492748225,
+      "lon": -4.099308995165482,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. This section is 3.2 km long and gains 520 m. After this, the next 1.6 km climbs 190 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w9",
+      "at": 4504,
+      "lat": 53.085359064069316,
+      "lon": -4.086573987105195,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on Llanberis Path. The path straight ahead is not your route. After this, the next 480 m climbs 120 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 4985,
+      "lat": 53.08334184029549,
+      "lon": -4.080426475419913,
+      "kind": "view",
+      "title": "Viewpoint",
+      "text": "Look to your left for a viewpoint. It is about 100 m off the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 5063,
+      "lat": 53.08334145571062,
+      "lon": -4.079300933951835,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on Llanberis Path. The path on the left is not your route. After this, the next 1.3 km climbs 220 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 6372,
+      "lat": 53.07274978278335,
+      "lon": -4.079633973909807,
+      "kind": "note",
+      "title": "Straight on",
+      "text": "Continue straight onto Llanberis Path. Llanberis Path on the left is not your route. Bwlch Glâs is a saddle beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 6480,
+      "lat": 53.07179278867132,
+      "lon": -4.079552788671319,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. This section is 480 m long and gains 80 m. After this, the next 410 m climbs 70 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 6892,
+      "lat": 53.06868752822357,
+      "lon": -4.076741989867521,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. The road straight ahead is not your route. A flight of steps starts here and climbs 9 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w15",
+      "at": 6961,
+      "lat": 53.0685,
+      "lon": -4.07623,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "This is the end of the route. Toilets are on your right. Yr Wyddfa is a summit beside the path.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 15,
+     "required": 9,
+     "modelCues": 15,
+     "cleanCues": 15,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 9,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 11421,
+     "promptTokens": 1172,
+     "outputTokens": 877,
+     "decodeTps": 79.5,
+     "prefillTps": 3071
+    }
+   }
+  },
+  {
+   "id": "dipsea",
+   "lengthM": 11629,
+   "waymarks": 22,
+   "stats": {
+    "mode": "free",
+    "waymarks": 22,
+    "required": 22,
+    "modelCues": 22,
+    "cleanCues": 22,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 22,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 16018,
+    "promptTokens": 1508,
+    "outputTokens": 1256,
+    "decodeTps": 80.7,
+    "prefillTps": 3325
+   },
+   "briefing": "This trail is about 11.6 kilometers one way with a total climb of about 630 meters. The steepest sustained climb is 670 meters, gaining 130 meters on average. The route features several climbs and descents, with a significant drop of 230 meters on one section. The highlights include navigating junctions and encountering creek crossings.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 37.90501,
+     "lon": -122.55297,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start the Dipsea Trail. A drinking water tap is on your right, about 50 meters off the path. A steady climb begins here.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 87,
+     "lat": 37.90496483203552,
+     "lon": -122.55386969728252,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left onto Cascade Way. Cascade Drive is straight ahead and Molino Avenue is on the left. The path crosses Old Mill Creek at a bridge, SLP 22.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 280,
+     "lat": 37.903837276688705,
+     "lon": -122.55516181917218,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right onto Millside Lane. Millside Lane on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 350,
+     "lat": 37.90426686990681,
+     "lon": -122.55555313009317,
+     "kind": "turn",
+     "title": "Turn sharp left",
+     "text": "Turn sharp left onto Marion Avenue. Marion Avenue straight ahead is not your route. A flight of steps starts here.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 484,
+     "lat": 37.903467237713656,
+     "lon": -122.55664606323819,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left onto Hazel Avenue. Hazel Avenue on the right is not your route. About 40 meters later, turn right onto Hale Lane SLP 28.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 600,
+     "lat": 37.9026221499595,
+     "lon": -122.55691167219072,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right onto Edgewood Avenue. The road on the left and Cowboy Rock Trail on the left and Sequoia Valley Road straight ahead and Edgewood Avenue on the left are not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 764,
+     "lat": 37.902347571796206,
+     "lon": -122.55854914375686,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. The path on the left is not your route. A steady climb begins here.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 995,
+     "lat": 37.90063556644773,
+     "lon": -122.55940387055445,
+     "kind": "fork",
+     "title": "Turn left",
+     "text": "Keep right on Walsh Drive. The road on the right is not your route. About 40 meters later, turn left onto Dipsea Trail.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w9",
+     "at": 1477,
+     "lat": 37.89686781998414,
+     "lon": -122.56041500220707,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right onto Panoramic Highway. Panoramic Highway on the left is not your route. About 50 meters later, turn left onto Sun Trail.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 1646,
+     "lat": 37.89735769694233,
+     "lon": -122.56198977051585,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on Sun Trail. The path on the right is not your route. The path crosses a stream at a bridge, Sun Trail. After this, the next 1.1 km drops 120 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 2708,
+     "lat": 37.891936057363864,
+     "lon": -122.56653759395964,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on Dipsea Trail. The path straight ahead is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 3000,
+     "lat": 37.89174765084227,
+     "lon": -122.56800391526288,
+     "kind": "turn",
+     "title": "Turn sharp right",
+     "text": "Turn sharp right on Dipsea Trail. The path on the left is not your route. After this, the next 680 m climbs 90 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 3677,
+     "lat": 37.88970432795474,
+     "lon": -122.57351672747205,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on Dipsea Trail. Deer Park Fire Road straight ahead and Deer Park Fire Road on the left are not your route. After this, the next 390 m climbs 50 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 4063,
+     "lat": 37.89042729448294,
+     "lon": -122.57760135837853,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right onto Deer Park Fire Road. Deer Park Fire Road on the left is not your route. After this, the next 360 m climbs 30 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w15",
+     "at": 4418,
+     "lat": 37.89184163060603,
+     "lon": -122.58111662772022,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left onto Deer Park Fire Road. Deer Park Fire Road on the right is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w16",
+     "at": 4685,
+     "lat": 37.89304515511952,
+     "lon": -122.58368563443148,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right onto Deer Park Fire Road. Deer Park Fire Road on the left and Dipsea Trail straight ahead are not your route. After this, the next 1.4 km climbs 100 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w17",
+     "at": 6041,
+     "lat": 37.89814376918925,
+     "lon": -122.59690319512299,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on Dipsea Trail. Deer Park Fire Road on the right is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w18",
+     "at": 6182,
+     "lat": 37.89794318628981,
+     "lon": -122.59835814714758,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on Dipsea Trail. Redwood Creek Trail straight ahead is not your route. After this, the next 1.1 km climbs 60 m and drops 30 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w19",
+     "at": 7257,
+     "lat": 37.8939157770002,
+     "lon": -122.60779045105592,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on Dipsea Trail. The path straight ahead is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w20",
+     "at": 7464,
+     "lat": 37.89345329311161,
+     "lon": -122.60897656566335,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on Dipsea Trail. The path on the right is not your route. A descent starts here. It is 1.6 km long and drops 230 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w21",
+     "at": 7931,
+     "lat": 37.8923742678191,
+     "lon": -122.613619465754,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on Dipsea Trail. The path straight ahead is not your route. After this, the next 1.2 km drops 190 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w22",
+     "at": 9148,
+     "lat": 37.89123560538614,
+     "lon": -122.62158259622713,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right onto Dipsea Trail. Steep Ravine Trail on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start the Dipsea Trail. A drinking water tap is on your right, about 50 meters off the path. A steady climb begins here.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Keep left onto Cascade Way. Cascade Drive is straight ahead and Molino Avenue is on the left. The path crosses Old Mill Creek at a bridge, SLP 22.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Turn right onto Millside Lane. Millside Lane on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Turn sharp left onto Marion Avenue. Marion Avenue straight ahead is not your route. A flight of steps starts here.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Turn left onto Hazel Avenue. Hazel Avenue on the right is not your route. About 40 meters later, turn right onto Hale Lane SLP 28.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"Turn right onto Edgewood Avenue. The road on the left and Cowboy Rock Trail on the left and Sequoia Valley Road straight ahead and Edgewood Avenue on the left are not your route.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"Turn left. The path on the left is not your route. A steady climb begins here.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"Keep right on Walsh Drive. The road on the right is not your route. About 40 meters later, turn left onto Dipsea Trail.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"Turn right onto Panoramic Highway. Panoramic Highway on the left is not your route. About 50 meters later, turn left onto Sun Trail.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"Turn left on Sun Trail. The path on the right is not your route. The path crosses a stream at a bridge, Sun Trail. After this, the next 1.1 km drops 120 m.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"Turn right on Dipsea Trail. The path straight ahead is not your route.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"Turn sharp right on Dipsea Trail. The path on the left is not your route. After this, the next 680 m climbs 90 m.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"Turn right on Dipsea Trail. Deer Park Fire Road straight ahead and Deer Park Fire Road on the left are not your route. After this, the next 390 m climbs 50 m.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"Keep right onto Deer Park Fire Road. Deer Park Fire Road on the left is not your route. After this, the next 360 m climbs 30 m.\"\n    },\n    {\n      \"waymark\": \"w15\",\n      \"text\": \"Keep left onto Deer Park Fire Road. Deer Park Fire Road on the right is not your route.\"\n    },\n    {\n      \"waymark\": \"w16\",\n      \"text\": \"Keep right onto Deer Park Fire Road. Deer Park Fire Road on the left and Dipsea Trail straight ahead are not your route. After this, the next 1.4 km climbs 100 m.\"\n    },\n    {\n      \"waymark\": \"w17\",\n      \"text\": \"Turn left on Dipsea Trail. Deer Park Fire Road on the right is not your route.\"\n    },\n    {\n      \"waymark\": \"w18\",\n      \"text\": \"Turn right on Dipsea Trail. Redwood Creek Trail straight ahead is not your route. After this, the next 1.1 km climbs 60 m and drops 30 m.\"\n    },\n    {\n      \"waymark\": \"w19\",\n      \"text\": \"Turn left on Dipsea Trail. The path straight ahead is not your route.\"\n    },\n    {\n      \"waymark\": \"w20\",\n      \"text\": \"Turn left on Dipsea Trail. The path on the right is not your route. A descent starts here. It is 1.6 km long and drops 230 m.\"\n    },\n    {\n      \"waymark\": \"w21\",\n      \"text\": \"Turn right on Dipsea Trail. The path straight ahead is not your route. After this, the next 1.2 km drops 190 m.\"\n    },\n    {\n      \"waymark\": \"w22\",\n      \"text\": \"Keep right onto Dipsea Trail. Steep Ravine Trail on the left is not your route.\"\n    }\n  ],\n  \"briefing\": \"This trail is about 11.6 kilometers one way with a total climb of about 630 meters. The steepest sustained climb is 670 meters, gaining 130 meters on average. The route features several climbs and descents, with a significant drop of 230 meters on one section. The highlights include navigating junctions and encountering creek crossings.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "dipsea",
+    "trailName": "Dipsea Trail",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.470Z",
+    "briefing": "This trail is about 11.6 kilometers one way with a total climb of about 630 meters. The steepest sustained climb is 670 meters, gaining 130 meters on average. The route features several climbs and descents, with a significant drop of 230 meters on one section. The highlights include navigating junctions and encountering creek crossings.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 37.90501,
+      "lon": -122.55297,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start the Dipsea Trail. A drinking water tap is on your right, about 50 meters off the path. A steady climb begins here.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 87,
+      "lat": 37.90496483203552,
+      "lon": -122.55386969728252,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left onto Cascade Way. Cascade Drive is straight ahead and Molino Avenue is on the left. The path crosses Old Mill Creek at a bridge, SLP 22.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 280,
+      "lat": 37.903837276688705,
+      "lon": -122.55516181917218,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right onto Millside Lane. Millside Lane on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 350,
+      "lat": 37.90426686990681,
+      "lon": -122.55555313009317,
+      "kind": "turn",
+      "title": "Turn sharp left",
+      "text": "Turn sharp left onto Marion Avenue. Marion Avenue straight ahead is not your route. A flight of steps starts here.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 484,
+      "lat": 37.903467237713656,
+      "lon": -122.55664606323819,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left onto Hazel Avenue. Hazel Avenue on the right is not your route. About 40 meters later, turn right onto Hale Lane SLP 28.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 600,
+      "lat": 37.9026221499595,
+      "lon": -122.55691167219072,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right onto Edgewood Avenue. The road on the left and Cowboy Rock Trail on the left and Sequoia Valley Road straight ahead and Edgewood Avenue on the left are not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 764,
+      "lat": 37.902347571796206,
+      "lon": -122.55854914375686,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. The path on the left is not your route. A steady climb begins here.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 995,
+      "lat": 37.90063556644773,
+      "lon": -122.55940387055445,
+      "kind": "fork",
+      "title": "Turn left",
+      "text": "Keep right on Walsh Drive. The road on the right is not your route. About 40 meters later, turn left onto Dipsea Trail.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w9",
+      "at": 1477,
+      "lat": 37.89686781998414,
+      "lon": -122.56041500220707,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right onto Panoramic Highway. Panoramic Highway on the left is not your route. About 50 meters later, turn left onto Sun Trail.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 1646,
+      "lat": 37.89735769694233,
+      "lon": -122.56198977051585,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on Sun Trail. The path on the right is not your route. The path crosses a stream at a bridge, Sun Trail. After this, the next 1.1 km drops 120 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 2708,
+      "lat": 37.891936057363864,
+      "lon": -122.56653759395964,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on Dipsea Trail. The path straight ahead is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 3000,
+      "lat": 37.89174765084227,
+      "lon": -122.56800391526288,
+      "kind": "turn",
+      "title": "Turn sharp right",
+      "text": "Turn sharp right on Dipsea Trail. The path on the left is not your route. After this, the next 680 m climbs 90 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 3677,
+      "lat": 37.88970432795474,
+      "lon": -122.57351672747205,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on Dipsea Trail. Deer Park Fire Road straight ahead and Deer Park Fire Road on the left are not your route. After this, the next 390 m climbs 50 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 4063,
+      "lat": 37.89042729448294,
+      "lon": -122.57760135837853,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right onto Deer Park Fire Road. Deer Park Fire Road on the left is not your route. After this, the next 360 m climbs 30 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w15",
+      "at": 4418,
+      "lat": 37.89184163060603,
+      "lon": -122.58111662772022,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left onto Deer Park Fire Road. Deer Park Fire Road on the right is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w16",
+      "at": 4685,
+      "lat": 37.89304515511952,
+      "lon": -122.58368563443148,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right onto Deer Park Fire Road. Deer Park Fire Road on the left and Dipsea Trail straight ahead are not your route. After this, the next 1.4 km climbs 100 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w17",
+      "at": 6041,
+      "lat": 37.89814376918925,
+      "lon": -122.59690319512299,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on Dipsea Trail. Deer Park Fire Road on the right is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w18",
+      "at": 6182,
+      "lat": 37.89794318628981,
+      "lon": -122.59835814714758,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on Dipsea Trail. Redwood Creek Trail straight ahead is not your route. After this, the next 1.1 km climbs 60 m and drops 30 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w19",
+      "at": 7257,
+      "lat": 37.8939157770002,
+      "lon": -122.60779045105592,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on Dipsea Trail. The path straight ahead is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w20",
+      "at": 7464,
+      "lat": 37.89345329311161,
+      "lon": -122.60897656566335,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on Dipsea Trail. The path on the right is not your route. A descent starts here. It is 1.6 km long and drops 230 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w21",
+      "at": 7931,
+      "lat": 37.8923742678191,
+      "lon": -122.613619465754,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on Dipsea Trail. The path straight ahead is not your route. After this, the next 1.2 km drops 190 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w22",
+      "at": 9148,
+      "lat": 37.89123560538614,
+      "lon": -122.62158259622713,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right onto Dipsea Trail. Steep Ravine Trail on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 22,
+     "required": 22,
+     "modelCues": 22,
+     "cleanCues": 22,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 22,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 16018,
+     "promptTokens": 1508,
+     "outputTokens": 1256,
+     "decodeTps": 80.7,
+     "prefillTps": 3325
+    }
+   }
+  },
+  {
+   "id": "roys-peak",
+   "lengthM": 22891,
+   "waymarks": 18,
+   "stats": {
+    "mode": "free",
+    "waymarks": 18,
+    "required": 15,
+    "modelCues": 18,
+    "cleanCues": 18,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 15,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 12446,
+    "promptTokens": 1296,
+    "outputTokens": 983,
+    "decodeTps": 81.9,
+    "prefillTps": 2908
+   },
+   "briefing": "This is a long walk with about 1540 meters of climbing in total. The steepest sustained climb is 860 meters at about 23%. The walk takes about six hours and thirty-seven minutes at a steady pace. Highlights include views of Lake Wānaka and the summit of Mount Alpha.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": -44.6733998,
+     "lon": 169.0717456,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start the steady climb here. Toilets and an information board are available here. Lake Wānaka comes into view on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 75,
+     "lat": -44.67314791428181,
+     "lon": 169.07096031243915,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right on the Roys Peak Track. The path on the left is not your route. After this, the next stretch climbs 240 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 1310,
+     "lat": -44.67384065448679,
+     "lon": 169.06379526067113,
+     "kind": "turn",
+     "title": "Turn sharp right",
+     "text": "Turn sharp right on the Roys Peak Track. The path straight ahead is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 1402,
+     "lat": -44.673136747841106,
+     "lon": 169.0632748713571,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left on the Roys Peak Track. The path on the left is not your route. After this, the next stretch climbs 140 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 2492,
+     "lat": -44.68062988216223,
+     "lon": 169.0615704868823,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right on the Roys Peak Track. The path on the left is not your route. A steady climb starts here, gaining 150 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 2523,
+     "lat": -44.6808882260669,
+     "lon": 169.061704521102,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left on the Roys Peak Track. The path on the right is not your route. After this, the next stretch climbs 140 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 3660,
+     "lat": -44.68614623305611,
+     "lon": 169.06184803825997,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. This stretch gains 600 m. After this, the next section climbs 430 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 6329,
+     "lat": -44.689433603630675,
+     "lon": 169.04992836890085,
+     "kind": "turn",
+     "title": "Turn sharp left",
+     "text": "Turn sharp left on the Roys Peak Track. A viewpoint beside the path is here. Toilets are on your right. After this, the next stretch climbs 140 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w9",
+     "at": 7079,
+     "lat": -44.69166993372952,
+     "lon": 169.04767002482805,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on the Roys Peak Track. The path on the left and the path on the right are not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 7338,
+     "lat": -44.692960686802984,
+     "lon": 169.04545453213865,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on the Roys Peak Track. A viewpoint is on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 7386,
+     "lat": -44.692831558047104,
+     "lon": 169.04596918505942,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right on the Roys Peak Track. The path on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 7483,
+     "lat": -44.6928563999051,
+     "lon": 169.04714402367435,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on the Roys Peak Track. The path straight ahead is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 7723,
+     "lat": -44.694519114997405,
+     "lon": 169.04871077506513,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left on the Roys Peak Track. The path straight ahead is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 7790,
+     "lat": -44.6943022766574,
+     "lon": 169.04901126362506,
+     "kind": "view",
+     "title": "Roys Peak",
+     "text": "Roys Peak is a summit on your left, about 40 m off the path, 1578 m high. A viewpoint is beside the path. After this, the next stretch climbs 30 m and drops 180 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w15",
+     "at": 9290,
+     "lat": -44.7068615904688,
+     "lon": 169.05197173270116,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. This stretch gains 190 m. After this, the next section climbs 190 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w16",
+     "at": 10106,
+     "lat": -44.71408078696127,
+     "lon": 169.05227566250656,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left. Mount Alpha is a summit on your left, about 60 m off the path, 1630 m high. This is the highest point of the walk.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w17",
+     "at": 20790,
+     "lat": -44.76810156760802,
+     "lon": 169.07007833241568,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The track straight ahead is not your route. After this, the next stretch drops 70 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w18",
+     "at": 22891,
+     "lat": -44.7719805,
+     "lon": 169.0924313,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "This is the end of the route.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start the steady climb here. Toilets and an information board are available here. Lake Wānaka comes into view on your right.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Keep right on the Roys Peak Track. The path on the left is not your route. After this, the next stretch climbs 240 m.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Turn sharp right on the Roys Peak Track. The path straight ahead is not your route.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Keep left on the Roys Peak Track. The path on the left is not your route. After this, the next stretch climbs 140 m.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Keep right on the Roys Peak Track. The path on the left is not your route. A steady climb starts here, gaining 150 m.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"Keep left on the Roys Peak Track. The path on the right is not your route. After this, the next stretch climbs 140 m.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"A steady climb starts here. This stretch gains 600 m. After this, the next section climbs 430 m.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"Turn sharp left on the Roys Peak Track. A viewpoint beside the path is here. Toilets are on your right. After this, the next stretch climbs 140 m.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"Turn left on the Roys Peak Track. The path on the left and the path on the right are not your route.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"Turn left on the Roys Peak Track. A viewpoint is on your right.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"Keep right on the Roys Peak Track. The path on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"Turn right on the Roys Peak Track. The path straight ahead is not your route.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"Keep left on the Roys Peak Track. The path straight ahead is not your route.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"Roys Peak is a summit on your left, about 40 m off the path, 1578 m high. A viewpoint is beside the path. After this, the next stretch climbs 30 m and drops 180 m.\"\n    },\n    {\n      \"waymark\": \"w15\",\n      \"text\": \"A steady climb starts here. This stretch gains 190 m. After this, the next section climbs 190 m.\"\n    },\n    {\n      \"waymark\": \"w16\",\n      \"text\": \"Keep left. Mount Alpha is a summit on your left, about 60 m off the path, 1630 m high. This is the highest point of the walk.\"\n    },\n    {\n      \"waymark\": \"w17\",\n      \"text\": \"Keep right. The track straight ahead is not your route. After this, the next stretch drops 70 m.\"\n    },\n    {\n      \"waymark\": \"w18\",\n      \"text\": \"This is the end of the route.\"\n    }\n  ],\n  \"briefing\": \"This is a long walk with about 1540 meters of climbing in total. The steepest sustained climb is 860 meters at about 23%. The walk takes about six hours and thirty-seven minutes at a steady pace. Highlights include views of Lake Wānaka and the summit of Mount Alpha.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "roys-peak",
+    "trailName": "Roys Peak & Mount Alpha",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.522Z",
+    "briefing": "This is a long walk with about 1540 meters of climbing in total. The steepest sustained climb is 860 meters at about 23%. The walk takes about six hours and thirty-seven minutes at a steady pace. Highlights include views of Lake Wānaka and the summit of Mount Alpha.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": -44.6733998,
+      "lon": 169.0717456,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start the steady climb here. Toilets and an information board are available here. Lake Wānaka comes into view on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 75,
+      "lat": -44.67314791428181,
+      "lon": 169.07096031243915,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right on the Roys Peak Track. The path on the left is not your route. After this, the next stretch climbs 240 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 1310,
+      "lat": -44.67384065448679,
+      "lon": 169.06379526067113,
+      "kind": "turn",
+      "title": "Turn sharp right",
+      "text": "Turn sharp right on the Roys Peak Track. The path straight ahead is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 1402,
+      "lat": -44.673136747841106,
+      "lon": 169.0632748713571,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left on the Roys Peak Track. The path on the left is not your route. After this, the next stretch climbs 140 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 2492,
+      "lat": -44.68062988216223,
+      "lon": 169.0615704868823,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right on the Roys Peak Track. The path on the left is not your route. A steady climb starts here, gaining 150 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 2523,
+      "lat": -44.6808882260669,
+      "lon": 169.061704521102,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left on the Roys Peak Track. The path on the right is not your route. After this, the next stretch climbs 140 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 3660,
+      "lat": -44.68614623305611,
+      "lon": 169.06184803825997,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. This stretch gains 600 m. After this, the next section climbs 430 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 6329,
+      "lat": -44.689433603630675,
+      "lon": 169.04992836890085,
+      "kind": "turn",
+      "title": "Turn sharp left",
+      "text": "Turn sharp left on the Roys Peak Track. A viewpoint beside the path is here. Toilets are on your right. After this, the next stretch climbs 140 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w9",
+      "at": 7079,
+      "lat": -44.69166993372952,
+      "lon": 169.04767002482805,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on the Roys Peak Track. The path on the left and the path on the right are not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 7338,
+      "lat": -44.692960686802984,
+      "lon": 169.04545453213865,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on the Roys Peak Track. A viewpoint is on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 7386,
+      "lat": -44.692831558047104,
+      "lon": 169.04596918505942,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right on the Roys Peak Track. The path on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 7483,
+      "lat": -44.6928563999051,
+      "lon": 169.04714402367435,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on the Roys Peak Track. The path straight ahead is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 7723,
+      "lat": -44.694519114997405,
+      "lon": 169.04871077506513,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left on the Roys Peak Track. The path straight ahead is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 7790,
+      "lat": -44.6943022766574,
+      "lon": 169.04901126362506,
+      "kind": "view",
+      "title": "Roys Peak",
+      "text": "Roys Peak is a summit on your left, about 40 m off the path, 1578 m high. A viewpoint is beside the path. After this, the next stretch climbs 30 m and drops 180 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w15",
+      "at": 9290,
+      "lat": -44.7068615904688,
+      "lon": 169.05197173270116,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. This stretch gains 190 m. After this, the next section climbs 190 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w16",
+      "at": 10106,
+      "lat": -44.71408078696127,
+      "lon": 169.05227566250656,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left. Mount Alpha is a summit on your left, about 60 m off the path, 1630 m high. This is the highest point of the walk.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w17",
+      "at": 20790,
+      "lat": -44.76810156760802,
+      "lon": 169.07007833241568,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The track straight ahead is not your route. After this, the next stretch drops 70 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w18",
+      "at": 22891,
+      "lat": -44.7719805,
+      "lon": 169.0924313,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "This is the end of the route.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 18,
+     "required": 15,
+     "modelCues": 18,
+     "cleanCues": 18,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 15,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 12446,
+     "promptTokens": 1296,
+     "outputTokens": 983,
+     "decodeTps": 81.9,
+     "prefillTps": 2908
+    }
+   }
+  },
+  {
+   "id": "seealpsee",
+   "lengthM": 2257,
+   "waymarks": 8,
+   "stats": {
+    "mode": "free",
+    "waymarks": 8,
+    "required": 7,
+    "modelCues": 8,
+    "cleanCues": 8,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 7,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 6675,
+    "promptTokens": 746,
+    "outputTokens": 520,
+    "decodeTps": 81.5,
+    "prefillTps": 2589
+   },
+   "briefing": "This is a 2.3 km loop with about 60 meters of climbing in total. The walk involves a steady pace, taking about 31 minutes without stops. The trail features several junctions and crossings. The highlight is reaching Seealpsee at 1141 m high.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 47.2695666,
+     "lon": 9.4023915,
+     "kind": "start",
+     "title": "Start",
+     "text": "At the start of Seealpsee Rondom, take the information board and toilets. Seealpsee comes into view on your right. The next 370 m is mostly level.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 368,
+     "lat": 47.269839104886266,
+     "lon": 9.406761365802787,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right at this junction. The path on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 521,
+     "lat": 47.268854229244454,
+     "lon": 9.405483259819277,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right at this junction. The path on the right is not your route. The path crosses a stream, and there is a bench beside the path. The next 780 m climbs 20 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 1300,
+     "lat": 47.26634398802753,
+     "lon": 9.3972892716191,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right at this junction. The path on the left is not your route. About 50 m later, continue straight. The track on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 1512,
+     "lat": 47.26769949050686,
+     "lon": 9.395608805811946,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right at this junction. The track on the left is not your route. The path crosses Schwendebach, and there is a bridge. The next 660 m climbs 20 m.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 2167,
+     "lat": 47.27020150368021,
+     "lon": 9.402515627197864,
+     "kind": "fork",
+     "title": "Turn sharp right",
+     "text": "Keep right at this junction. The track straight ahead is not your route. About 40 m later, turn sharp right. Seealpsee and an information board are beside the path. This is 1141 m high.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 2200,
+     "lat": 47.270010551634826,
+     "lon": 9.402486568565442,
+     "kind": "stream",
+     "title": "Schwendebach",
+     "text": "The path crosses Schwendebach. There is a bridge and a drinking water tap beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 2257,
+     "lat": 47.2695666,
+     "lon": 9.4023915,
+     "kind": "finish",
+     "title": "Back at the start",
+     "text": "You have returned to the start. The walk is complete.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"At the start of Seealpsee Rondom, take the information board and toilets. Seealpsee comes into view on your right. The next 370 m is mostly level.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Turn right at this junction. The path on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Keep right at this junction. The path on the right is not your route. The path crosses a stream, and there is a bench beside the path. The next 780 m climbs 20 m.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Turn right at this junction. The path on the left is not your route. About 50 m later, continue straight. The track on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Turn right at this junction. The track on the left is not your route. The path crosses Schwendebach, and there is a bridge. The next 660 m climbs 20 m.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"Keep right at this junction. The track straight ahead is not your route. About 40 m later, turn sharp right. Seealpsee and an information board are beside the path. This is 1141 m high.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"The path crosses Schwendebach. There is a bridge and a drinking water tap beside the path.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"You have returned to the start. The walk is complete.\"\n    }\n  ],\n  \"briefing\": \"This is a 2.3 km loop with about 60 meters of climbing in total. The walk involves a steady pace, taking about 31 minutes without stops. The trail features several junctions and crossings. The highlight is reaching Seealpsee at 1141 m high.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "seealpsee",
+    "trailName": "Seealpsee Rondom",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.537Z",
+    "briefing": "This is a 2.3 km loop with about 60 meters of climbing in total. The walk involves a steady pace, taking about 31 minutes without stops. The trail features several junctions and crossings. The highlight is reaching Seealpsee at 1141 m high.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 47.2695666,
+      "lon": 9.4023915,
+      "kind": "start",
+      "title": "Start",
+      "text": "At the start of Seealpsee Rondom, take the information board and toilets. Seealpsee comes into view on your right. The next 370 m is mostly level.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 368,
+      "lat": 47.269839104886266,
+      "lon": 9.406761365802787,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right at this junction. The path on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 521,
+      "lat": 47.268854229244454,
+      "lon": 9.405483259819277,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right at this junction. The path on the right is not your route. The path crosses a stream, and there is a bench beside the path. The next 780 m climbs 20 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 1300,
+      "lat": 47.26634398802753,
+      "lon": 9.3972892716191,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right at this junction. The path on the left is not your route. About 50 m later, continue straight. The track on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 1512,
+      "lat": 47.26769949050686,
+      "lon": 9.395608805811946,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right at this junction. The track on the left is not your route. The path crosses Schwendebach, and there is a bridge. The next 660 m climbs 20 m.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 2167,
+      "lat": 47.27020150368021,
+      "lon": 9.402515627197864,
+      "kind": "fork",
+      "title": "Turn sharp right",
+      "text": "Keep right at this junction. The track straight ahead is not your route. About 40 m later, turn sharp right. Seealpsee and an information board are beside the path. This is 1141 m high.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 2200,
+      "lat": 47.270010551634826,
+      "lon": 9.402486568565442,
+      "kind": "stream",
+      "title": "Schwendebach",
+      "text": "The path crosses Schwendebach. There is a bridge and a drinking water tap beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 2257,
+      "lat": 47.2695666,
+      "lon": 9.4023915,
+      "kind": "finish",
+      "title": "Back at the start",
+      "text": "You have returned to the start. The walk is complete.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 8,
+     "required": 7,
+     "modelCues": 8,
+     "cleanCues": 8,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 7,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 6675,
+     "promptTokens": 746,
+     "outputTokens": 520,
+     "decodeTps": 81.5,
+     "prefillTps": 2589
+    }
+   }
+  },
+  {
+   "id": "wasserauen-seealpsee",
+   "lengthM": 2864,
+   "waymarks": 14,
+   "stats": {
+    "mode": "free",
+    "waymarks": 14,
+    "required": 12,
+    "modelCues": 14,
+    "cleanCues": 14,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 12,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 10422,
+    "promptTokens": 988,
+    "outputTokens": 825,
+    "decodeTps": 81.6,
+    "prefillTps": 3266
+   },
+   "briefing": "This walk is about 2.9 kilometers one way with a total climb of about 310 meters. The steepest sustained climb is 630 meters at about 24%. The route reaches a highest point of 1163 meters. Enjoy the climb and the views of the Seealpsee.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 47.28573,
+     "lon": 9.42879,
+     "kind": "start",
+     "title": "Start",
+     "text": "You are at the start of the route. There is an information board and toilets beside the path. A car park is on your right, about 70 meters off the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 110,
+     "lat": 47.28518831250867,
+     "lon": 9.427904499976878,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. The 'Schwendetalstrasse' straight ahead is not your route. An information board is beside the path, 868 meters high. A car park is beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 210,
+     "lat": 47.28448302993473,
+     "lon": 9.427255627154423,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left on 'Schwendetalstrasse'. The track on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 350,
+     "lat": 47.28363548782132,
+     "lon": 9.42602472888394,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left onto 'Schwendetalstrasse'. 'Schwendetalstrasse' on the right is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 458,
+     "lat": 47.28284515828517,
+     "lon": 9.425341686694264,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. The track straight ahead is not your route. The path crosses 'Schwendebach' and there is a bridge. After this, the next 750 meters climbs 60 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 1210,
+     "lat": 47.2790590185134,
+     "lon": 9.417462042316352,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is 430 meters long and gains 60 meters, topping out at 1002 meters. Continue straight. The track on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 1282,
+     "lat": 47.27879870456927,
+     "lon": 9.416591686315074,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. The path on the right is not your route. The path enters woodland for about 810 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 1353,
+     "lat": 47.27855916108198,
+     "lon": 9.415740149316287,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The path on the left is not your route. After this, the next 450 meters climbs 40 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w9",
+     "at": 1800,
+     "lat": 47.27559777038272,
+     "lon": 9.412055324459262,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. It is 630 meters long and gains 150 meters, topping out at 1141 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 1853,
+     "lat": 47.2752130185969,
+     "lon": 9.411644233553853,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The path straight ahead is not your route. After this, the next 520 meters climbs 150 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 2368,
+     "lat": 47.273135717089374,
+     "lon": 9.405648304753868,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left. The path on the right is not your route. After this, the next 310 meters climbs 20 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 2679,
+     "lat": 47.270937002907466,
+     "lon": 9.403444425231863,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. The track on the left is not your route. The highest point of the walk is at about 1163 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 2785,
+     "lat": 47.27024778001219,
+     "lon": 9.40252972005102,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. The track on the left is not your route. 'Seealpsee' comes into view on your left. A drinking water tap is on your left.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 2864,
+     "lat": 47.27002,
+     "lon": 9.40157,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "This is the end of the route.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"You are at the start of the route. There is an information board and toilets beside the path. A car park is on your right, about 70 meters off the path.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Turn left. The 'Schwendetalstrasse' straight ahead is not your route. An information board is beside the path, 868 meters high. A car park is beside the path.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Turn left on 'Schwendetalstrasse'. The track on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Keep left onto 'Schwendetalstrasse'. 'Schwendetalstrasse' on the right is not your route.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Turn right. The track straight ahead is not your route. The path crosses 'Schwendebach' and there is a bridge. After this, the next 750 meters climbs 60 meters.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"A steady climb starts here. It is 430 meters long and gains 60 meters, topping out at 1002 meters. Continue straight. The track on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"Turn left. The path on the right is not your route. The path enters woodland for about 810 meters.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"Keep right. The path on the left is not your route. After this, the next 450 meters climbs 40 meters.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"A steady climb starts here. It is 630 meters long and gains 150 meters, topping out at 1141 meters.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"Keep right. The path straight ahead is not your route. After this, the next 520 meters climbs 150 meters.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"Keep left. The path on the right is not your route. After this, the next 310 meters climbs 20 meters.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"Turn right. The track on the left is not your route. The highest point of the walk is at about 1163 meters.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"Keep right. The track on the left is not your route. 'Seealpsee' comes into view on your left. A drinking water tap is on your left.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"This is the end of the route.\"\n    }\n  ],\n  \"briefing\": \"This walk is about 2.9 kilometers one way with a total climb of about 310 meters. The steepest sustained climb is 630 meters at about 24%. The route reaches a highest point of 1163 meters. Enjoy the climb and the views of the Seealpsee.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "wasserauen-seealpsee",
+    "trailName": "Wasserauen to Seealpsee",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.569Z",
+    "briefing": "This walk is about 2.9 kilometers one way with a total climb of about 310 meters. The steepest sustained climb is 630 meters at about 24%. The route reaches a highest point of 1163 meters. Enjoy the climb and the views of the Seealpsee.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 47.28573,
+      "lon": 9.42879,
+      "kind": "start",
+      "title": "Start",
+      "text": "You are at the start of the route. There is an information board and toilets beside the path. A car park is on your right, about 70 meters off the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 110,
+      "lat": 47.28518831250867,
+      "lon": 9.427904499976878,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. The 'Schwendetalstrasse' straight ahead is not your route. An information board is beside the path, 868 meters high. A car park is beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 210,
+      "lat": 47.28448302993473,
+      "lon": 9.427255627154423,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left on 'Schwendetalstrasse'. The track on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 350,
+      "lat": 47.28363548782132,
+      "lon": 9.42602472888394,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left onto 'Schwendetalstrasse'. 'Schwendetalstrasse' on the right is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 458,
+      "lat": 47.28284515828517,
+      "lon": 9.425341686694264,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. The track straight ahead is not your route. The path crosses 'Schwendebach' and there is a bridge. After this, the next 750 meters climbs 60 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 1210,
+      "lat": 47.2790590185134,
+      "lon": 9.417462042316352,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is 430 meters long and gains 60 meters, topping out at 1002 meters. Continue straight. The track on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 1282,
+      "lat": 47.27879870456927,
+      "lon": 9.416591686315074,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. The path on the right is not your route. The path enters woodland for about 810 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 1353,
+      "lat": 47.27855916108198,
+      "lon": 9.415740149316287,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The path on the left is not your route. After this, the next 450 meters climbs 40 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w9",
+      "at": 1800,
+      "lat": 47.27559777038272,
+      "lon": 9.412055324459262,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. It is 630 meters long and gains 150 meters, topping out at 1141 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 1853,
+      "lat": 47.2752130185969,
+      "lon": 9.411644233553853,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The path straight ahead is not your route. After this, the next 520 meters climbs 150 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 2368,
+      "lat": 47.273135717089374,
+      "lon": 9.405648304753868,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left. The path on the right is not your route. After this, the next 310 meters climbs 20 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 2679,
+      "lat": 47.270937002907466,
+      "lon": 9.403444425231863,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. The track on the left is not your route. The highest point of the walk is at about 1163 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 2785,
+      "lat": 47.27024778001219,
+      "lon": 9.40252972005102,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. The track on the left is not your route. 'Seealpsee' comes into view on your left. A drinking water tap is on your left.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 2864,
+      "lat": 47.27002,
+      "lon": 9.40157,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "This is the end of the route.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 14,
+     "required": 12,
+     "modelCues": 14,
+     "cleanCues": 14,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 12,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 10422,
+     "promptTokens": 988,
+     "outputTokens": 825,
+     "decodeTps": 81.6,
+     "prefillTps": 3266
+    }
+   }
+  },
+  {
+   "id": "takao",
+   "lengthM": 3236,
+   "waymarks": 18,
+   "stats": {
+    "mode": "free",
+    "waymarks": 18,
+    "required": 17,
+    "modelCues": 17,
+    "cleanCues": 14,
+    "repairedCues": 3,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 17,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 3,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 9964,
+    "promptTokens": 1182,
+    "outputTokens": 776,
+    "decodeTps": 81.4,
+    "prefillTps": 2808
+   },
+   "briefing": "This trail is about 3.2 kilometers one way with a total climb of about 390 meters. The steepest sustained climb is 1.1 kilometers at about 22%. The route offers several scenic points, including a viewpoint near the end. Be prepared for a steady climb throughout the walk.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 35.63234,
+     "lon": 139.26981,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start at the start of Mount Takao Trail 1. There are toilets and an information board here. Turn right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 250,
+     "lat": 35.631253625162564,
+     "lon": 139.268002453567,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "A cafe is on your right. Cross the 紅葉橋.",
+     "source": "gemma",
+     "issues": [
+      {
+       "type": "name",
+       "detail": "\"Takao Mountain Line\" is not on this route",
+       "fixed": "removed"
+      }
+     ],
+     "original": "Turn right onto the Takao Mountain Line. A cafe is on your right. Cross the 紅葉橋."
+    },
+    {
+     "id": "w3",
+     "at": 342,
+     "lat": 35.631075030833465,
+     "lon": 139.26707481988427,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left. A bench and toilets are on your right. The next stretch climbs 40 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 781,
+     "lat": 35.63065014877671,
+     "lon": 139.26238995739612,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left. A bridge is ahead. A steady climb starts here, gaining 240 meters. After this, the next stretch climbs 70 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 1225,
+     "lat": 35.629264236331515,
+     "lon": 139.25972376247412,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. The next stretch climbs 140 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 1747,
+     "lat": 35.6302507956193,
+     "lon": 139.25642036767553,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right. A viewpoint is on your right, about 60 meters off the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 1828,
+     "lat": 35.63034772389586,
+     "lon": 139.25563212325494,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "A drinking water tap and a picnic area are beside the path.",
+     "source": "gemma",
+     "issues": [
+      {
+       "type": "name",
+       "detail": "\"Takao Mountain Line\" is not on this route",
+       "fixed": "removed"
+      }
+     ],
+     "original": "Keep left on the Takao Mountain Line. A drinking water tap and a picnic area are beside the path."
+    },
+    {
+     "id": "w8",
+     "at": 2067,
+     "lat": 35.629908720127986,
+     "lon": 139.2532108422789,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "A bench is beside the path.",
+     "source": "gemma",
+     "issues": [
+      {
+       "type": "name",
+       "detail": "\"Takao Mountain Line\" is not on this route",
+       "fixed": "removed"
+      }
+     ],
+     "original": "Turn left onto the Takao Mountain Line. A bench is beside the path."
+    },
+    {
+     "id": "w9",
+     "at": 2219,
+     "lat": 35.62905402468311,
+     "lon": 139.25191695500985,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. A flight of steps starts here, climbing 12 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 2300,
+     "lat": 35.62834030365531,
+     "lon": 139.25171934601124,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left on the 男坂. The steps are on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 2468,
+     "lat": 35.62760721421624,
+     "lon": 139.25028246902022,
+     "kind": "turn",
+     "title": "Turn slight left",
+     "text": "Turn slight left. A flight of steps is on the right. The road is on the left.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 2569,
+     "lat": 35.62695150138626,
+     "lon": 139.24966456550675,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. The path on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 2789,
+     "lat": 35.625928149425484,
+     "lon": 139.2477007124598,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. The path on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 2934,
+     "lat": 35.62638780161972,
+     "lon": 139.24627043685854,
+     "kind": "turn",
+     "title": "Turn left",
+     "text": "Turn left. A bench is beside the path.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w16",
+     "at": 3132,
+     "lat": 35.62564974272075,
+     "lon": 139.24444019278596,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left. An information board and a drinking water tap are on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w17",
+     "at": 3172,
+     "lat": 35.62542594907514,
+     "lon": 139.2441090421969,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right. An information board is on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w18",
+     "at": 3236,
+     "lat": 35.62534,
+     "lon": 139.24348,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "This is the end of the route. A summit is on your left. A viewpoint is on your left.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start at the start of Mount Takao Trail 1. There are toilets and an information board here. Turn right.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"Turn right onto the Takao Mountain Line. A cafe is on your right. Cross the 紅葉橋.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Keep left. A bench and toilets are on your right. The next stretch climbs 40 meters.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Keep left. A bridge is ahead. A steady climb starts here, gaining 240 meters. After this, the next stretch climbs 70 meters.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Turn right. The next stretch climbs 140 meters.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"Keep right. A viewpoint is on your right, about 60 meters off the path.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"Keep left on the Takao Mountain Line. A drinking water tap and a picnic area are beside the path.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"Turn left onto the Takao Mountain Line. A bench is beside the path.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"Turn left. A flight of steps starts here, climbing 12 meters.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"Keep left on the 男坂. The steps are on your right.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"Turn slight left. A flight of steps is on the right. The road is on the left.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"Turn right. The path on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"Turn right. The path on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"Turn left. A bench is beside the path.\"\n    },\n    {\n      \"waymark\": \"w16\",\n      \"text\": \"Keep left. An information board and a drinking water tap are on your right.\"\n    },\n    {\n      \"waymark\": \"w17\",\n      \"text\": \"Turn right. An information board is on your right.\"\n    },\n    {\n      \"waymark\": \"w18\",\n      \"text\": \"This is the end of the route. A summit is on your left. A viewpoint is on your left.\"\n    }\n  ],\n  \"briefing\": \"This trail is about 3.2 kilometers one way with a total climb of about 390 meters. The steepest sustained climb is 1.1 kilometers at about 22%. The route offers several scenic points, including a viewpoint near the end. Be prepared for a steady climb throughout the walk.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "takao",
+    "trailName": "Mount Takao Trail 1",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.612Z",
+    "briefing": "This trail is about 3.2 kilometers one way with a total climb of about 390 meters. The steepest sustained climb is 1.1 kilometers at about 22%. The route offers several scenic points, including a viewpoint near the end. Be prepared for a steady climb throughout the walk.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 35.63234,
+      "lon": 139.26981,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start at the start of Mount Takao Trail 1. There are toilets and an information board here. Turn right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 250,
+      "lat": 35.631253625162564,
+      "lon": 139.268002453567,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "A cafe is on your right. Cross the 紅葉橋.",
+      "source": "gemma",
+      "issues": [
+       {
+        "type": "name",
+        "detail": "\"Takao Mountain Line\" is not on this route",
+        "fixed": "removed"
+       }
+      ],
+      "original": "Turn right onto the Takao Mountain Line. A cafe is on your right. Cross the 紅葉橋."
+     },
+     {
+      "id": "w3",
+      "at": 342,
+      "lat": 35.631075030833465,
+      "lon": 139.26707481988427,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left. A bench and toilets are on your right. The next stretch climbs 40 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 781,
+      "lat": 35.63065014877671,
+      "lon": 139.26238995739612,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left. A bridge is ahead. A steady climb starts here, gaining 240 meters. After this, the next stretch climbs 70 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 1225,
+      "lat": 35.629264236331515,
+      "lon": 139.25972376247412,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. The next stretch climbs 140 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 1747,
+      "lat": 35.6302507956193,
+      "lon": 139.25642036767553,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right. A viewpoint is on your right, about 60 meters off the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 1828,
+      "lat": 35.63034772389586,
+      "lon": 139.25563212325494,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "A drinking water tap and a picnic area are beside the path.",
+      "source": "gemma",
+      "issues": [
+       {
+        "type": "name",
+        "detail": "\"Takao Mountain Line\" is not on this route",
+        "fixed": "removed"
+       }
+      ],
+      "original": "Keep left on the Takao Mountain Line. A drinking water tap and a picnic area are beside the path."
+     },
+     {
+      "id": "w8",
+      "at": 2067,
+      "lat": 35.629908720127986,
+      "lon": 139.2532108422789,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "A bench is beside the path.",
+      "source": "gemma",
+      "issues": [
+       {
+        "type": "name",
+        "detail": "\"Takao Mountain Line\" is not on this route",
+        "fixed": "removed"
+       }
+      ],
+      "original": "Turn left onto the Takao Mountain Line. A bench is beside the path."
+     },
+     {
+      "id": "w9",
+      "at": 2219,
+      "lat": 35.62905402468311,
+      "lon": 139.25191695500985,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. A flight of steps starts here, climbing 12 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 2300,
+      "lat": 35.62834030365531,
+      "lon": 139.25171934601124,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left on the 男坂. The steps are on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 2468,
+      "lat": 35.62760721421624,
+      "lon": 139.25028246902022,
+      "kind": "turn",
+      "title": "Turn slight left",
+      "text": "Turn slight left. A flight of steps is on the right. The road is on the left.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 2569,
+      "lat": 35.62695150138626,
+      "lon": 139.24966456550675,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. The path on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 2789,
+      "lat": 35.625928149425484,
+      "lon": 139.2477007124598,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. The path on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 2934,
+      "lat": 35.62638780161972,
+      "lon": 139.24627043685854,
+      "kind": "turn",
+      "title": "Turn left",
+      "text": "Turn left. A bench is beside the path.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w16",
+      "at": 3132,
+      "lat": 35.62564974272075,
+      "lon": 139.24444019278596,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left. An information board and a drinking water tap are on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w17",
+      "at": 3172,
+      "lat": 35.62542594907514,
+      "lon": 139.2441090421969,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right. An information board is on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w18",
+      "at": 3236,
+      "lat": 35.62534,
+      "lon": 139.24348,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "This is the end of the route. A summit is on your left. A viewpoint is on your left.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 18,
+     "required": 17,
+     "modelCues": 17,
+     "cleanCues": 14,
+     "repairedCues": 3,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 17,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 3,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 9964,
+     "promptTokens": 1182,
+     "outputTokens": 776,
+     "decodeTps": 81.4,
+     "prefillTps": 2808
+    }
+   }
+  },
+  {
+   "id": "cataract",
+   "lengthM": 4592,
+   "waymarks": 18,
+   "stats": {
+    "mode": "free",
+    "waymarks": 18,
+    "required": 5,
+    "modelCues": 18,
+    "cleanCues": 18,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 5,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 11055,
+    "promptTokens": 1019,
+    "outputTokens": 864,
+    "decodeTps": 80.4,
+    "prefillTps": 3365
+   },
+   "briefing": "This trail is about 4.6 kilometers one way with a total climb of about 390 meters. The steepest sustained climb is 680 meters at about 23% gain. The route features several waterfalls and a summit at the highest point. Expect a steady climb through the trail.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 37.936567,
+     "lon": -122.6380452,
+     "kind": "start",
+     "title": "Start",
+     "text": "You are at the start of the Cataract Trail. There are toilets here. Alpine Lake comes into view on your left.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 169,
+     "lat": 37.935630104477404,
+     "lon": -122.63767074098776,
+     "kind": "bridge",
+     "title": "Cataract Trail",
+     "text": "You will find a bridge on the Cataract Trail. The path crosses a stream.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 420,
+     "lat": 37.93402875903158,
+     "lon": -122.6361792382596,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. This section is 680 meters long and gains 150 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 570,
+     "lat": 37.932719835088164,
+     "lon": -122.63591915119984,
+     "kind": "bridge",
+     "title": "Cataract Trail",
+     "text": "You will find a bridge on the Cataract Trail. The path crosses a stream.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 670,
+     "lat": 37.932020515024654,
+     "lon": -122.635695,
+     "kind": "note",
+     "title": "Cataract Falls",
+     "text": "Cataract Falls is on your left. This is a waterfall.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w6",
+     "at": 880,
+     "lat": 37.93096315224303,
+     "lon": -122.63496346187135,
+     "kind": "bridge",
+     "title": "Helen Markt Falls",
+     "text": "Helen Markt Falls is on your right. You will find a bridge on the Cataract Trail. The path crosses Cataract Creek.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w7",
+     "at": 1220,
+     "lat": 37.92836107773141,
+     "lon": -122.633447595696,
+     "kind": "climb",
+     "title": "Climb starts",
+     "text": "A steady climb starts here. This section is 910 meters long and gains 140 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w8",
+     "at": 1290,
+     "lat": 37.92777358877611,
+     "lon": -122.63348652039436,
+     "kind": "note",
+     "title": "Midway Falls",
+     "text": "Midway Falls is on your right. After this, the next 730 meters climbs 130 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w9",
+     "at": 2020,
+     "lat": 37.92463045788908,
+     "lon": -122.62953029685316,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on the Cataract Trail. Laurel Dell Falls is on your right.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w10",
+     "at": 2510,
+     "lat": 37.9220493453388,
+     "lon": -122.62602194101085,
+     "kind": "stream",
+     "title": "Barths Creek",
+     "text": "The path crosses Barths Creek. You will find a bridge on the Cataract Trail. Continue straight on the Cataract Trail.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w11",
+     "at": 2673,
+     "lat": 37.92073302484152,
+     "lon": -122.62574448241212,
+     "kind": "view",
+     "title": "Summit",
+     "text": "A summit is on your left, about 90 meters off the path. After this, the next 560 meters climbs 30 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w12",
+     "at": 3229,
+     "lat": 37.91666844019248,
+     "lon": -122.62289338048392,
+     "kind": "fork",
+     "title": "Keep right",
+     "text": "Keep right on the Cataract Trail. The path on the left is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w13",
+     "at": 3320,
+     "lat": 37.9159141333973,
+     "lon": -122.62270557660041,
+     "kind": "stream",
+     "title": "Cataract Creek",
+     "text": "The path crosses Cataract Creek. After this, the next 540 meters climbs 20 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w14",
+     "at": 3860,
+     "lat": 37.91323852521889,
+     "lon": -122.6184598014838,
+     "kind": "stream",
+     "title": "Cataract Creek",
+     "text": "The path crosses Cataract Creek. The next 350 meters is mostly level.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w15",
+     "at": 4210,
+     "lat": 37.91161659722403,
+     "lon": -122.61539947965237,
+     "kind": "stream",
+     "title": "Cataract Creek",
+     "text": "The path crosses Cataract Creek. You will find a bridge on the Cataract Trail.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w16",
+     "at": 4296,
+     "lat": 37.911445314798435,
+     "lon": -122.61451256325425,
+     "kind": "fork",
+     "title": "Keep left",
+     "text": "Keep left on the Cataract Trail. The path on the right is not your route.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w17",
+     "at": 4430,
+     "lat": 37.91175668569204,
+     "lon": -122.61359543721919,
+     "kind": "summit",
+     "title": "High point",
+     "text": "This is the highest point of the walk, at about 596 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w18",
+     "at": 4592,
+     "lat": 37.9116117,
+     "lon": -122.6153934,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "This is the end of the route. The path crosses Cataract Creek.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"You are at the start of the Cataract Trail. There are toilets here. Alpine Lake comes into view on your left.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"You will find a bridge on the Cataract Trail. The path crosses a stream.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"A steady climb starts here. This section is 680 meters long and gains 150 meters.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"You will find a bridge on the Cataract Trail. The path crosses a stream.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"Cataract Falls is on your left. This is a waterfall.\"\n    },\n    {\n      \"waymark\": \"w6\",\n      \"text\": \"Helen Markt Falls is on your right. You will find a bridge on the Cataract Trail. The path crosses Cataract Creek.\"\n    },\n    {\n      \"waymark\": \"w7\",\n      \"text\": \"A steady climb starts here. This section is 910 meters long and gains 140 meters.\"\n    },\n    {\n      \"waymark\": \"w8\",\n      \"text\": \"Midway Falls is on your right. After this, the next 730 meters climbs 130 meters.\"\n    },\n    {\n      \"waymark\": \"w9\",\n      \"text\": \"Turn right on the Cataract Trail. Laurel Dell Falls is on your right.\"\n    },\n    {\n      \"waymark\": \"w10\",\n      \"text\": \"The path crosses Barths Creek. You will find a bridge on the Cataract Trail. Continue straight on the Cataract Trail.\"\n    },\n    {\n      \"waymark\": \"w11\",\n      \"text\": \"A summit is on your left, about 90 meters off the path. After this, the next 560 meters climbs 30 meters.\"\n    },\n    {\n      \"waymark\": \"w12\",\n      \"text\": \"Keep right on the Cataract Trail. The path on the left is not your route.\"\n    },\n    {\n      \"waymark\": \"w13\",\n      \"text\": \"The path crosses Cataract Creek. After this, the next 540 meters climbs 20 meters.\"\n    },\n    {\n      \"waymark\": \"w14\",\n      \"text\": \"The path crosses Cataract Creek. The next 350 meters is mostly level.\"\n    },\n    {\n      \"waymark\": \"w15\",\n      \"text\": \"The path crosses Cataract Creek. You will find a bridge on the Cataract Trail.\"\n    },\n    {\n      \"waymark\": \"w16\",\n      \"text\": \"Keep left on the Cataract Trail. The path on the right is not your route.\"\n    },\n    {\n      \"waymark\": \"w17\",\n      \"text\": \"This is the highest point of the walk, at about 596 meters.\"\n    },\n    {\n      \"waymark\": \"w18\",\n      \"text\": \"This is the end of the route. The path crosses Cataract Creek.\"\n    }\n  ],\n  \"briefing\": \"This trail is about 4.6 kilometers one way with a total climb of about 390 meters. The steepest sustained climb is 680 meters at about 23% gain. The route features several waterfalls and a summit at the highest point. Expect a steady climb through the trail.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "cataract",
+    "trailName": "Cataract Trail",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.664Z",
+    "briefing": "This trail is about 4.6 kilometers one way with a total climb of about 390 meters. The steepest sustained climb is 680 meters at about 23% gain. The route features several waterfalls and a summit at the highest point. Expect a steady climb through the trail.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 37.936567,
+      "lon": -122.6380452,
+      "kind": "start",
+      "title": "Start",
+      "text": "You are at the start of the Cataract Trail. There are toilets here. Alpine Lake comes into view on your left.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 169,
+      "lat": 37.935630104477404,
+      "lon": -122.63767074098776,
+      "kind": "bridge",
+      "title": "Cataract Trail",
+      "text": "You will find a bridge on the Cataract Trail. The path crosses a stream.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 420,
+      "lat": 37.93402875903158,
+      "lon": -122.6361792382596,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. This section is 680 meters long and gains 150 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 570,
+      "lat": 37.932719835088164,
+      "lon": -122.63591915119984,
+      "kind": "bridge",
+      "title": "Cataract Trail",
+      "text": "You will find a bridge on the Cataract Trail. The path crosses a stream.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 670,
+      "lat": 37.932020515024654,
+      "lon": -122.635695,
+      "kind": "note",
+      "title": "Cataract Falls",
+      "text": "Cataract Falls is on your left. This is a waterfall.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w6",
+      "at": 880,
+      "lat": 37.93096315224303,
+      "lon": -122.63496346187135,
+      "kind": "bridge",
+      "title": "Helen Markt Falls",
+      "text": "Helen Markt Falls is on your right. You will find a bridge on the Cataract Trail. The path crosses Cataract Creek.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w7",
+      "at": 1220,
+      "lat": 37.92836107773141,
+      "lon": -122.633447595696,
+      "kind": "climb",
+      "title": "Climb starts",
+      "text": "A steady climb starts here. This section is 910 meters long and gains 140 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w8",
+      "at": 1290,
+      "lat": 37.92777358877611,
+      "lon": -122.63348652039436,
+      "kind": "note",
+      "title": "Midway Falls",
+      "text": "Midway Falls is on your right. After this, the next 730 meters climbs 130 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w9",
+      "at": 2020,
+      "lat": 37.92463045788908,
+      "lon": -122.62953029685316,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on the Cataract Trail. Laurel Dell Falls is on your right.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w10",
+      "at": 2510,
+      "lat": 37.9220493453388,
+      "lon": -122.62602194101085,
+      "kind": "stream",
+      "title": "Barths Creek",
+      "text": "The path crosses Barths Creek. You will find a bridge on the Cataract Trail. Continue straight on the Cataract Trail.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w11",
+      "at": 2673,
+      "lat": 37.92073302484152,
+      "lon": -122.62574448241212,
+      "kind": "view",
+      "title": "Summit",
+      "text": "A summit is on your left, about 90 meters off the path. After this, the next 560 meters climbs 30 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w12",
+      "at": 3229,
+      "lat": 37.91666844019248,
+      "lon": -122.62289338048392,
+      "kind": "fork",
+      "title": "Keep right",
+      "text": "Keep right on the Cataract Trail. The path on the left is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w13",
+      "at": 3320,
+      "lat": 37.9159141333973,
+      "lon": -122.62270557660041,
+      "kind": "stream",
+      "title": "Cataract Creek",
+      "text": "The path crosses Cataract Creek. After this, the next 540 meters climbs 20 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w14",
+      "at": 3860,
+      "lat": 37.91323852521889,
+      "lon": -122.6184598014838,
+      "kind": "stream",
+      "title": "Cataract Creek",
+      "text": "The path crosses Cataract Creek. The next 350 meters is mostly level.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w15",
+      "at": 4210,
+      "lat": 37.91161659722403,
+      "lon": -122.61539947965237,
+      "kind": "stream",
+      "title": "Cataract Creek",
+      "text": "The path crosses Cataract Creek. You will find a bridge on the Cataract Trail.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w16",
+      "at": 4296,
+      "lat": 37.911445314798435,
+      "lon": -122.61451256325425,
+      "kind": "fork",
+      "title": "Keep left",
+      "text": "Keep left on the Cataract Trail. The path on the right is not your route.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w17",
+      "at": 4430,
+      "lat": 37.91175668569204,
+      "lon": -122.61359543721919,
+      "kind": "summit",
+      "title": "High point",
+      "text": "This is the highest point of the walk, at about 596 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w18",
+      "at": 4592,
+      "lat": 37.9116117,
+      "lon": -122.6153934,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "This is the end of the route. The path crosses Cataract Creek.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 18,
+     "required": 5,
+     "modelCues": 18,
+     "cleanCues": 18,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 5,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 11055,
+     "promptTokens": 1019,
+     "outputTokens": 864,
+     "decodeTps": 80.4,
+     "prefillTps": 3365
+    }
+   }
+  },
+  {
+   "id": "benstein",
+   "lengthM": 1910,
+   "waymarks": 5,
+   "stats": {
+    "mode": "free",
+    "waymarks": 5,
+    "required": 4,
+    "modelCues": 5,
+    "cleanCues": 5,
+    "repairedCues": 0,
+    "replacedCues": 0,
+    "addedCues": 0,
+    "requiredCovered": 4,
+    "invalidOutput": 0,
+    "issues": {
+     "number": 0,
+     "name": 0,
+     "direction": 0,
+     "side": 0,
+     "length": 0,
+     "empty": 0
+    },
+    "ms": 4149,
+    "promptTokens": 642,
+    "outputTokens": 308,
+    "decodeTps": 78.6,
+    "prefillTps": 2853
+   },
+   "briefing": "This trail is about 1.9 kilometers one way with a total climb of about 80 meters. The steepest sustained climb is 560 meters at about 14% on average. The route culminates at a summit point at 692 meters. Expect a total descent of 90 meters.",
+   "briefingIssues": [],
+   "cues": [
+    {
+     "id": "w1",
+     "at": 0,
+     "lat": 37.9244364,
+     "lon": -122.6138001,
+     "kind": "start",
+     "title": "Start",
+     "text": "Start the steady climb now. This section is 560 meters long and gains 80 meters in total. You will reach the highest point at 692 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w2",
+     "at": 560,
+     "lat": 37.9211873323731,
+     "lon": -122.61180516890715,
+     "kind": "summit",
+     "title": "High point",
+     "text": "You have reached the highest point of the walk. This is at about 692 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w3",
+     "at": 785,
+     "lat": 37.91933118532207,
+     "lon": -122.6112008326942,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right onto Benstein Trail. The next 640 meters will drop 40 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w4",
+     "at": 1421,
+     "lat": 37.91504481724336,
+     "lon": -122.61160528116982,
+     "kind": "turn",
+     "title": "Turn right",
+     "text": "Turn right on Benstein Trail. The next 490 meters will drop 30 meters.",
+     "source": "gemma",
+     "issues": []
+    },
+    {
+     "id": "w5",
+     "at": 1910,
+     "lat": 37.9125703,
+     "lon": -122.6144131,
+     "kind": "finish",
+     "title": "Finish",
+     "text": "This is the end of the route.",
+     "source": "gemma",
+     "issues": []
+    }
+   ],
+   "raw": {
+    "role": "assistant",
+    "content": [
+     {
+      "type": "text",
+      "text": "```json\n{\n  \"cues\": [\n    {\n      \"waymark\": \"w1\",\n      \"text\": \"Start the steady climb now. This section is 560 meters long and gains 80 meters in total. You will reach the highest point at 692 meters.\"\n    },\n    {\n      \"waymark\": \"w2\",\n      \"text\": \"You have reached the highest point of the walk. This is at about 692 meters.\"\n    },\n    {\n      \"waymark\": \"w3\",\n      \"text\": \"Turn right onto Benstein Trail. The next 640 meters will drop 40 meters.\"\n    },\n    {\n      \"waymark\": \"w4\",\n      \"text\": \"Turn right on Benstein Trail. The next 490 meters will drop 30 meters.\"\n    },\n    {\n      \"waymark\": \"w5\",\n      \"text\": \"This is the end of the route.\"\n    }\n  ],\n  \"briefing\": \"This trail is about 1.9 kilometers one way with a total climb of about 80 meters. The steepest sustained climb is 560 meters at about 14% on average. The route culminates at a summit point at 692 meters. Expect a total descent of 90 meters.\"\n}\n```"
+     }
+    ]
+   },
+   "guide": {
+    "trailId": "benstein",
+    "trailName": "Benstein Trail",
+    "model": "Gemma 4 E2B",
+    "createdAt": "2026-10-05T20:52:33.688Z",
+    "briefing": "This trail is about 1.9 kilometers one way with a total climb of about 80 meters. The steepest sustained climb is 560 meters at about 14% on average. The route culminates at a summit point at 692 meters. Expect a total descent of 90 meters.",
+    "briefingIssues": [],
+    "cues": [
+     {
+      "id": "w1",
+      "at": 0,
+      "lat": 37.9244364,
+      "lon": -122.6138001,
+      "kind": "start",
+      "title": "Start",
+      "text": "Start the steady climb now. This section is 560 meters long and gains 80 meters in total. You will reach the highest point at 692 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w2",
+      "at": 560,
+      "lat": 37.9211873323731,
+      "lon": -122.61180516890715,
+      "kind": "summit",
+      "title": "High point",
+      "text": "You have reached the highest point of the walk. This is at about 692 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w3",
+      "at": 785,
+      "lat": 37.91933118532207,
+      "lon": -122.6112008326942,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right onto Benstein Trail. The next 640 meters will drop 40 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w4",
+      "at": 1421,
+      "lat": 37.91504481724336,
+      "lon": -122.61160528116982,
+      "kind": "turn",
+      "title": "Turn right",
+      "text": "Turn right on Benstein Trail. The next 490 meters will drop 30 meters.",
+      "source": "gemma",
+      "issues": []
+     },
+     {
+      "id": "w5",
+      "at": 1910,
+      "lat": 37.9125703,
+      "lon": -122.6144131,
+      "kind": "finish",
+      "title": "Finish",
+      "text": "This is the end of the route.",
+      "source": "gemma",
+      "issues": []
+     }
+    ],
+    "stats": {
+     "mode": "free",
+     "waymarks": 5,
+     "required": 4,
+     "modelCues": 5,
+     "cleanCues": 5,
+     "repairedCues": 0,
+     "replacedCues": 0,
+     "addedCues": 0,
+     "requiredCovered": 4,
+     "invalidOutput": 0,
+     "issues": {
+      "number": 0,
+      "name": 0,
+      "direction": 0,
+      "side": 0,
+      "length": 0,
+      "empty": 0
+     },
+     "ms": 4149,
+     "promptTokens": 642,
+     "outputTokens": 308,
+     "decodeTps": 78.6,
+     "prefillTps": 2853
+    }
+   }
+  }
+ ]
+}

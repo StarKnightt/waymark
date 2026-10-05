@@ -236,9 +236,13 @@ export function buildFacts(name: string, points: LL[], dem: Dem, ctx: Context): 
     const onto = branches[matchOut].name;
     const from = branches[matchIn].name;
     const sideOf = (r: number) => (Math.abs(r) < 30 ? 'straight ahead' : r > 0 ? 'on the right' : 'on the left');
+    // when another way leaves on the same side as the turn, say which of the two to take
+    const turnSide = turn.includes('left') ? -1 : turn.includes('right') ? 1 : 0;
+    const twin = turnSide ? rels.find((o) => Math.sign(o.rel) === turnSide && Math.abs(o.rel) >= 30) : undefined;
+    const which = twin ? ` (the ${Math.abs(turnDeg) > Math.abs(twin.rel) ? 'sharper' : 'gentler'} of two ${turnSide < 0 ? 'left' : 'right'} turns)` : '';
     const otherText = rels.map((o) => `${o.name ? q(o.name) : o.kind === 'track' ? 'the track' : o.kind === 'path' || o.kind === 'footway' ? 'the path' : o.kind === 'steps' ? 'the steps' : 'the road'} ${sideOf(o.rel)}`).join(' and ');
     const verb = turn === 'straight' ? 'continue straight' : turn.startsWith('keep') ? turn : `turn ${turn}`;
-    const fact = `junction: ${verb}${onto && onto !== from ? ` onto ${q(onto)}` : onto ? ` on ${q(onto)}` : ''}; ${otherText} ${rels.length > 1 ? 'are' : 'is'} not your route`;
+    const fact = `junction: ${verb}${which}${onto && onto !== from ? ` onto ${q(onto)}` : onto ? ` on ${q(onto)}` : ''}; ${otherText} ${rels.length > 1 ? 'are' : 'is'} not your route`;
     const trailish = (k: string) => /path|footway|track|steps|bridleway/.test(k);
     const renamed = !!onto && !!from && onto !== from;
     let score = turn === 'straight' ? 0.6 : turn.startsWith('keep') ? 3 : 3.5;
@@ -411,12 +415,13 @@ export function buildFacts(name: string, points: LL[], dem: Dem, ctx: Context): 
     const g = all.filter((e) => ranked.indexOf(e) < 3);
     const d = g[0].kind === 'finish' ? total : lead.at;
     const [la, lo] = at(d);
+    const ordered = orderFacts(lead, g);
     return {
       id: `w${idx + 1}`, at: Math.round(d), lat: la, lon: lo, ele: Math.round(eleAt(d)),
-      kinds: [...new Set(g.map((e) => e.kind))], title: lead.title, facts: g.map((e) => e.fact),
+      kinds: [...new Set(g.map((e) => e.kind))], title: lead.title, facts: ordered.facts,
       turn: g.find((e) => e.turn && e.turn !== 'straight')?.turn ?? g.find((e) => e.turn)?.turn,
       onto: (g.find((e) => e.turn && e.turn !== 'straight') ?? g.find((e) => e.turn))?.onto,
-      names: [...new Set(g.flatMap((e) => e.names ?? []))], numbers: g.flatMap((e) => e.numbers ?? []),
+      names: [...new Set(g.flatMap((e) => e.names ?? []))], numbers: [...g.flatMap((e) => e.numbers ?? []), ...ordered.numbers],
       required: g.some((e) => e.required), priority: lead.priority,
     };
   });
@@ -435,7 +440,7 @@ export function buildFacts(name: string, points: LL[], dem: Dem, ctx: Context): 
     w.numbers.push(dist(gap, 'length'), meters(u, 20, 'gain'), meters(dn, 20, 'loss'));
   });
 
-  const trailNumbers: Allowed[] = [km(total, 'total'), meters(up, Math.max(25, up * 0.1), 'gain'), meters(down, Math.max(25, down * 0.1), 'loss'), meters(ele[hi], 20, 'elev'), meters(ele[lo], 20, 'elev'), { value: Math.round(walk), unit: 'min', tol: Math.max(10, walk * 0.15), role: 'time' }];
+  const trailNumbers: Allowed[] = [km(total, 'total'), meters(up, Math.max(25, up * 0.1), 'gain'), meters(down, Math.max(25, down * 0.1), 'loss'), meters(ele[hi], 20, 'elev'), meters(ele[lo], 20, 'elev'), { value: Math.round(walk), unit: 'min', tol: Math.max(8, walk * 0.1), role: 'time' }];
   if (steepest) trailNumbers.push(dist(steepest.length, 'length'), pct(steepest.grade));
   const summary = [
     `${fmtKm(total)} ${loop ? (outAndBack ? 'out and back' : 'loop') : 'one way'}`,
@@ -450,6 +455,15 @@ export function buildFacts(name: string, points: LL[], dem: Dem, ctx: Context): 
     highest: { ele: Math.round(ele[hi]), at: Math.round(cum[hi]), name: hiName }, lowest: { ele: Math.round(ele[lo]), at: Math.round(cum[lo]) },
     loop, outAndBack, walkMinutes: Math.round(walk), steepest, waymarks, profile: { pts, cum, ele }, names, numbers: trailNumbers, summary,
   };
+}
+
+/** The leading fact first, except that several junctions keep their walking order so turns are given in sequence. */
+function orderFacts(lead: Event, g: Event[]): { facts: string[]; numbers: Allowed[] } {
+  const js = g.filter((e) => e.kind === 'junction').sort((a, b) => a.at - b.at);
+  if (js.length < 2) return { facts: [lead, ...g.filter((e) => e !== lead)].map((e) => e.fact), numbers: [] };
+  const gaps = js.slice(1).map((e, i) => Math.max(10, Math.round((e.at - js[i].at) / 10) * 10));
+  const turns = js.map((e, i) => (i ? `about ${gaps[i - 1]} m later, ${e.fact}` : e.fact));
+  return { facts: [...turns, ...g.filter((e) => e.kind !== 'junction').map((e) => e.fact)], numbers: gaps.map((d) => meters(d, 15, 'length')) };
 }
 
 /** Minutes from the start to a distance along the route, using the same walking model. */

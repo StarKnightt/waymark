@@ -44,7 +44,14 @@ export async function buildFromTrack(id: string, track: Track, onStatus?: Status
   const dem = await loadDem(bbox, onStatus);
   const near = bboxOf(track.points, 1050);
   onStatus?.('Downloading paths, water and landmarks');
-  const ctx = known && inside(near, known.bbox) ? { ...known } : await context(near, onStatus, useOsmApi);
+  let ctx: Context;
+  try {
+    ctx = known && inside(near, known.bbox) ? { ...known } : await context(near, onStatus, useOsmApi);
+  } catch (e) {
+    // without map details the guide still covers climbs, distances, the high point and the finish
+    onStatus?.(`Map details were unavailable (${(e as Error).message}). The guide will cover climbs and distances only.`);
+    ctx = { bbox: near, paths: [], areas: [], streams: [], buildings: [], pois: [] };
+  }
   ctx.bbox = bbox;
   onStatus?.('Working out junctions, climbs and landmarks');
   const facts = buildFacts(track.name, track.points, dem, ctx);

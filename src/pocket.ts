@@ -63,7 +63,7 @@ export function mountPocket(root: HTMLElement, pack: Pack): () => void {
           <button class="p-ghost" data-act="repeat" type="button">Repeat last cue</button>
           <button class="p-ghost" data-act="stop" type="button">End walk</button>
         </div>
-        <p class="p-small">Tap anywhere to dim the screen.</p>
+        <p class="p-small">Tap the screen to show or dim this text.</p>
       </div>
     </section>`;
   const $ = <T extends HTMLElement>(s: string) => root.querySelector(s) as T;

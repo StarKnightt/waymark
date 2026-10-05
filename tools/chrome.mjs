@@ -14,7 +14,7 @@ export async function launch({ profile = '.cache/chrome', width = 1280, height =
   // a persistent profile can restore old tabs; always work in a fresh one
   const page = await ctx.newPage();
   for (const p of ctx.pages()) if (p !== page) await p.close();
-  page.on('pageerror', (e) => console.log('[pageerror]', e.message));
+  page.on('pageerror', (e) => console.log('[pageerror]', process.env.STACK ? e.stack : e.message));
   return { ctx, page };
 }
 

@@ -60,6 +60,8 @@ export const SYSTEM = [
   '- Say what to do at this spot first, then what the next stretch is like. Leave out a stretch that is only "mostly level".',
   '- Mention toilets, benches, cafes or information boards only when nothing more useful happens at that waymark.',
   '- Do not begin two cues in a row with the same words.',
+  '- When a waymark lists two junctions, give them in the order listed.',
+  '- Only call a place a summit, lake, waterfall or viewpoint if its facts call it that. A place marked "not on the route" is only something you can see.',
   '- Every waymark marked REQUIRED must get a cue. Skip other waymarks that would add nothing useful.',
 ].join('\n');
 
@@ -148,7 +150,7 @@ const kindOf = (w: Waymark): string => {
   return k === 'forest' ? 'woods' : k === 'poi' ? 'note' : k;
 };
 
-function emptyStats(mode: 'tools' | 'free', f: TrailFacts): GuideStats {
+export function emptyStats(mode: 'tools' | 'free', f: TrailFacts): GuideStats {
   return {
     mode, waymarks: f.waymarks.length, required: f.waymarks.filter((w) => w.required).length, modelCues: 0, cleanCues: 0, repairedCues: 0,
     replacedCues: 0, addedCues: 0, requiredCovered: 0, invalidOutput: 0, issues: { number: 0, name: 0, direction: 0, side: 0, length: 0, empty: 0 },
@@ -187,6 +189,44 @@ export function assemble(trailId: string, f: TrailFacts, raw: { waymark: string;
   };
 }
 
+/** Pulls (waymark, text) pairs and the briefing out of the model's reply. */
+export function parseReply(msg: Message, mode: 'tools' | 'free', stats: GuideStats): { raw: { waymark: string; kind?: string; text: string }[]; briefing: string | null } {
+  const raw: { waymark: string; kind?: string; text: string }[] = [];
+  let briefing: string | null = null;
+  if (mode === 'tools') {
+    for (const call of msg.tool_calls ?? []) {
+      const a = call.function.arguments as Record<string, unknown>;
+      if (call.function.name === 'write_guide') {
+        for (const c of Array.isArray(a.cues) ? a.cues : []) {
+          const o = (c ?? {}) as Record<string, unknown>;
+          raw.push({ waymark: String(o.waymark ?? ''), text: String(o.text ?? '') });
+        }
+        if (typeof a.briefing === 'string') briefing = a.briefing;
+      } else if (call.function.name === 'add_cue') raw.push({ waymark: String(a.waymark ?? ''), kind: String(a.kind ?? ''), text: String(a.text ?? '') });
+      else if (call.function.name === 'set_briefing' && typeof a.text === 'string') briefing = a.text;
+      else stats.invalidOutput++;
+    }
+    if (!msg.tool_calls?.length) stats.invalidOutput++;
+  } else {
+    const text = typeof msg.content === 'string' ? msg.content : (msg.content ?? []).map((p) => ('text' in p ? p.text : '')).join('');
+    try {
+      const j = JSON.parse(text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1));
+      for (const c of j.cues ?? []) raw.push({ waymark: String(c.waymark ?? ''), text: String(c.text ?? '') });
+      if (typeof j.briefing === 'string') briefing = j.briefing;
+    } catch {
+      stats.invalidOutput++;
+    }
+  }
+  return { raw, briefing };
+}
+
+/** Re-applies the current checker to a saved model reply (used to re-score stored eval runs). */
+export function recheck(trailId: string, f: TrailFacts, msg: Message, old: GuideStats): Guide {
+  const stats = { ...emptyStats(old.mode, f), ms: old.ms, promptTokens: old.promptTokens, outputTokens: old.outputTokens, decodeTps: old.decodeTps, prefillTps: old.prefillTps };
+  const { raw, briefing } = parseReply(msg, old.mode, stats);
+  return assemble(trailId, f, raw, briefing, stats);
+}
+
 export interface WriteOptions { mode?: 'tools' | 'free'; signal?: AbortSignal; debug?: boolean }
 
 export async function writeGuide(engine: Engine, trailId: string, f: TrailFacts, opts: WriteOptions = {}): Promise<Guide> {
@@ -213,32 +253,7 @@ export async function writeGuide(engine: Engine, trailId: string, f: TrailFacts,
     stats.outputTokens = bench.lastDecodeTokenCount;
     stats.decodeTps = +bench.lastDecodeTokensPerSecond.toFixed(1);
     stats.prefillTps = Math.round(bench.lastPrefillTokensPerSecond);
-    const raw: { waymark: string; kind?: string; text: string }[] = [];
-    let briefing: string | null = null;
-    if (mode === 'tools') {
-      for (const call of msg.tool_calls ?? []) {
-        const a = call.function.arguments as Record<string, unknown>;
-        if (call.function.name === 'write_guide') {
-          for (const c of Array.isArray(a.cues) ? a.cues : []) {
-            const o = (c ?? {}) as Record<string, unknown>;
-            raw.push({ waymark: String(o.waymark ?? ''), text: String(o.text ?? '') });
-          }
-          if (typeof a.briefing === 'string') briefing = a.briefing;
-        } else if (call.function.name === 'add_cue') raw.push({ waymark: String(a.waymark ?? ''), kind: String(a.kind ?? ''), text: String(a.text ?? '') });
-        else if (call.function.name === 'set_briefing' && typeof a.text === 'string') briefing = a.text;
-        else stats.invalidOutput++;
-      }
-      if (!msg.tool_calls?.length) stats.invalidOutput++;
-    } else {
-      const text = typeof msg.content === 'string' ? msg.content : (msg.content ?? []).map((p) => ('text' in p ? p.text : '')).join('');
-      try {
-        const j = JSON.parse(text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1));
-        for (const c of j.cues ?? []) raw.push({ waymark: String(c.waymark ?? ''), text: String(c.text ?? '') });
-        if (typeof j.briefing === 'string') briefing = j.briefing;
-      } catch {
-        stats.invalidOutput++;
-      }
-    }
+    const { raw, briefing } = parseReply(msg, mode, stats);
     const guide = assemble(trailId, f, raw, briefing, stats);
     if (opts.debug) guide.debug = msg;
     return guide;

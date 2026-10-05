@@ -17,7 +17,7 @@ const junction: Waymark = {
 };
 const facts = {
   name: 'Lake Agnes Trail', loop: false, names: ['Lake Agnes Trail', 'Mirror Lake', 'Lake Agnes', 'Lake Louise'], summary: ['3.7 km one way', 'about 400 m of climbing'],
-  numbers: [{ value: 3.7, unit: 'km', tol: 0.15, role: 'total' }, { value: 403, unit: 'm', tol: 40, role: 'gain' }, { value: 102, unit: 'min', tol: 15, role: 'time' }],
+  numbers: [{ value: 3.7, unit: 'km', tol: 0.15, role: 'total' }, { value: 403, unit: 'm', tol: 40, role: 'gain' }, { value: 102, unit: 'min', tol: 10, role: 'time' }],
   waymarks: [climb, junction], walkMinutes: 102,
 } as unknown as TrailFacts;
 
@@ -36,6 +36,27 @@ window.wmCheckTest = () => {
   t('invented side path is removed', checkCue('Turn right on the Lake Agnes Trail. The path on the left is not your route.', junction, facts), (s) => !/on the left/.test(s) && /Turn right/.test(s));
   t('listed side path is kept', checkCue('Turn right on the Lake Agnes Trail. The path straight ahead is not your route.', junction, facts), (s) => /straight ahead/.test(s));
   t('straight on at a turn is removed', checkCue('Continue straight on the Lake Agnes Trail. Mirror Lake is on your right.', junction, facts), (s) => !/straight on the Lake/.test(s));
+  const two: Waymark = { ...base, id: 'w5', at: 600, ele: 80, kinds: ['junction'], turn: 'left', required: true, names: ['Hazel Avenue', 'Hale Lane'],
+    facts: ['junction: turn left onto "Hazel Avenue"; the road on the right is not your route', 'junction: turn right onto "Hale Lane"; the road straight ahead is not your route'], numbers: [] };
+  const f2 = { ...facts, names: [...facts.names, 'Hazel Avenue', 'Hale Lane', 'Sharma store', 'Benstein Trail'] } as unknown as TrailFacts;
+  t('two junctions in one waymark keep both turns', checkCue('Turn left onto Hazel Avenue. Turn right onto Hale Lane.', two, f2), (s) => s === 'Turn left onto Hazel Avenue. Turn right onto Hale Lane.');
+  const branchLeft: Waymark = { ...junction, facts: ['junction: turn right on "Lake Agnes Trail"; the path on the left is not your route', 'a viewpoint on your right'] };
+  t('a branch on the left is not a landmark side', checkCue('Turn right on the Lake Agnes Trail. The path on the left is not your route.', branchLeft, f2), (s) => /path on the left/.test(s));
+  t('"do not go straight" is not a straight-on instruction', checkCue('Turn right on the Lake Agnes Trail. Do not go straight ahead.', junction, f2), (s) => /Do not go straight ahead/.test(s));
+  const shop: Waymark = { ...base, id: 'w6', at: 2150, ele: 2354, kinds: ['rest'], names: ['Sharma store'], facts: ['"Sharma store", a cafe on your right'], numbers: [] };
+  t('a sentence-initial verb is not part of a name', checkCue('Find the Sharma store on your right.', shop, f2), (s) => /Sharma store/.test(s));
+  t('a time written in words is checked', checkBriefing('The Lake Agnes Trail is 3.7 km long. The walk takes about an hour and a half.', facts), (s) => !/hour and a half/.test(s));
+  t('a correct time in words survives', checkBriefing('The Lake Agnes Trail is 3.7 km long. The walk takes about an hour and forty minutes.', facts), (s) => /forty minutes/.test(s));
+  t('compound number words are read correctly', checkCue('A steady climb starts here. It is seven hundred thirty meters long and gains seventy meters.', climb, facts), (s) => /seven hundred thirty/.test(s));
+  t('a wrong compound number is caught', checkCue('A steady climb starts here. It is four hundred fifty meters long.', climb, facts), (s) => !/four hundred/.test(s));
+  t('"Toilets and ..." is not a name', checkCue('Toilets and a bench are here. Turn right on the Lake Agnes Trail.', junction, f2), (s) => /Toilets and a bench/.test(s));
+  t('"a peak of" reads as an elevation', checkCue('The climb tops out at a peak of 1980 meters.', climb, facts), (s) => /1980/.test(s));
+  t('kilometres after "climb of" are a length', checkBriefing('The Lake Agnes Trail is 3.7 km long. The main climb of 3.7 km gains about 400 m.', facts), (s) => /climb of 3\.7 km/.test(s));
+  t('quotes and lower-case starts are tidied', checkCue('turn right on "Lake Agnes Trail". mirror Lake is on your right.', junction, facts), (s) => s === 'Turn right on Lake Agnes Trail. Mirror Lake is on your right.');
+  const bridgeW: Waymark = { ...base, id: 'w2', at: 300, ele: 300, kinds: ['bridge'], names: ['紅葉橋'], facts: ['a bridge, "紅葉橋"'], numbers: [] };
+  const f3 = { ...f2, names: [...f2.names, '紅葉橋'] } as unknown as TrailFacts;
+  t('a known name in another script is kept', checkCue('You cross the bridge 紅葉橋.', bridgeW, f3), (s) => /紅葉橋/.test(s));
+  t('an unknown name in another script is removed', checkCue('You cross the bridge 紅葉橋. Then you reach 高尾山口.', bridgeW, f3), (s) => !/高尾山口/.test(s) && /紅葉橋/.test(s));
   t('briefing keeps true numbers', checkBriefing('The Lake Agnes Trail is 3.7 km long with about 400 m of climbing. Allow about 1 h 42 min of walking.', facts), (s) => /3\.7 km/.test(s) && /1 h 42 min/.test(s));
   t('briefing drops a made-up number', checkBriefing('The trail is 3.7 km long. It has 12 waterfalls. Mirror Lake is the highlight.', facts), (s) => !/12/.test(s) && /Mirror Lake/.test(s));
   return cases;

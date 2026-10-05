@@ -1,4 +1,4 @@
-import { Engine } from '@litert-lm/core';
+import { Engine, loadLiteRtLm } from '@litert-lm/core';
 
 export const MODEL = {
   name: 'Gemma 4 E2B',
@@ -81,6 +81,8 @@ export function getEngine(onProgress?: Progress): Promise<Engine> {
   enginePromise ??= (async () => {
     const file = (await cachedModel()) ?? (await downloadModel(onProgress));
     onProgress?.({ phase: 'load', text: `Starting ${MODEL.name} on your GPU` });
+    // the production build ships the WebAssembly runtime itself (see vite.config.ts)
+    if (import.meta.env.PROD) await loadLiteRtLm(new URL(`${import.meta.env.BASE_URL}litert/`, location.href).href);
     return Engine.create({ model: file, mainExecutorSettings: { maxNumTokens: 6144 }, benchmarkEnabled: true });
   })().catch((e) => {
     enginePromise = null;

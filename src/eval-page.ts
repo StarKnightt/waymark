@@ -1,10 +1,15 @@
 // Developer entry used by eval/run.mjs: writes guides for pre-built trails with the real model.
 import { getEngine, gpuStatus } from './ai/gemma';
-import { writeGuide, userMessage, type Guide } from './ai/guide';
+import type { Message } from '@litert-lm/core';
+import { recheck, writeGuide, userMessage, type Guide, type GuideStats } from './ai/guide';
 import { loadStatic } from './trail';
 
 declare global {
-  interface Window { wmEval: (ids: string[], mode: 'tools' | 'free') => Promise<unknown>; wmPrompt: (id: string) => Promise<string> }
+  interface Window {
+    wmEval: (ids: string[], mode: 'tools' | 'free') => Promise<unknown>;
+    wmPrompt: (id: string) => Promise<string>;
+    wmRecheck: (rows: { id: string; raw: unknown; stats: GuideStats }[]) => Promise<Guide[]>;
+  }
 }
 
 window.wmEval = async (ids, mode) => {
@@ -20,6 +25,15 @@ window.wmEval = async (ids, mode) => {
     out.push({ id, guide, lengthM: b.facts.lengthM, waymarks: b.facts.waymarks.length });
   }
   return { gpu, loadMs, out };
+};
+
+window.wmRecheck = async (rows) => {
+  const out: Guide[] = [];
+  for (const r of rows) {
+    const b = await loadStatic(import.meta.env.BASE_URL, r.id);
+    out.push(recheck(r.id, b.facts, r.raw as Message, r.stats));
+  }
+  return out;
 };
 
 window.wmPrompt = async (id) => {

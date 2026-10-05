@@ -14,16 +14,18 @@ const UNIT = /(\d+(?:[.,]\d+)?)\s*(kilometres|kilometers|kilometre|kilometer|km|
 interface Num { raw: string; value: number; kind: 'dist' | '%' | 'min' | 'steps' | null; roles: Role[] | null }
 
 const Q = String.raw`(?:about|around|roughly|nearly|almost|over|just over|under|some)?\s*`;
-const ELEV_B = new RegExp(String.raw`\b(up to|at|reach(?:es|ing)?|tops? out at|topping out at|elevation(?: of)?|altitude(?: of)?|height(?: of)?)\s*` + Q + '$');
-const GAIN_B = new RegExp(String.raw`\b(gain(?:s|ing)?|climb(?:s|ing)?|ascend(?:s|ing)?|ris(?:e|es|ing)|up)\s*(?:of\s*)?` + Q + '$');
-const LOSS_B = new RegExp(String.raw`\b(drop(?:s|ping)?|los(?:e|es|ing)|descend(?:s|ing)?|down|fall(?:s|ing)?)\s*(?:of\s*)?` + Q + '$');
+const ELEV_B = new RegExp(String.raw`\b(up to|at|reach(?:es|ing)?|tops? out at|topping out at|elevation(?: of)?|altitude(?: of)?|height(?: of)?|(?:a |the )?(?:peak|summit|top|high point|highest point) of)\s*` + Q + '$');
+const GAIN_B = new RegExp(String.raw`\b(gain(?:s|ing)?|climb(?:s|ing)?|ascen(?:d|ds|ding|t)|ris(?:e|es|ing)|up)\s*(?:of\s*)?` + Q + '$');
+const LOSS_B = new RegExp(String.raw`\b(drop(?:s|ping)?|los(?:e|es|ing)|descen(?:d|ds|ding|t)|down|fall(?:s|ing)?)\s*(?:of\s*)?` + Q + '$');
 const LEN_B = new RegExp(String.raw`\b(for|over|in|after|within|another|next|last|of)\s*` + Q + '$');
 
 /** What a number is being used as, from the words around it. null means the sentence does not say. */
-function roleOf(before: string, after: string, kind: Num['kind']): Role[] | null {
+function roleOf(before: string, after: string, kind: Num['kind'], km = false): Role[] | null {
   if (kind === '%') return ['grade'];
   if (kind === 'min') return ['time'];
   if (kind !== 'dist') return null;
+  // heights and climbs are given in metres; a figure in kilometres is a distance along the path
+  if (km) return ['length', 'total', 'off'];
   const b = before.toLowerCase(), a = after.toLowerCase();
   if (ELEV_B.test(b) || /^\s*(high|above sea level|elevation|altitude)\b/.test(a)) return ['elev'];
   if (GAIN_B.test(b) || /^\s*(of (climbing|ascent)|up\b|higher|of height)/.test(a)) return ['gain'];
@@ -34,7 +36,40 @@ function roleOf(before: string, after: string, kind: Num['kind']): Role[] | null
   return null;
 }
 
+const SMALL: Record<string, number> = {
+  zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13,
+  fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90,
+};
+const NUMWORD = String.raw`(?:${Object.keys(SMALL).join('|')}|hundred|thousand)`;
+const SEQ = new RegExp(String.raw`\b${NUMWORD}(?:[\s-]+(?:and[\s-]+)?${NUMWORD})*\b(?=\s*(?:kilometres?|kilometers?|km|metres?|meters?|hours?|minutes?|mins?|percent|%))`, 'gi');
+
+function parseWords(seq: string): number | null {
+  let total = 0, cur = 0;
+  for (const w of seq.toLowerCase().split(/[\s-]+/)) {
+    if (w === 'and') continue;
+    if (w in SMALL) cur += SMALL[w];
+    else if (w === 'hundred') cur = (cur || 1) * 100;
+    else if (w === 'thousand') { total += (cur || 1) * 1000; cur = 0; }
+    else return null;
+  }
+  return total + cur;
+}
+
+/** Rewrites spelled-out amounts ("an hour and a half", "four hundred fifty metres") as digits so they are checked too. */
+export function digitize(s: string): string {
+  const one = (n: string) => SMALL[n.toLowerCase()];
+  return s
+    .replace(/\b(an?|one) hour and a half\b/gi, '1 h 30 min')
+    .replace(/\bhalf an hour\b/gi, '30 min')
+    .replace(/\b(an?|one) hour and (\w+(?:[\s-]\w+)?) minutes?\b/gi, (m, _a, n) => { const v = parseWords(n); return v === null ? m : `1 h ${v} min`; })
+    .replace(/\b(\w+) hours? and a half\b/gi, (m, n) => (one(n) ? `${one(n)} h 30 min` : m))
+    .replace(/\b(an|a) (hour|kilometre|kilometer)\b/gi, (_m, _a, u) => `1 ${u}`)
+    .replace(/\bhalf a (kilometre|kilometer)\b/gi, '0.5 km')
+    .replace(SEQ, (m) => { const v = parseWords(m); return v === null ? m : String(v); });
+}
+
 function numbers(s: string): Num[] {
+  s = digitize(s);
   const out: Num[] = [];
   const DUR = /(\d+)\s*(?:h|hours?|hrs?)\s*(?:and\s*)?(\d+)\s*(?:min|mins|minutes?)\b/gi;
   for (const m of s.matchAll(DUR)) out.push({ raw: m[0], value: Number(m[1]) * 60 + Number(m[2]), kind: 'min', roles: ['time'] });
@@ -51,7 +86,7 @@ function numbers(s: string): Num[] {
     else if (u === 'steps') n = { raw: m[0], value: v, kind: 'steps' };
     else n = { raw: m[0], value: v, kind: null };
     const i = m.index ?? 0;
-    out.push({ ...n, roles: roleOf(s.slice(Math.max(0, i - 32), i), s.slice(i + m[0].length, i + m[0].length + 28), n.kind) });
+    out.push({ ...n, roles: roleOf(s.slice(Math.max(0, i - 32), i), s.slice(i + m[0].length, i + m[0].length + 28), n.kind, /^(km|kilo)/.test(u)) });
   }
   return out;
 }
@@ -64,7 +99,7 @@ function supported(n: Num, all: Allowed[]): boolean {
       return Math.abs(n.value - v) <= Math.max(tol, 0.06 * v);
     }
     if (n.kind === '%' && a.unit === '%') return Math.abs(n.value - a.value) <= a.tol;
-    if (n.kind === 'min' && (a.unit === 'min' || a.unit === 'h')) return Math.abs(n.value - a.value) <= Math.max(a.tol, 0.15 * a.value);
+    if (n.kind === 'min' && (a.unit === 'min' || a.unit === 'h')) return Math.abs(n.value - a.value) <= a.tol;
     if (n.kind === 'steps' && a.unit === 'steps') return Math.abs(n.value - a.value) <= a.tol;
     if (n.kind === null) return Math.abs(n.value - a.value) < 0.5 || Math.abs(n.value - (a.unit === 'km' ? a.value : Math.round(a.value))) < 0.5;
     return false;
@@ -77,6 +112,8 @@ const norm = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[\u0300-\
 function properNouns(s: string): string[] {
   const out: string[] = [];
   for (const m of s.matchAll(/["“”]([^"“”]{2,60})["“”]/g)) out.push(m[1]);
+  // names in scripts without capital letters (for example 紅葉橋) are checked as whole runs
+  for (const m of s.matchAll(/[^\p{Script=Latin}\p{N}\s.,;:!?'’"“”()&/-]{2,}/gu)) out.push(m[0]);
   const words = s.replace(/["“”]/g, '').split(/\s+/);
   let cur: string[] = [];
   const flush = () => {
@@ -88,6 +125,8 @@ function properNouns(s: string): string[] {
     cur = [];
   };
   let startsAtZero = false;
+  // a lone capitalised word at the start of a sentence ("Toilets and a bench...") is ordinary grammar, not a name
+  const lone = () => startsAtZero && cur.filter((x) => /^\p{Lu}/u.test(x)).length === 1;
   words.forEach((w, i) => {
     const bare = w.replace(/^[(]+|[),.;:!?]+$/g, '');
     const cap = /^\p{Lu}/u.test(bare);
@@ -95,17 +134,20 @@ function properNouns(s: string): string[] {
     if (cap) {
       if (!cur.length) startsAtZero = i === 0;
       cur.push(bare);
-      if (/[,.;:!?]$/.test(w)) { if (!(startsAtZero && cur.length === 1)) flush(); else cur = []; }
+      if (/[,.;:!?]$/.test(w)) { if (!lone()) flush(); else cur = []; }
     } else if (joiner) cur.push(bare);
-    else { if (startsAtZero && cur.length === 1) cur = []; flush(); }
+    else { if (lone()) cur = []; flush(); }
   });
-  if (startsAtZero && cur.length === 1) cur = [];
+  if (lone()) cur = [];
   flush();
   return out.map((p) => p.replace(/\s+(of|the|and|de|la|du|da|del|y|&)$/i, '')).filter((p) => p.length > 1);
 }
 
 function nameKnown(phrase: string, names: string[]): boolean {
-  const p = norm(phrase);
+  // a sentence-initial verb ("Find the Sharma store") is not part of the name
+  const words = phrase.split(/\s+/);
+  while (words.length > 1 && (COMMON.has(words[0].toLowerCase()) || LEAD_VERBS.has(words[0].toLowerCase()))) words.shift();
+  const p = norm(words.join(' '));
   if (!p || COMMON.has(p)) return true;
   return names.some((n) => {
     const k = norm(n);
@@ -129,12 +171,17 @@ function branchSides(w: Waymark): Set<string> {
 }
 const SIDE = /\b(on|to) (your|the) (left|right)\b/gi;
 
-function expected(turn: Waymark['turn']): 'left' | 'right' | 'straight' | null {
-  if (!turn) return null;
-  if (turn.includes('left')) return 'left';
-  if (turn.includes('right')) return 'right';
-  return 'straight';
+/** Every direction the junction facts at this waymark give (a waymark can hold two nearby junctions). */
+function turnsAllowed(w: Waymark): Set<'left' | 'right' | 'straight'> {
+  const out = new Set<'left' | 'right' | 'straight'>();
+  for (const f of w.facts) {
+    const m = f.match(/junction: (continue straight|keep left|keep right|turn (?:sharp |slight )?(?:left|right))/);
+    if (m) out.add(m[1].includes('left') ? 'left' : m[1].includes('right') ? 'right' : 'straight');
+  }
+  return out;
 }
+
+const LEAD_VERBS = new Set('find pass see reach enter leave expect spot notice visit approach'.split(' '));
 
 const swapLR = (s: string) => s.replace(/\b(left|right)\b/gi, (w) => (w.toLowerCase() === 'left' ? (w[0] === 'L' ? 'Right' : 'right') : w[0] === 'R' ? 'Left' : 'left'));
 
@@ -157,12 +204,23 @@ export function templateCue(w: Waymark, f: TrailFacts): string {
   return s[0].toUpperCase() + s.slice(1) + '.';
 }
 
+/** Removes formatting copied from the facts (quotation marks) and capitalises each sentence. Wording is unchanged. */
+export function tidy(text: string): string {
+  return text.replace(/["“”]/g, '').replace(/\s+([,.;:])/g, '$1').replace(/\s+/g, ' ').trim()
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(' ');
+}
+
 /** Checks one spoken cue against its waymark's facts and repairs what it safely can. */
-export function checkCue(text: string, w: Waymark, f: TrailFacts): Checked {
+export function checkCue(raw: string, w: Waymark, f: TrailFacts): Checked {
+  const text = tidy(raw);
+  // quoted names are read from the raw text, before tidy() removes the quotation marks
+  const badQuoted = [...raw.matchAll(/["“”]([^"“”]{2,60})["“”]/g)].map((m) => m[1]).filter((n) => !nameKnown(n, f.names));
   const issues: Issue[] = [];
   const allowed = [...w.numbers, ...f.numbers];
   const names = f.names;
-  const want = expected(w.turn);
+  const allowedTurns = turnsAllowed(w);
   const sidesInFacts = new Set(w.facts.flatMap((x) => [...x.matchAll(/on your (left|right)/g)].map((m) => m[1])));
   const branches = branchSides(w);
   const kept: string[] = [];
@@ -171,31 +229,38 @@ export function checkCue(text: string, w: Waymark, f: TrailFacts): Checked {
     for (const b of s.matchAll(BRANCH)) {
       if (!branches.has(b[2].split(' ').pop()!)) { drop = { type: 'direction', detail: `mentioned a ${b[1]} ${b[2]} that the facts do not list`, fixed: 'removed' }; break; }
     }
-    if (!drop && (want === 'left' || want === 'right') && STRAIGHT.test(s) && !/\b(left|right)\b/i.test(s)) drop = { type: 'direction', detail: `said straight on, the junction goes ${want}`, fixed: 'removed' };
+    const negated = /\b(do not|don't|never|not)\s+(continue|go|keep going|carry on|walk|head)\s+straight/i.test(s);
+    if (!drop && allowedTurns.size && !allowedTurns.has('straight') && STRAIGHT.test(s) && !negated && !/\b(left|right)\b/i.test(s)) {
+      drop = { type: 'direction', detail: `said straight on, the junction goes ${[...allowedTurns].join(' or ')}`, fixed: 'removed' };
+    }
     for (const n of numbers(s)) {
       if (names.some((nm) => norm(nm).includes(norm(n.raw)))) continue;
       if (!supported(n, allowed)) { drop = { type: 'number', detail: `"${n.raw.trim()}" is not in the facts`, fixed: 'removed' }; break; }
     }
+    const quoted = badQuoted.find((n) => s.includes(n));
+    if (!drop && quoted) drop = { type: 'name', detail: `"${quoted}" is not on this route`, fixed: 'removed' };
     if (!drop) for (const p of properNouns(s)) {
       if (!nameKnown(p, names)) { drop = { type: 'name', detail: `"${p}" is not on this route`, fixed: 'removed' }; break; }
     }
     if (!drop) {
-      const dirs = [...s.matchAll(DIR)].map((m) => m[2].toLowerCase());
+      const dirs = [...s.matchAll(DIR)].map((m) => m[2].toLowerCase() as 'left' | 'right');
       if (dirs.length) {
-        if (want === 'left' || want === 'right') {
-          if (dirs.every((d) => d !== want)) { s = s.replace(DIR, (m) => swapLR(m)); issues.push({ type: 'direction', detail: `said ${dirs[0]}, the junction goes ${want}`, fixed: 'swapped' }); }
-        } else {
-          drop = { type: 'direction', detail: want === 'straight' ? `said ${dirs[0]}, the route goes straight on` : `gave a ${dirs[0]} turn where there is no junction`, fixed: 'removed' };
-        }
+        const turns = [...allowedTurns].filter((t) => t !== 'straight');
+        if (!allowedTurns.size) drop = { type: 'direction', detail: `gave a ${dirs[0]} turn where there is no junction`, fixed: 'removed' };
+        else if (dirs.every((d) => allowedTurns.has(d))) { /* matches a junction here */ }
+        else if (turns.length === 1 && dirs.every((d) => d !== turns[0])) { s = s.replace(DIR, (m) => swapLR(m)); issues.push({ type: 'direction', detail: `said ${dirs[0]}, the junction goes ${turns[0]}`, fixed: 'swapped' }); }
+        else drop = { type: 'direction', detail: `said ${dirs.join(' and ')}, the junctions here go ${[...allowedTurns].join(' and ')}`, fixed: 'removed' };
       }
     }
     if (!drop) {
-      const sides = [...s.matchAll(SIDE)].map((m) => m[3].toLowerCase());
-      for (const sd of sides) {
+      for (const m of s.matchAll(SIDE)) {
+        // "the path on the left" names a branch, which the branch check above already verified
+        if (/(path|track|road|steps|trail|route|way|lane)s?\s*$/i.test(s.slice(0, m.index))) continue;
+        const sd = m[3].toLowerCase();
         if (sidesInFacts.has(sd)) continue;
         const other = sd === 'left' ? 'right' : 'left';
-        if (sidesInFacts.has(other) && sidesInFacts.size === 1) { s = s.replace(SIDE, (m) => swapLR(m)); issues.push({ type: 'side', detail: `said on the ${sd}, the facts say ${other}`, fixed: 'swapped' }); }
-        else if (!w.turn) { drop = { type: 'side', detail: `said on the ${sd}, which the facts do not say`, fixed: 'removed' }; }
+        if (sidesInFacts.has(other) && sidesInFacts.size === 1) { s = s.slice(0, m.index) + swapLR(m[0]) + s.slice((m.index ?? 0) + m[0].length); issues.push({ type: 'side', detail: `said on the ${sd}, the facts say ${other}`, fixed: 'swapped' }); }
+        else if (!allowedTurns.size) drop = { type: 'side', detail: `said on the ${sd}, which the facts do not say`, fixed: 'removed' };
         break;
       }
     }
@@ -214,8 +279,9 @@ export function checkCue(text: string, w: Waymark, f: TrailFacts): Checked {
 }
 
 /** Same rules for the briefing, against trail-level facts. Unsafe sentences are dropped. */
-export function checkBriefing(text: string, f: TrailFacts): { text: string; issues: Issue[] } {
-  const allowed: Allowed[] = [...f.numbers, ...f.waymarks.flatMap((w) => w.numbers), { value: f.walkMinutes, unit: 'min', tol: 15 }];
+export function checkBriefing(raw: string, f: TrailFacts): { text: string; issues: Issue[] } {
+  const text = tidy(raw);
+  const allowed: Allowed[] = [...f.numbers, ...f.waymarks.flatMap((w) => w.numbers), { value: f.walkMinutes, unit: 'min', tol: Math.max(8, f.walkMinutes * 0.1) }];
   const issues: Issue[] = [];
   const kept: string[] = [];
   for (const s of splitSentences(text)) {

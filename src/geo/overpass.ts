@@ -16,7 +16,7 @@ const SERVERS = [
 const GOOD_KEY = 'waymark.overpass.good';
 
 /** Runs an Overpass QL query, trying each public server until one answers with JSON. */
-export async function overpass(query: string, onStatus?: (msg: string) => void, timeoutMs = 60000): Promise<OsmResponse> {
+export async function overpass(query: string, onStatus?: (msg: string) => void, timeoutMs = 90000): Promise<OsmResponse> {
   const good = sessionStorage.getItem(GOOD_KEY);
   const order = good ? [good, ...SERVERS.filter((s) => s !== good)] : SERVERS;
   const errors: string[] = [];

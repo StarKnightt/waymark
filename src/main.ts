@@ -295,7 +295,7 @@ async function findTrails(q: string) {
       : '<li class="muted">No mapped walking routes within 9 km. Try a GPX file instead.</li>';
     out.querySelectorAll<HTMLButtonElement>('[data-rel]').forEach((b) => b.addEventListener('click', () => { const id = Number(b.dataset.rel); void build(() => buildFromRelation(id, log), `osm-${id}`); }));
   } catch (e) {
-    out.innerHTML = `<li class="err">${esc((e as Error).message)}</li>`;
+    out.innerHTML = `<li class="err">Route search uses OpenStreetMap's Overpass service, which did not answer (${esc((e as Error).message)}). Try again in a few minutes, or open a GPX file instead.</li>`;
   }
 }
 

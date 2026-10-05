@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { Line2 } from 'three/addons/lines/Line2.js';
+import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
+import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { pointInRing, type LL, type XY } from '../geo/geo';
 import type { Context } from '../geo/context';
 import type { Ground } from './terrain';
@@ -142,27 +145,34 @@ export function buildWater(g: Ground, ctx: Context): THREE.Group {
   return group;
 }
 
-/** A tube that follows the route a little above the ground. */
-export function buildRoute(g: Ground, points: LL[], color = '#f2c230'): { mesh: THREE.Mesh; curve: THREE.CatmullRomCurve3; setProgress: (t: number) => void } {
-  const step = Math.max(1, Math.floor(points.length / 900));
-  const v = points.filter((_, i) => i % step === 0 || i === points.length - 1).map((p) => g.toScene(p, 5));
+/** The route as a constant-width line (in pixels) with a dark casing, a little above the ground. */
+export function buildRoute(g: Ground, points: LL[], color = '#f2c230'): { mesh: THREE.Group; curve: THREE.CatmullRomCurve3; setProgress: (t: number) => void } {
+  const step = Math.max(1, Math.floor(points.length / 1200));
+  const v = points.filter((_, i) => i % step === 0 || i === points.length - 1).map((p) => g.toScene(p, 4));
   const curve = new THREE.CatmullRomCurve3(v, false, 'centripetal');
-  const radius = Math.max(4, Math.min(16, Math.max(g.width, g.depth) / 520));
-  const geo = new THREE.TubeGeometry(curve, Math.min(4000, v.length * 3), radius, 8, false);
-  const casing = new THREE.Mesh(new THREE.TubeGeometry(curve, Math.min(4000, v.length * 3), radius * 1.6, 8, false), new THREE.MeshBasicMaterial({ color: '#1d2b24', side: THREE.BackSide }));
-  const mat = new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: 0.35, roughness: 0.5 });
-  const uProgress = { value: 1 };
-  mat.onBeforeCompile = (sh) => {
-    sh.uniforms.uProgress = uProgress;
-    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying float vT;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvT = uv.x;');
-    sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nuniform float uProgress;\nvarying float vT;')
-      .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\nfloat ahead = step(uProgress, vT);\ntotalEmissiveRadiance *= mix(1.8, 0.55, ahead);\ndiffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * 0.75, ahead);');
+  const flat = v.flatMap((p) => [p.x, p.y, p.z]);
+  const group = new THREE.Group();
+  const casingGeo = new LineGeometry();
+  casingGeo.setPositions(flat);
+  const casing = new Line2(casingGeo, new LineMaterial({ color: 0x1d2b24, linewidth: 9, worldUnits: false, depthWrite: false }));
+  casing.renderOrder = 1;
+  const lineGeo = new LineGeometry();
+  lineGeo.setPositions(flat);
+  const bright = new THREE.Color(color), dim = new THREE.Color('#f7e3a1');
+  const colors = new Float32Array(v.length * 3);
+  let last = -1;
+  const setProgress = (t: number) => {
+    const k = Math.round(t * (v.length - 1));
+    if (k === last) return;
+    last = k;
+    for (let i = 0; i < v.length; i++) (i <= k ? bright : dim).toArray(colors, i * 3);
+    lineGeo.setColors(colors);
   };
-  const mesh = new THREE.Mesh(geo, mat);
-  mesh.castShadow = true;
-  mesh.add(casing);
-  return { mesh, curve, setProgress: (t: number) => { uProgress.value = t; } };
+  setProgress(1);
+  const line = new Line2(lineGeo, new LineMaterial({ vertexColors: true, linewidth: 5, worldUnits: false, depthWrite: false }));
+  line.renderOrder = 2;
+  group.add(casing, line);
+  return { mesh: group, curve, setProgress };
 }
 
 /** Other footpaths and tracks as thin pale lines, like the dashed paths on a printed map. */
